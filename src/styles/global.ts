@@ -136,15 +136,6 @@ export const GlobalStyle = createGlobalStyle`
 	tr:nth-child(even) {
 		background-color: #dddddd;
 	}
-	.modal{
-		top: 100px ;
-		left: 100px ;
-		width: 400px ;
-		height: 200px ;
-		background-color: white ;
-		position: absolute ;
-		border:solid ;
-	}
 	.red{
 		background-color: red ;
 	}

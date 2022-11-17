@@ -1,5 +1,5 @@
 import { Container, Conteudo, Header } from "../../styles/global";
-import Alterar from "../../util/alterar";
+import Alterar from "../../util/Alterar/alterar";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import api from "../../../src/services/api";

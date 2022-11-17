@@ -1,4 +1,4 @@
-import Alterar from "../../util/alterar";
+import Alterar from "../../util/Alterar/alterar";
 import { Conteudo, Header } from "../../styles/global";
 import api from '../../services/api';
 import { useState, useEffect } from "react";
@@ -149,8 +149,14 @@ export default function AlterarFuncionario() {
             />
           </div>
         </fieldset>
+        <Alterar
+          modulo="funcionarios"
+          dados={{
+              id: idFuncionario, nome, numero, profissoesCadastradas, profissoesAlteradas,
+              expediente: { inicio1: inicioDeExpediente, fim1: inicioHorarioAlmoco, inicio2: fimHorarioAlmoco, fim2: fimExpediente }
+            }}
+        />
 
-        <button onClick={() => Alterar("funcionarios", { id: idFuncionario, nome, numero, profissoesCadastradas, profissoesAlteradas, expediente: { inicio1: inicioDeExpediente, fim1: inicioHorarioAlmoco, inicio2: fimHorarioAlmoco, fim2: fimExpediente } })} >Alterar</button>
       </Conteudo>
     </Header>
   );

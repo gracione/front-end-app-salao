@@ -1,6 +1,6 @@
 import Menu from "../Menu";
 import { Container, Conteudo } from "../../styles/global";
-import Alterar from "../../util/alterar";
+import Alterar from "../../util/Alterar/alterar";
 import { useState, useEffect } from "react";
 import api from "../../services/api";
 import { useParams } from "react-router-dom";
@@ -18,6 +18,7 @@ export default function AlterarProfissao() {
       .then((response) => setListagem(response.data[0]));
 
   }, []);
+  console.log(nome);
   return (
     <div className="display-flex" >
       <Conteudo>
@@ -29,7 +30,10 @@ export default function AlterarProfissao() {
           onChange={e => setNome(e.target.value)}
           required
         />
-        <button onClick={() => Alterar("profissao", { id: idProfissao, nome })} >Alterar</button>
+        <Alterar
+          modulo="profissao"
+          dados={{ id: idProfissao, nome }}
+        />
       </Conteudo>
     </div>
   );

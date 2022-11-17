@@ -2,7 +2,7 @@ import api from '../../services/api';
 import { Conteudo } from "../../styles/global";
 import { useParams } from "react-router-dom";
 import BuscarDadosApi from "../../util/util";
-import Alterar from "../../util/alterar";
+import Alterar from "../../util/Alterar/alterar";
 import { useState, useEffect } from "react";
 
 export default function AlterarTratamento() {
@@ -105,11 +105,10 @@ export default function AlterarTratamento() {
           </div>
         ))}
       </fieldset>
-
-      <button onClick={() => Alterar("tratamentos", {
-        id: idTratamento, nomeTratamento, tempoGasto, profissao: idProfissao, filtroTipo, filtro: filtro_
-      })} >Alterar</button>
-
+      <Alterar
+        modulo="tratamentos"
+        dados={{id: idTratamento, nomeTratamento, tempoGasto, profissao: idProfissao, filtroTipo, filtro: filtro_}}
+      />
     </Conteudo>
   );
 }
