@@ -136,6 +136,29 @@ export const GlobalStyle = createGlobalStyle`
 	tr:nth-child(even) {
 		background-color: #dddddd;
 	}
+	.modal{
+		top: 100px ;
+		left: 100px ;
+		width: 400px ;
+		height: 200px ;
+		background-color: white ;
+		position: absolute ;
+		border:solid ;
+		border-radius: 10px ;
+		display: flex ;
+		justify-content:space-around ;
+		align-items: center ;
+		flex-direction: column ;
+		color: green ;
+		a{
+			color: #195800 ;
+			font-size: 40px ;
+		}
+		img{
+			width: 50px ;
+		}
+	}
+
 	.red{
 		background-color: red ;
 	}
