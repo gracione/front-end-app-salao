@@ -7,17 +7,18 @@ export default function Adicionar() {
   return (
     <div className="display-flex" >
       <Conteudo>
-        <form action={"/profissao"} onSubmit={() => Inserir("profissao",{nome})}>
-          <small>Nome</small>
-          <input
-            name='nome'
-            placeholder="Nome da profissão"
-            value={nome}
-            onChange={e => setNome(e.target.value)}
-            required
-          />
-          <button>Salvar</button>
-        </form>
+        <small>Nome</small>
+        <input
+          name='nome'
+          placeholder="Nome da profissão"
+          value={nome}
+          onChange={e => setNome(e.target.value)}
+          required
+        />
+        <Inserir
+          modulo="profissao"
+          dados={{ nome }}
+        />
       </Conteudo>
     </div>
   );

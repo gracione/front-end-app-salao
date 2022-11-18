@@ -21,7 +21,7 @@ export default function InserirTratamento() {
     let aux: any = [...matrix];
     aux[linha][coluna][0] = event.target.value;
     setMatrix(aux);
-    
+
   };
   const porcentagemDoFiltro = (row: any, column: number, event: any) => {
     let copy: any = [...matrix];
@@ -49,13 +49,6 @@ export default function InserirTratamento() {
 
   return (
     <Conteudo>
-      <form action={"/tratamentos"} onSubmit={() => Inserir("tratamentos", {
-        tratamento,
-        tempoGasto,
-        idProfissao,
-        tipoDeFiltro: matrix,
-        tipoFiltro: tipoFiltro
-      })}>
         <div>
           <h2 >Adicionar Tratamento</h2>
           <input
@@ -108,9 +101,17 @@ export default function InserirTratamento() {
             <AdicionarItem onClick={() => adicionarColuna(matrix.length)}>+</AdicionarItem>
           </fieldset>
         </div>
-        <button type="submit">Salvar</button>
-      </form>
+        <Inserir
+          modulo="tratamentos"
+          dados={{
+            tratamento,
+            tempoGasto,
+            idProfissao,
+            tipoDeFiltro: matrix,
+            tipoFiltro: tipoFiltro
 
+          }}
+        />
     </Conteudo>
   );
 }

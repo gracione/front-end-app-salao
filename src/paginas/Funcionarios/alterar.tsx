@@ -1,4 +1,4 @@
-import Alterar from "../../util/Alterar/alterar";
+import Alterar from "../../util/alterar";
 import { Conteudo, Header } from "../../styles/global";
 import api from '../../services/api';
 import { useState, useEffect } from "react";

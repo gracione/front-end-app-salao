@@ -7,14 +7,15 @@ export default function InserirFeriado() {
   const [nome, setFeriado] = useState('');
   return (
     <Conteudo>
-      <form action={"/feriados"} onSubmit={() => Inserir("feriados", { data, nome })}>
-        <div>
-          <h2>Adicionar Feriado</h2>
-          <input type="text" placeholder="Nome do feriado" onChange={e => setFeriado(e.target.value)} required />
-          <input type="date" onChange={e => setData(e.target.value)} required />
-        </div>
-        <button >Salvar</button>
-      </form>
+      <div>
+        <h2>Adicionar Feriado</h2>
+        <input type="text" placeholder="Nome do feriado" onChange={e => setFeriado(e.target.value)} required />
+        <input type="date" onChange={e => setData(e.target.value)} required />
+      </div>
+      <Inserir
+        modulo="feriados"
+        data={{ data, nome }}
+      />
     </Conteudo>
   );
 }

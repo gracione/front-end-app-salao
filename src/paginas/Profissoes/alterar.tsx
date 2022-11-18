@@ -1,6 +1,6 @@
 import Menu from "../Menu";
 import { Container, Conteudo } from "../../styles/global";
-import Alterar from "../../util/Alterar/alterar";
+import Alterar from "../../util/alterar";
 import { useState, useEffect } from "react";
 import api from "../../services/api";
 import { useParams } from "react-router-dom";

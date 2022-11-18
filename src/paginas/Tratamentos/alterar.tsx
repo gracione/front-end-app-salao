@@ -2,7 +2,7 @@ import api from '../../services/api';
 import { Conteudo } from "../../styles/global";
 import { useParams } from "react-router-dom";
 import BuscarDadosApi from "../../util/util";
-import Alterar from "../../util/Alterar/alterar";
+import Alterar from "../../util/alterar";
 import { useState, useEffect } from "react";
 
 export default function AlterarTratamento() {

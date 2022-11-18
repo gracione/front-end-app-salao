@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Conteudo } from "../../styles/global";
 import { useParams } from "react-router-dom";
-import Alterar from "../../util/Alterar/alterar";
+import Alterar from "../../util/alterar";
 import api from "../../../src/services/api";
 
 export default function AlterarFolga() {

@@ -1,7 +1,6 @@
 import { Modal } from 'react-responsive-modal';
-import api from '../../services/api';
+import api from '../services/api';
 import React, { useState } from 'react';
-import { Container } from './style';
 
 export default function Alterar({ modulo, dados }: any) {
   const [open, setOpen] = useState(false);
@@ -12,7 +11,7 @@ export default function Alterar({ modulo, dados }: any) {
     setOpen(true);
   }
   return (
-    <Container>
+    <div>
       <Modal open={open} onClose={() => setOpen(false)}>
         <div className='modal'>
           <img src="/icons/salvo.png" alt="" />
@@ -21,6 +20,6 @@ export default function Alterar({ modulo, dados }: any) {
         </div>
       </Modal>
       <button onClick={() => alterar(modulo, dados)} >Alterar</button>
-    </Container>
+    </div>
   );
 }
