@@ -6,8 +6,12 @@ export default function Inserir({modulo, dados}: any) {
   const [open, setOpen] = useState(false);
   function inserir(modulo: any, dados: any) {
     let url: any = "/" + modulo + "/inserir";
-    api.post(url, dados);
-    setOpen(true);
+    try{
+      api.post(url, dados);
+      setOpen(true);
+    }catch(err){
+      console.log(err);
+    }
   }
 
   return (
