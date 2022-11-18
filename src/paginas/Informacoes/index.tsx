@@ -1,9 +1,11 @@
-import { useState, useEffect } from "react";
 import { Conteudo } from "../../styles/global";
-import api from "../../services/api";
-import Filtros from "./filtro";
+
+import { useState, useEffect } from "react";
 import BuscarDadosApi from "../../util/util";
 import { useParams } from "react-router-dom";
+
+import api from "../../services/api";
+import Filtros from "./filtro";
 
 export default function Informacoes() {
   const [tempoGasto, setTempoGasto] = useState(0);

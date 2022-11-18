@@ -1,9 +1,11 @@
-import { Conteudo } from "../../styles/global";
 import { useState } from 'react';
 import InputMask from "react-input-mask";
+
+import { Conteudo } from "../../styles/global";
+import { AdicionarPrifissao } from "./styles";
+
 import Inserir from "../../util/inserir";
 import BuscarDadosApi from "../../util/util";
-import { AdicionarPrifissao } from "./styles";
 
 export default function InserirFuncionario() {
   const [inicioExpediente, setInicioExpediente] = useState('');

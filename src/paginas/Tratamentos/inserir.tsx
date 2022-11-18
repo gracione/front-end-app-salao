@@ -44,7 +44,6 @@ export default function InserirTratamento() {
     let nomeFiltro = [...tipoFiltro];
     nomeFiltro.push([tamanho]);
     setTipoFiltro(nomeFiltro);
-    console.log(filtro.length);
   }
 
   return (

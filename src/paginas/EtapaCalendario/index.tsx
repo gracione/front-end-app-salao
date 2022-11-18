@@ -1,9 +1,11 @@
-import { useState } from "react";
-import Horarios from '../../components/horarios';
 import { Center, Conteudo } from "../../styles/global";
 import { PainelCalendario, Calendario, Container } from './styles';
-import BuscarDadosApi from "../../util/util";
+
+import { useState } from "react";
 import { useParams } from "react-router-dom";
+
+import Horarios from '../../components/horarios';
+import BuscarDadosApi from "../../util/util";
 
 function criarArrayCalendario(ano = 0, mes = 0) {
   const diasDoMes = new Date(ano, mes, 0).getDate();

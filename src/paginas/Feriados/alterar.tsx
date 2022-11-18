@@ -3,7 +3,6 @@ import Alterar from "../../util/alterar";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import api from "../../../src/services/api";
-import { Modal } from 'react-responsive-modal';
 
 export default function AlterarFeriado() {
   const [listagem, setListagem]: any = useState([]);

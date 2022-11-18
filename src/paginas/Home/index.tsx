@@ -1,7 +1,8 @@
+import { Conteudo, AgendarHorario, CompartilheLink, HorariosMarcados } from "./styles";
+
 import HorariosMarcado from "../../components/horariosMarcados";
 import Funcionarios from "../../components/funcionarios";
-import Menu from "../Menu/index";
-import { Conteudo, Container, AgendarHorario, CompartilheLink, HorariosMarcados } from "./styles";
+
 import { useState } from 'react';
 
 export default function Home() {
