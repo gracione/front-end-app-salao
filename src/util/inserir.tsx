@@ -2,9 +2,8 @@ import { Modal } from 'react-responsive-modal';
 import React, { useState } from 'react';
 import api from '../../src/services/api';
 
-export default function Inserir(modulo: any, dados: any) {
+export default function Inserir({modulo, dados}: any) {
   const [open, setOpen] = useState(false);
-
   function inserir(modulo: any, dados: any) {
     let url: any = "/" + modulo + "/inserir";
     api.post(url, dados);
@@ -20,7 +19,7 @@ export default function Inserir(modulo: any, dados: any) {
           <h2><a href={"/" + modulo}>ok</a></h2>
         </div>
       </Modal>
-      <button onClick={() => inserir(modulo, dados)} >Alterar</button>
+      <button onClick={() => inserir(modulo, dados)} >Inserir</button>
     </div>
   );
 
