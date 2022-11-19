@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-has-content */
 import { Modal } from 'react-responsive-modal';
 import api from '../../src/services/api';
 import { Adicionar, Conteudo, Header } from '../styles/global';
@@ -38,8 +37,9 @@ export default function Listar(props: any) {
         {colunas.map((nomeColuna: any) => (
           <td>{element[nomeColuna]}</td>
         ))}
-        <td><a href={link['editar']} className='editar' ><BsFillPencilFill></BsFillPencilFill></a></td>
-        <td onClick={() => excluir(element.id)} className='excluir'>
+        <td width={"20px"}><a href={link['editar']} className='editar' >
+          <BsFillPencilFill></BsFillPencilFill></a></td>
+        <td width={"20px"} onClick={() => excluir(element.id)} className='excluir'>
           <FaTrashAlt></FaTrashAlt>
         </td>
       </tr>
