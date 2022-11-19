@@ -6,6 +6,9 @@ const api = axios.create({
 
 const token = localStorage.getItem('token');
 
+console.log(localStorage.getItem('token'));
+console.log(localStorage.getItem('id_usuario'));
+
 if (token) {
   api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 }

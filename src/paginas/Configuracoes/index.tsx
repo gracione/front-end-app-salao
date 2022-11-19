@@ -8,19 +8,15 @@ export default function Configuracoes() {
   const [numero, setNumero] = useState('');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
-  
   const [listagem, setListagem]: any = useState([]);
 
   useEffect(() => {
     api
-      .post("/configuracao/listar-id", {
-        id: localStorage.getItem('token')
-      })  
+      .post("/configuracao/listar-id")  
       .then((response) => setListagem(response.data));
 
   }, []);
 
-  console.log(listagem);
   return (
     <Conteudo>
       <h1>Configuração</h1>

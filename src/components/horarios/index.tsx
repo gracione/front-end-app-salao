@@ -25,9 +25,9 @@ export default function Horarios(props: any) {
       .post("/horario/inserir", {
         data: data,
         horario: horario,
-        idCliente: 1,
+        idCliente: localStorage.getItem('id_usuario'),
         idTratamento: idTratamento,
-        idFuncionario: 1
+        idFuncionario: idFuncionario
       })
     history('/home');
   }

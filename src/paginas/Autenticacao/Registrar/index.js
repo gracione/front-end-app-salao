@@ -38,6 +38,7 @@ export default function Registrar() {
           if (res.data.token) {
             const response = await api.post('/registrarCliente', { email, password });
             localStorage.setItem('token', response.data.access_token);
+            localStorage.setItem('id_usuario', response.data.id_usuario);      
             window.location.href = "/home";
           } else {
             if (res.data.nome) {
