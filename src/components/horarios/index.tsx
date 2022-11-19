@@ -1,6 +1,7 @@
 import { DataSelecionada, HorariosDisponivel } from "./styles";
+import { Modal } from 'react-responsive-modal';
 import { useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import api from '../../services/api';
 import { Container, Center } from "../../styles/global";
 
@@ -8,7 +9,7 @@ export default function Horarios(props: any) {
   const [horario, setHorarios] = useState([]);
   const [horarioEscolhido, setHorarioEscolhido] = useState('');
   const { idFuncionario, idProfissao, idTratamento, idFiltro } = useParams();
-  const history = useNavigate();
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     api.post("/horarios-disponivel", {
@@ -28,11 +29,18 @@ export default function Horarios(props: any) {
         idCliente: localStorage.getItem('id_usuario'),
         idTratamento: idTratamento,
         idFuncionario: idFuncionario
-      })
-    history('/home');
+      }).then((response) => (setOpen(response.data)));
   }
   return (
     <Container >
+      <Modal open={open} onClose={() => setOpen(false)}>
+        <div className='modal'>
+          <img src="/icons/salvo.png" alt="" />
+          <h2>Horario agendado com sucesso!</h2>
+          <h2><a href={"/home"}>ok</a></h2>
+        </div>
+      </Modal>
+
       <div>
         <Center>
           <DataSelecionada>
@@ -61,6 +69,7 @@ export default function Horarios(props: any) {
       >
         Agendar
       </button>
+
     </Container>
   );
 }

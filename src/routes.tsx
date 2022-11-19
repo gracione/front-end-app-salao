@@ -50,9 +50,9 @@ export default function Rota() {
                 <Menu />
                 <Routes>
                     <Route path="/home" element={<Home />} />
-                    <Route path="/informacoes/:idUsuarioFuncionario/:idProfissao/:nomeCliente" element={<Informacoes />} />
-                    <Route path="/informacoes/:idUsuarioFuncionario/:idProfissao" element={<Informacoes />} />
-                    <Route path="/escolher-horario/:idFuncionario/:idProfissao/:idTratamento/:idFiltro" element={<EtapaCalendario />} />
+                    <Route path="/informacoes/funcionario=:idUsuarioFuncionario/:idProfissao/:nomeCliente" element={<Informacoes />} />
+                    <Route path="/informacoes/funcionario=:idUsuarioFuncionario/:idProfissao" element={<Informacoes />} />
+                    <Route path="/escolher-horario/funcionario=:idFuncionario/:idProfissao/:idTratamento/:idFiltro" element={<EtapaCalendario />} />
 
                     <Route path="/funcionarios" element={<Listar funcao="funcionarios" colunas={["nome", "profissão"]} />} />
                     <Route path="/funcionarios/alterar/:idFuncionario" element={<AlterarFuncionario />} />

@@ -25,7 +25,7 @@ export default function Informacoes() {
 
   return (
     <Conteudo>
-      <form action={"/escolher-horario/" + idUsuarioFuncionario + "/" + idProfissao + "/" + idTratamento + "/" + idFiltro + "/"}>
+      <form action={"/escolher-horario/funcionario=" + idUsuarioFuncionario + "/" + idProfissao + "/" + idTratamento + "/" + idFiltro + "/"}>
         <div>
           <div>Tempo gasto aproximado {tempoGasto}</div>
           <label htmlFor="">Tratamento</label>

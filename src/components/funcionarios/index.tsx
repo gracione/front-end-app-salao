@@ -7,7 +7,7 @@ export default function Funcionarios(props: any) {
   return (
     <Container>
       {funcionario.map((element) => (
-        <CardFuncionario href={"informacoes/" + element.id + "/" + element.id_profissao + "/" + props.nomeCliente}>
+        <CardFuncionario href={"informacoes/funcionario=" + element.id + "/" + element.id_profissao + "/" + props.nomeCliente}>
           <h5>
             {element.nome}
           </h5>
