@@ -1,4 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
+import { Modal } from 'react-responsive-modal';
 import api from '../../src/services/api';
 import { Adicionar, Conteudo, Header } from '../styles/global';
 import { useState, useEffect } from "react";
@@ -9,19 +10,22 @@ export default function Listar(props: any) {
   const funcao: any = props.funcao;
   const colunas: any = props.colunas;
   const [listagem, setListagem] = useState([]);
+  const [open, setOpen] = useState(false);
+  const [erro, setErro] = useState(false);
+
   useEffect(() => {
     api.post("/" + funcao + "/listar", {
     }).then((response) => setListagem(response.data));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [funcao]);
 
   let listar: any = [];
 
   function excluir(id: any) {
-    api.post("/" + funcao + "/excluir", {
-      id: id
-    });
-    //window.location.href = "/" + funcao;
+      api.post("/" + funcao + "/excluir", { id: id })
+      .then((response) => (
+          setOpen(response.data),
+          setErro(!response.data))
+      );
   }
 
   let link: any = [];
@@ -43,9 +47,24 @@ export default function Listar(props: any) {
     )
   });
 
+
   return (
     <Header>
       <Conteudo>
+      <Modal open={open} onClose={() => setOpen(false)}>
+          <div className='modal'>
+            <img src="/icons/erro.png" alt="" />
+            <h2>Item excluido com susseco</h2>
+            <h2><a href={"/" + funcao}>Ok</a></h2>
+          </div>
+        </Modal>
+        <Modal open={erro} onClose={() => setErro(false)}>
+          <div className='modal'>
+            <img src="/icons/erro.png" alt="" />
+            <h2>Erro</h2>
+            <h2><a href={"/" + funcao}>Ok</a></h2>
+          </div>
+        </Modal>
         <h3 className='p-1' >
           {funcao}
         </h3>

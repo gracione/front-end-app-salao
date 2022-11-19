@@ -7,12 +7,7 @@ export default function Alterar({ modulo, dados }: any) {
 
   function alterar(modulo: any, dados: any) {
     let url: any = "/" + modulo + "/alterar";
-    try{
-      api.post(url, dados);
-      setOpen(true);
-    }catch(err){
-      console.log(err);
-    }
+      api.post(url, dados).then((response) => (setOpen(response.data)));
 
   }
   return (
