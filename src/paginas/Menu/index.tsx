@@ -1,6 +1,10 @@
 import { Link, useNavigate } from "react-router-dom";
+//import { Container } from "./style";
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
-import { Container } from "./style";
 
 export default function Menu() {
   const history = useNavigate();
@@ -11,21 +15,46 @@ export default function Menu() {
   }
 
   return (
-    <Container>
-      <img onClick={() => history("/home")} src="/logo-alternativa.svg" alt="logo Cyan" />
-      <div className="opcoes">
-        <Link to="/home"><p>Home</p></Link>
-        <Link to="/funcionarios"><p>Funcionários</p></Link>
-        <Link to="/feriados"><p>Feriados</p></Link>
-        <Link to="/folgas"><p>Folgas</p></Link>
-        <Link to="/expediente"><p>Expediente</p></Link>
-        <Link to="/tratamentos"><p>Tratamentos</p></Link>
-        <Link to="/profissao"><p>Profissões</p></Link>
-        <Link to="/configuracoes"><p>Configurações</p></Link>
-        <p onClick={logout} >
-          SAIR
-        </p>
-      </div>
-    </Container>
+    <Navbar className="navbar navbar-dark bg-dark" expand="lg">
+      <Container>
+        <Navbar.Brand href="#home">
+          <img width="40px" onClick={() => history("/home")} src="/logo-alternativa.svg" alt="logo Cyan" />
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link>
+              <Link to="/home">Home</Link>
+            </Nav.Link>
+            <Nav.Link>
+              <Link to="/funcionarios">Funcionários</Link>
+            </Nav.Link>
+            <Nav.Link>
+              <Link to="/feriados">Feriados</Link>
+            </Nav.Link>
+            <Nav.Link>
+              <Link to="/folgas">Folgas</Link>
+            </Nav.Link>
+            <Nav.Link>
+              <Link to="/expediente">Expediente</Link>
+            </Nav.Link>
+            <Nav.Link>
+              <Link to="/tratamentos">Tratamentos</Link>
+            </Nav.Link>
+            <Nav.Link>
+              <Link to="/profissao">Profissões</Link>
+            </Nav.Link>
+            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1">
+                <Link to="/configuracoes">Configurações</Link>
+              </NavDropdown.Item>
+              <NavDropdown.Item onClick={logout} >Sair</NavDropdown.Item>
+              <NavDropdown.Divider />
+            </NavDropdown>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+
   );
 }
