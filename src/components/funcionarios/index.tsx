@@ -8,9 +8,9 @@ export default function Funcionarios(props: any) {
     <Container>
       {funcionario.map((element) => (
         <CardFuncionario href={"informacoes/funcionario=" + element.id + "/" + element.id_profissao + "/" + props.nomeCliente}>
-          <h5>
+          <h6>
             {element.nome}
-          </h5>
+          </h6>
           <h6>
             {element.profissão}
           </h6>
@@ -21,7 +21,7 @@ export default function Funcionarios(props: any) {
       ))}
 
       <CardAdicionarFuncionario href="funcionarios/adicionar" >
-        <h5>Cadastrar</h5>
+        <h6>Cadastrar</h6>
         <h6>Funcionário</h6>
         <h2>+</h2>
       </CardAdicionarFuncionario>

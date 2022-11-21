@@ -20,8 +20,8 @@ export const CardFuncionario = styled.a`
             height: 100% ;
             font-size: 15px !important ;
         }
-        width: 80px;
-        height: 100px ;
+        width: 90px;
+        height: 120px ;
         border: solid var(--borda) 2px;
         border-radius: 10px ;
         background-color: white ;
@@ -37,9 +37,8 @@ export const CardFuncionario = styled.a`
 `;
 
 export const CardAdicionarFuncionario = styled.a`
-    @media (min-width: 767px) {
-        width: 80px;
-        height: 100px;
+        width: 90px;
+        height: 120px;
         border: solid var(--cor-primaria) 2px;
         border-radius: 10px ;
         margin-left: 10px;
@@ -51,6 +50,5 @@ export const CardAdicionarFuncionario = styled.a`
 
         background-color: var(--cor-primaria) ;
         color: var(--shape) ;
-    }
 
 `;

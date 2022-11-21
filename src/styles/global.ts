@@ -28,6 +28,9 @@ export const GlobalStyle = createGlobalStyle`
 		outline:none;
 		box-sizing: border-box;
 	}
+	a{
+		color:var(--shape);
+	}
 	.border{
 		border: solid ;
 	}

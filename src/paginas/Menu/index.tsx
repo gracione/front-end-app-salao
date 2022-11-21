@@ -15,13 +15,13 @@ export default function Menu() {
   }
 
   return (
-    <Navbar className="navbar navbar-dark bg-dark" expand="lg">
+    <Navbar className="navbar navbar-dark bg-primary" expand="lg">
       <Container>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
         <Navbar.Brand href="#home">
           <img width="40px" onClick={() => history("/home")} src="/logo-alternativa.svg" alt="logo Cyan" />
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link>
               <Link to="/home">Home</Link>
