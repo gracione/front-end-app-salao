@@ -1,9 +1,9 @@
 import api from '../../services/api';
-import { Conteudo } from "../../styles/global";
 import { useParams } from "react-router-dom";
 import BuscarDadosApi from "../../util/util";
 import Alterar from "../../util/alterar";
 import { useState, useEffect } from "react";
+import { Conteudo, Header } from "../../styles/global";
 
 export default function AlterarTratamento() {
   const { idTratamento } = useParams();
@@ -49,66 +49,68 @@ export default function AlterarTratamento() {
   };
 
   return (
-    <Conteudo>
-      <input
-        placeholder="Tratamento"
-        defaultValue={tratamento.nome}
-        onChange={e => setNomeTratamento(e.target.value)}
-        required
-      />
-      <input
-        placeholder="Tempo Gasto"
-        type="time"
-        defaultValue={tratamento.tempo_gasto}
-        onChange={e => setTempoGasto(e.target.value)}
-        required
-      />
+    <Header>
+      <Conteudo>
+        <input
+          placeholder="Tratamento"
+          defaultValue={tratamento.nome}
+          onChange={e => setNomeTratamento(e.target.value)}
+          required
+        />
+        <input
+          placeholder="Tempo Gasto"
+          type="time"
+          defaultValue={tratamento.tempo_gasto}
+          onChange={e => setTempoGasto(e.target.value)}
+          required
+        />
 
-      <select
-        required
-        onChange={e => setIdProfissao(e.target.value)}
-        defaultValue={tratamento.id_profissao}
-      >
-        {profissoes.map((element: any) => (
-          <option value={element.id}>
-            {element.profissão}</option>
-        ))}
-      </select>
+        <select
+          required
+          onChange={e => setIdProfissao(e.target.value)}
+          defaultValue={tratamento.id_profissao}
+        >
+          {profissoes.map((element: any) => (
+            <option value={element.id}>
+              {element.profissão}</option>
+          ))}
+        </select>
 
-      <fieldset>
-        <h4>Filtro</h4>
-        {filtro.map((element: any) => (
-          <div className="p-1" >
-            <input
-              onChange={e => dadosTipoFiltro(element[0].id_filtro_tipo, e)}
-              defaultValue={element[0].nome_filtro_tipo}
-              className="inputTable"
-              placeholder="Nome do filtro"
-            />
-            {element.map((filtro: any) => (
-              <div className="display-flex" key={filtro}>
-                <input
-                  onChange={e => dadosFiltro(filtro.id, e, 'nome')}
-                  className="inputTable" defaultValue={filtro.nome}
-                  placeholder="Filtro"
-                  type="text"
+        <fieldset>
+          <h4>Filtro</h4>
+          {filtro.map((element: any) => (
+            <div className="p-1" >
+              <input
+                onChange={e => dadosTipoFiltro(element[0].id_filtro_tipo, e)}
+                defaultValue={element[0].nome_filtro_tipo}
+                className="inputTable"
+                placeholder="Nome do filtro"
+              />
+              {element.map((filtro: any) => (
+                <div className="display-flex" key={filtro}>
+                  <input
+                    onChange={e => dadosFiltro(filtro.id, e, 'nome')}
+                    className="inputTable" defaultValue={filtro.nome}
+                    placeholder="Filtro"
+                    type="text"
 
-                />
-                <input
-                  onChange={e => dadosFiltro(filtro.id, e, 'porcentagem_tempo')}
-                  className="inputTable" defaultValue={filtro.porcentagem_tempo} placeholder="Porcentagem" type="number"
+                  />
+                  <input
+                    onChange={e => dadosFiltro(filtro.id, e, 'porcentagem_tempo')}
+                    className="inputTable" defaultValue={filtro.porcentagem_tempo} placeholder="Porcentagem" type="number"
 
-                />
+                  />
 
-              </div>
-            ))}
-          </div>
-        ))}
-      </fieldset>
-      <Alterar
-        modulo="tratamentos"
-        dados={{id: idTratamento, nomeTratamento, tempoGasto, profissao: idProfissao, filtroTipo, filtro: filtro_}}
-      />
-    </Conteudo>
+                </div>
+              ))}
+            </div>
+          ))}
+        </fieldset>
+        <Alterar
+          modulo="tratamentos"
+          dados={{ id: idTratamento, nomeTratamento, tempoGasto, profissao: idProfissao, filtroTipo, filtro: filtro_ }}
+        />
+      </Conteudo>
+    </Header>
   );
 }

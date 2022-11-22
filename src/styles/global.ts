@@ -196,29 +196,72 @@ export const Container = styled.div`
 `;
 
 export const Conteudo = styled.div`
-	width: 600px ;
-	min-height: 500px;
-	border: solid var(--borda) 2px;
-    border-radius: 10px ;
-    background-color: var(--backgroud-secundaria);
-	padding: 20px ;
+
+	@media (max-width: 767px) {
+		width: 100%;
+		min-height: 91vh;
+		padding: 20px ;
+		background-color: var(--backgroud-secundaria);
+    }
+
+    @media (min-width: 767px) {
+		width: 600px ;
+		min-height: 80vh;
+		border: solid var(--borda) 2px;
+		border-radius: 10px ;
+		background-color: var(--backgroud-secundaria);
+		padding: 20px ;
+	}
 `;
 
 export const Header = styled.div`
-	display: flex ;
-	padding-top:30px ;
-	margin-left:40px ;
-	
+
+	@media (max-width: 767px) {
+		display: flex ;
+		background-color: var(--backgroud-secundaria);
+    }
+
+    @media (min-width: 767px) {
+		display: flex ;
+		padding-top:30px ;
+		margin-left:40px ;
+	}
+
+
 `
 export const Adicionar = styled.a`
-	margin: 20px ;
-	padding: 10px 21px;
-	height: 65px ;
-	border-radius: 100px;
-	background-color: var(--cor-primaria) ;
-	text-decoration: none;
-	font-size: 40px ;
-	color: var(--shape);
+	@media (max-width: 767px) {
+		margin: 5px ;
+		width:55px ;
+		height: 50px;
+		border-radius: 100%;
+		position:absolute ;
+		float: left;
+
+		background-color: var(--cor-primaria) ;
+		text-decoration: none;
+		font-size: 40px ;
+		color: var(--shape);
+
+		display: flex ;
+		justify-content:center ;
+		align-items: center ;
+    }
+
+    @media (min-width: 767px) {
+		margin: 10px ;
+		width:65px ;
+		height: 65px;
+		border-radius: 100%;
+		background-color: var(--cor-primaria) ;
+		text-decoration: none;
+		font-size: 40px ;
+		color: var(--shape);
+		display: flex ;
+		justify-content:center ;
+		align-items: center ;
+	}
+
 `;
 
 export const Center = styled.div`
