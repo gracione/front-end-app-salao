@@ -1,5 +1,5 @@
 import Alterar from "../../util/alterar";
-import { Conteudo, Header } from "../../styles/global";
+import { Center, Conteudo, Header } from "../../styles/global";
 import api from '../../services/api';
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
@@ -65,8 +65,7 @@ export default function AlterarFuncionario() {
   return (
     <Header>
       <Conteudo>
-        <h2 >Alterar Funcionario</h2><br />
-
+        <h3 >Alterar dados do Funcionário</h3>
         <label>Nome</label>
         <input
           defaultValue={listagem['nome']}
@@ -113,48 +112,57 @@ export default function AlterarFuncionario() {
         <AdicionarPrifissao onClick={() => setQuantidadeProfissoes(quantidadeProfissoes + 1)}>
           Adicionar mais uma profissão
         </AdicionarPrifissao>
-
-        <fieldset className="display-flex p-1">
-          <legend>Expediente</legend>
-          <div>
-            <small>Inicio de expediente</small><br />
-            <input
-              defaultValue={expediente['inicio_de_expediente']}
-              onChange={e => setInicioDeExpediente(e.target.value)}
-              type="time"
-            />
-          </div>
-          <div>
-            <small >Inicio de Horario de Almoço</small><br />
-            <input
-              defaultValue={expediente['inicio_horario_de_almoco']}
-              onChange={e => setInicioHorarioAlmoco(e.target.value)}
-              type="time"
-            />
-          </div>
-          <div>
-            <small >Fim de Horario de Almoço</small><br />
-            <input
-              defaultValue={expediente['fim_horario_de_almoco']}
-              onChange={e => setFimHorarioAlmoco(e.target.value)}
-              type="time"
-            />
-          </div>
-          <div>
-            <small >Fim de expediente</small><br />
-            <input
-              defaultValue={expediente['fim_de_expediente']}
-              onChange={e => setFimExpediente(e.target.value)}
-              type="time"
-            />
-          </div>
-        </fieldset>
+        <table>
+          <tr>
+            <th colSpan={4}>
+              <Center>
+                Expediente
+              </Center>
+            </th>
+          </tr>
+          <tr>
+            <td>Inicio de expediente</td>
+            <td>Inicio de Horario de Almoço</td>
+            <td>Fim de Horario de Almoço</td>
+            <td>Fim de expediente</td>
+          </tr>
+          <tr>
+            <td>
+              <input
+                defaultValue={expediente['inicio_de_expediente']}
+                onChange={e => setInicioDeExpediente(e.target.value)}
+                type="time"
+              />
+            </td>
+            <td>
+              <input
+                defaultValue={expediente['inicio_horario_de_almoco']}
+                onChange={e => setInicioHorarioAlmoco(e.target.value)}
+                type="time"
+              />
+            </td>
+            <td>
+              <input
+                defaultValue={expediente['fim_horario_de_almoco']}
+                onChange={e => setFimHorarioAlmoco(e.target.value)}
+                type="time"
+              />
+            </td>
+            <td>
+              <input
+                defaultValue={expediente['fim_de_expediente']}
+                onChange={e => setFimExpediente(e.target.value)}
+                type="time"
+              />
+            </td>
+          </tr>
+        </table>
         <Alterar
           modulo="funcionarios"
           dados={{
-              id: idFuncionario, nome, numero, profissoesCadastradas, profissoesAlteradas,
-              expediente: { inicio1: inicioDeExpediente, fim1: inicioHorarioAlmoco, inicio2: fimHorarioAlmoco, fim2: fimExpediente }
-            }}
+            id: idFuncionario, nome, numero, profissoesCadastradas, profissoesAlteradas,
+            expediente: { inicio1: inicioDeExpediente, fim1: inicioHorarioAlmoco, inicio2: fimHorarioAlmoco, fim2: fimExpediente }
+          }}
         />
 
       </Conteudo>

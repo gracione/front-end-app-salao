@@ -18,6 +18,7 @@ export default function Alterar({ modulo, dados }: any) {
           <h2><a href={"/" + modulo}>ok</a></h2>
         </div>
       </Modal>
+      <br />
       <button onClick={() => alterar(modulo, dados)} >Alterar</button>
     </div>
   );

@@ -52,46 +52,22 @@ export const GlobalStyle = createGlobalStyle`
 		border-radius: 5px ;
 		color: var(--shape);
 		background-color: var(--cor-primaria) ;
+
+		display: flex ;
+		align-items: center ;
+		justify-content: center ;
 	}
 
 	.display-flex{
 		display: flex ;
 	}
 
-	.editar-excluir{
-		margin: 0 ;
-		height: 30px;
-		width: 100% ;
-		display: flex ;
-		border: solid 1px ;
 		.editar{
-			background: url("/icons/lapis.png");
-			background-size: 80% 80%;
-			background-repeat: no-repeat ;
-			background-position: center ;
-			background-color: var(--cor-primaria); ;
-			width: 10%;
-			height: 100%;
-
-			display: flex ;
-			justify-content: center ;
+			color: var(--blue-light);
 		}
 		.excluir{
-			background-color: var(--red-light);
-			width: 10% ;
-			height: 100% ;
-
-			display: flex ;
-			justify-content: center ;
+			color: var(--red-light);
 		}
-		label{
-			border: solid 1px ;
-			height: 100%;
-			width: 90%;
-			display: flex;
-			align-items: center ;
-		}
-	}
 	a{
 		text-decoration: none ;
 	}
@@ -229,14 +205,17 @@ export const Header = styled.div`
 
 
 `
+export const TituloFuncao = styled.div`
+	display: flex;
+	justify-content: space-between ;
+	align-items: center;
+`;
 export const Adicionar = styled.a`
 	@media (max-width: 767px) {
-		margin: 5px ;
+		margin-bottom: 5px ;
 		width:55px ;
 		height: 50px;
 		border-radius: 100%;
-		position:absolute ;
-		float: left;
 
 		background-color: var(--cor-primaria) ;
 		text-decoration: none;
@@ -253,10 +232,12 @@ export const Adicionar = styled.a`
 		width:65px ;
 		height: 65px;
 		border-radius: 100%;
+
 		background-color: var(--cor-primaria) ;
 		text-decoration: none;
 		font-size: 40px ;
 		color: var(--shape);
+		
 		display: flex ;
 		justify-content:center ;
 		align-items: center ;

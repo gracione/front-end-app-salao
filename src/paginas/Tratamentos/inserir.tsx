@@ -1,4 +1,4 @@
-import { AdicionarItem, Conteudo } from "../../styles/global";
+import { AdicionarItem, Conteudo, Header } from "../../styles/global";
 import { useState } from 'react';
 import BuscarDadosApi from "../../util/util";
 import Inserir from "../../util/inserir";
@@ -47,7 +47,8 @@ export default function InserirTratamento() {
   }
 
   return (
-    <Conteudo>
+    <Header>
+      <Conteudo>
         <div>
           <h2 >Adicionar Tratamento</h2>
           <input
@@ -111,6 +112,7 @@ export default function InserirTratamento() {
 
           }}
         />
-    </Conteudo>
+      </Conteudo>
+    </Header>
   );
 }

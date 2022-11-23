@@ -1,5 +1,5 @@
 import Menu from "../Menu";
-import { Container, Conteudo } from "../../styles/global";
+import { Container, Conteudo, Header } from "../../styles/global";
 import Alterar from "../../util/alterar";
 import { useState, useEffect } from "react";
 import api from "../../services/api";
@@ -20,8 +20,10 @@ export default function AlterarProfissao() {
   }, []);
   console.log(nome);
   return (
-    <div className="display-flex" >
+    <Header>
+
       <Conteudo>
+        <h3>Alterar dados da profissão</h3>
         <small>Nome</small>
         <input
           name='nome'
@@ -35,6 +37,7 @@ export default function AlterarProfissao() {
           dados={{ id: idProfissao, nome }}
         />
       </Conteudo>
-    </div>
+    </Header>
+
   );
 }

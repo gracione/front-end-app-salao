@@ -1,6 +1,6 @@
 import { Modal } from 'react-responsive-modal';
 import api from '../../src/services/api';
-import { Adicionar, Conteudo, Header } from '../styles/global';
+import { Adicionar, Conteudo, Header, TituloFuncao } from '../styles/global';
 import { useState, useEffect } from "react";
 import { FaTrashAlt } from "react-icons/fa";
 import { BsFillPencilFill } from "react-icons/bs";
@@ -20,10 +20,10 @@ export default function Listar(props: any) {
   let listar: any = [];
 
   function excluir(id: any) {
-      api.post("/" + funcao + "/excluir", { id: id })
+    api.post("/" + funcao + "/excluir", { id: id })
       .then((response) => (
-          setOpen(response.data),
-          setErro(!response.data))
+        setOpen(response.data),
+        setErro(!response.data))
       );
   }
 
@@ -37,8 +37,9 @@ export default function Listar(props: any) {
         {colunas.map((nomeColuna: any) => (
           <td>{element[nomeColuna]}</td>
         ))}
-        <td width={"20px"}><a href={link['editar']} className='editar' >
-          <BsFillPencilFill></BsFillPencilFill></a></td>
+        <td width={"20px"}>
+          <a href={link['editar']} className='editar' ><BsFillPencilFill/></a>
+        </td>
         <td width={"20px"} onClick={() => excluir(element.id)} className='excluir'>
           <FaTrashAlt></FaTrashAlt>
         </td>
@@ -47,11 +48,10 @@ export default function Listar(props: any) {
     )
   });
 
-
   return (
     <Header>
       <Conteudo>
-      <Modal open={open} onClose={() => setOpen(false)}>
+        <Modal open={open} onClose={() => setOpen(false)}>
           <div className='modal'>
             <img src="/icons/erro.png" alt="" />
             <h2>Item excluido com susseco</h2>
@@ -65,9 +65,12 @@ export default function Listar(props: any) {
             <h2><a href={"/" + funcao}>Ok</a></h2>
           </div>
         </Modal>
-        <h3 className='p-1' >
-          {funcao}
-        </h3>
+        <TituloFuncao>
+          <h3>
+            {funcao}
+          </h3>
+          <Adicionar href={funcao + "/adicionar"}>+</Adicionar>
+        </TituloFuncao>
         <table>
           <tr>
             {colunas.map((nome: any) => (
@@ -79,7 +82,6 @@ export default function Listar(props: any) {
           {listar}
         </table>
       </Conteudo>
-      <Adicionar href={funcao + "/adicionar"}>+</Adicionar>
     </Header>
   );
 }

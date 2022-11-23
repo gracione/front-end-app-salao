@@ -1,12 +1,13 @@
-import { Conteudo } from "../../styles/global";
+import { Conteudo, Header } from "../../styles/global";
 import { useState } from "react";
 import Inserir from "../../util/inserir";
 
 export default function Adicionar() {
   const [nome, setNome] = useState('');
   return (
-    <div className="display-flex" >
+    <Header>
       <Conteudo>
+        <h3>Adicionar profissão</h3>
         <small>Nome</small>
         <input
           name='nome'
@@ -20,6 +21,6 @@ export default function Adicionar() {
           dados={{ nome }}
         />
       </Conteudo>
-    </div>
+    </Header>
   );
 }
