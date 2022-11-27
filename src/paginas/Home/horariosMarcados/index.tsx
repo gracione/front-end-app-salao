@@ -32,7 +32,7 @@ export default function HorariosMarcado() {
     api.post("/horario/confirmar", {
       id: idHorario
     })
-    window.location.href = "/home?desmarcado";
+    window.location.href = "/home?confirmado";
   }
 
 
@@ -66,7 +66,11 @@ export default function HorariosMarcado() {
                   </a>
                 </li>
                 <div className='confirmar-desmarcar' >
-                  <div className='confirmar' onClick={() => desmarcar(element['idHorario'])}>CONFIRMAR</div>
+                  {element['confirmado'] ?
+                    <div className='confirmado' onClick={() => confirmar(element['idHorario'])}>CONFIRMADO</div>
+                    :
+                    <div className='confirmar' onClick={() => confirmar(element['idHorario'])}>CONFIRMAR</div>
+                  }
                   <div className='desmarcar' onClick={() => desmarcar(element['idHorario'])} >DESMARCAR</div>
                 </div>
               </ul>

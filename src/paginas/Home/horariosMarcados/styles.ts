@@ -76,7 +76,13 @@ export const Cartao = styled.div`
         .confirmar{
             width:50%;
             background:var(--cor-primaria);
-    
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .confirmado{
+            width:50%;
+            background:var(--green-light);
             display:flex;
             flex-direction: column;
             justify-content: center;
