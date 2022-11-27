@@ -1,6 +1,6 @@
 import { AgendarHorario, HorariosMarcados, Container } from "./styles";
 
-import HorariosMarcado from "../../components/horariosMarcados";
+import HorariosMarcado from "./horariosMarcados";
 import Funcionarios from "../../components/funcionarios";
 
 import { useState } from 'react';

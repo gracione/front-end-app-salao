@@ -22,7 +22,7 @@ export default function Informacoes() {
       })
       .then((response) => setTempoGasto(response.data));
   }, [idTratamento, idFiltro]);
-
+  console.log(idTratamento);
   return (
     <Conteudo>
       <form action={"/escolher-horario/funcionario=" + idUsuarioFuncionario + "/" + idProfissao + "/" + idTratamento + "/" + idFiltro + "/"}>

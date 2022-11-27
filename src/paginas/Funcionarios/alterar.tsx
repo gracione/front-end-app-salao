@@ -43,7 +43,7 @@ export default function AlterarFuncionario() {
       .post("/funcionarios/listar-id", {
         id: idFuncionario
       })
-      .then((response) => setListagem(response.data[0]));
+      .then((response) => setListagem(response.data));
 
     api
       .post("/expediente/listar-id", {
@@ -61,6 +61,18 @@ export default function AlterarFuncionario() {
   function alterarProfissao(valor: any, indice: any) {
     profissoesAlteradasAux[indice] = valor;
     setProfissoesAlteradas(profissoesAlteradasAux);
+  }
+
+  if (!listagem) {
+    return (
+      <Header>
+        <Conteudo>
+          <h2>
+            dados não carregados
+          </h2>
+        </Conteudo>
+      </Header>
+    )
   }
   return (
     <Header>
