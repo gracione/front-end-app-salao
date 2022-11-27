@@ -63,6 +63,7 @@ export default function AlterarFuncionario() {
     setProfissoesAlteradas(profissoesAlteradasAux);
   }
 
+  console.log(expediente);
   if (!listagem) {
     return (
       <Header>
