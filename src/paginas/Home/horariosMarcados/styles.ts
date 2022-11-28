@@ -8,7 +8,6 @@ export const Cartao = styled.div`
     border-left:solid 10px var(--cor-primaria);
     border-radius:5px;
     text-transform: capitalize;
-
     display:flex;
     justify-content: space-between;
     font-size: 13px ;
@@ -37,11 +36,12 @@ export const Cartao = styled.div`
         }
     }
     .dados-usuario{
+        height: 100% ;
         width:60%;
         display: flex ;
         justify-content: space-between ;
         flex-direction: column;
-
+        
         .cliente,.funcionario{
             display: flex ;
             justify-content: space-between ;
@@ -66,14 +66,13 @@ export const Cartao = styled.div`
             }
         }
     .confirmar-desmarcar{
+        background-color: red ;
         height:30%;
-        background-color: yellow;
-        text-align:center;
-        font-size:13px !important;
+        font-size:10px !important;
         font-weight:700 !important;
-        
         display:flex;
         .confirmar{
+            text-align:center;
             width:50%;
             background:var(--cor-primaria);
             display:flex;
@@ -81,6 +80,7 @@ export const Cartao = styled.div`
             justify-content: center;
         }
         .confirmado{
+            text-align:center;
             width:50%;
             background:var(--green-light);
             display:flex;
@@ -88,6 +88,7 @@ export const Cartao = styled.div`
             justify-content: center;
         }
         .desmarcar{
+            text-align:center;
             width:50%;
             background:var(--red-light);
     

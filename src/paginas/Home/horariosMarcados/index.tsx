@@ -50,12 +50,9 @@ export default function HorariosMarcado() {
                   {element['data']}
                 </div>
               </div>
-              <ul className='dados-usuario' >
+              <div className='dados-usuario' >
                 <li className="cliente" >
                   <div className=''>cliente: {element['cliente']}</div>
-                  <a href="">
-                    <BsFillPencilFill />
-                  </a>
                 </li>
                 <li>Funcionario: {element['funcionario']}</li>
                 <li>Tratamento: {element['tratamento']}</li>
@@ -73,7 +70,7 @@ export default function HorariosMarcado() {
                   }
                   <div className='desmarcar' onClick={() => desmarcar(element['idHorario'])} >DESMARCAR</div>
                 </div>
-              </ul>
+              </div>
             </Cartao>
           ))}
         </div>
