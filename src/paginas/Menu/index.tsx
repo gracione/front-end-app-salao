@@ -16,13 +16,13 @@ export default function Menu() {
 
   return (
     <Navbar className="navbar navbar-dark bg-primary" expand="lg">
-      <Container>
+      <Container >
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
+        <Navbar.Collapse id="basic-navbar-nav" >
         <Navbar.Brand href="#home">
           <img width="40px" onClick={() => history("/home")} src="/logo-alternativa.svg" alt="logo Cyan" />
         </Navbar.Brand>
-          <Nav className="me-auto">
+          <Nav className="me-auto d-flex justify-content-around w-75" >
             <Nav.Link>
               <Link to="/home">Home</Link>
             </Nav.Link>
@@ -44,13 +44,12 @@ export default function Menu() {
             <Nav.Link>
               <Link to="/profissao">Profissões</Link>
             </Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">
+            <Nav.Link>
                 <Link to="/configuracoes">Configurações</Link>
-              </NavDropdown.Item>
+            </Nav.Link>
+            <Nav.Link>
               <NavDropdown.Item onClick={logout} >Sair</NavDropdown.Item>
-              <NavDropdown.Divider />
-            </NavDropdown>
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
