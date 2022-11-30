@@ -9,7 +9,7 @@ import BuscarDadosApi from "../../util/util";
 export default function Menu() {
   const history = useNavigate();
 
-  const servicos = BuscarDadosApi('servicos', 'listar', { idUsuario:localStorage.getItem('id_usuario') });
+  const servicos = BuscarDadosApi('servicos', 'listar', { idUsuario: localStorage.getItem('id_usuario') });
 
   console.log(servicos);
   function logout() {
@@ -31,27 +31,9 @@ export default function Menu() {
             </Nav.Link>
             {servicos.map((element) => (
               <Nav.Link>
-                <Link to="/funcionarios">Funcionários</Link>
+                <Link to={"/" + element.url}>{element.nome}</Link>
               </Nav.Link>
             ))}
-            <Nav.Link>
-              <Link to="/funcionarios">Funcionários</Link>
-            </Nav.Link>
-            <Nav.Link>
-              <Link to="/feriados">Feriados</Link>
-            </Nav.Link>
-            <Nav.Link>
-              <Link to="/folgas">Folgas</Link>
-            </Nav.Link>
-            <Nav.Link>
-              <Link to="/expediente">Expediente</Link>
-            </Nav.Link>
-            <Nav.Link>
-              <Link to="/tratamentos">Tratamentos</Link>
-            </Nav.Link>
-            <Nav.Link>
-              <Link to="/profissao">Profissões</Link>
-            </Nav.Link>
             <Nav.Link>
               <Link to="/configuracoes">Configurações</Link>
             </Nav.Link>
