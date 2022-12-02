@@ -14,8 +14,9 @@ export default function HorariosMarcado() {
   useEffect(() => {
     api
       .post("/horarios-marcados", {
-        idFuncionario: localStorage.getItem("idFuncionario"),
-        idTratamento: idTratamento
+        idUsuario: localStorage.getItem("id_usuario"),
+        idTratamento: idTratamento,
+        tipoUsuario: localStorage.getItem("tipo_usuario"),
       })
       .then((response) => setHorariosMarcados(response.data))
       .catch((err) => {
