@@ -52,7 +52,7 @@ export default function HorariosMarcado() {
               </div>
               <div className='dados-usuario' >
                 <li className="cliente" >
-                  <div className=''>cliente: {element['cliente']}</div>
+                  <div className=''>cliente: {element['nome_cliente']??element['cliente']}</div>
                 </li>
                 <li>Funcionario: {element['funcionario']}</li>
                 <li>Tratamento: {element['tratamento']}</li>

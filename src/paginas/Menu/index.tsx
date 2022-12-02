@@ -11,7 +11,6 @@ export default function Menu() {
 
   const servicos = BuscarDadosApi('servicos', 'listar', { idUsuario: localStorage.getItem('id_usuario') });
 
-  console.log(servicos);
   function logout() {
     localStorage.clear();
     window.location.href = "/login";

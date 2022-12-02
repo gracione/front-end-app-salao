@@ -18,7 +18,6 @@ export default function AlterarProfissao() {
       .then((response) => setListagem(response.data[0]));
 
   }, []);
-  console.log(nome);
   return (
     <Header>
 

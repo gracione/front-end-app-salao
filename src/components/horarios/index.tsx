@@ -8,7 +8,7 @@ import { Container, Center } from "../../styles/global";
 export default function Horarios(props: any) {
   const [horario, setHorarios] = useState([]);
   const [horarioEscolhido, setHorarioEscolhido] = useState('');
-  const { idFuncionario, idProfissao, idTratamento, idFiltro } = useParams();
+  const { idFuncionario, idProfissao, idTratamento, idFiltro, nomeCliente } = useParams();
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -21,14 +21,15 @@ export default function Horarios(props: any) {
     setHorarioEscolhido('');
   }, [props.data]);
 
-  function agendarHorario(data: any, horario: any) {
+  function agendarHorario(data: any, horario: any, nomeCliente: any = null) {
     api
       .post("/horario/inserir", {
         data: data,
         horario: horario,
         idCliente: localStorage.getItem('id_usuario'),
         idTratamento: idTratamento,
-        idFuncionario: idFuncionario
+        idFuncionario: idFuncionario,
+        nomeCliente: nomeCliente
       }).then((response) => (setOpen(response.data)));
   }
   return (
@@ -65,7 +66,7 @@ export default function Horarios(props: any) {
 
       </div>
       <button
-        onClick={() => agendarHorario(props.data, horarioEscolhido)}
+        onClick={() => agendarHorario(props.data, horarioEscolhido, nomeCliente)}
       >
         Agendar
       </button>

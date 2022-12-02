@@ -1,4 +1,4 @@
-import { Conteudo } from "../../styles/global";
+import { Conteudo, Header } from "../../styles/global";
 
 import { useState, useEffect } from "react";
 import BuscarDadosApi from "../../util/util";
@@ -11,7 +11,7 @@ export default function Informacoes() {
   const [tempoGasto, setTempoGasto] = useState(0);
   const [idTratamento, setIdTratamento] = useState('0');
   const [idFiltro, setIdFiltro] = useState('0');
-  const { idUsuarioFuncionario, idProfissao } = useParams();
+  const { idUsuarioFuncionario, idProfissao, nomeCliente } = useParams();
   let tratamentoPorProfissao = BuscarDadosApi('tratamentos', 'listar-id-profissao', { id: idProfissao });
 
   useEffect(() => {
@@ -22,36 +22,43 @@ export default function Informacoes() {
       })
       .then((response) => setTempoGasto(response.data));
   }, [idTratamento, idFiltro]);
-  console.log(idTratamento);
-  return (
-    <Conteudo>
-      <form action={"/escolher-horario/funcionario=" + idUsuarioFuncionario + "/" + idProfissao + "/" + idTratamento + "/" + idFiltro + "/"}>
-        <div>
-          <div>Tempo gasto aproximado {tempoGasto}</div>
-          <label htmlFor="">Tratamento</label>
-          <select
-            onChange={e => setIdTratamento(e.target.value)}
-            required
-          >
-            <option value="">------ Selecione ------</option>
-            {
-              tratamentoPorProfissao.map((element) => (
-                <option
-                  value={element.id}
-                >
-                  {element.nome}
-                </option>
-              ))
-            }
 
-          </select>
-        </div>
-        <Filtros
-          data={idTratamento}
-          setIdFiltro={setIdFiltro}
-        />
-        <button>Prosseguir</button>
-      </form>
-    </Conteudo>
+  let urlNomeCliente = '';
+
+  if(nomeCliente){
+    urlNomeCliente= nomeCliente;
+  }
+  return (
+    <Header>
+      <Conteudo>
+        <form action={"/escolher-horario/funcionario=" + idUsuarioFuncionario + "/" + idProfissao + "/" + idTratamento + "/" + idFiltro + "/"+urlNomeCliente}>
+          <div>
+            <div>Tempo gasto aproximado {tempoGasto}</div>
+            <label htmlFor="">Tratamento</label>
+            <select
+              onChange={e => setIdTratamento(e.target.value)}
+              required
+            >
+              <option value="">------ Selecione ------</option>
+              {
+                tratamentoPorProfissao.map((element) => (
+                  <option
+                    value={element.id}
+                  >
+                    {element.nome}
+                  </option>
+                ))
+              }
+
+            </select>
+          </div>
+          <Filtros
+            data={idTratamento}
+            setIdFiltro={setIdFiltro}
+          />
+          <button>Prosseguir</button>
+        </form>
+      </Conteudo>
+    </Header>
   );
 }
