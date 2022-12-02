@@ -4,6 +4,7 @@ import Funcionarios from "../../components/funcionarios";
 import { useState } from 'react';
 
 export default function Home() {
+  const idTipoUsuario = localStorage.getItem("tipo_usuario");
   const [nomeCliente, SetNomeCliente] = useState('');
 
   return (
@@ -12,7 +13,9 @@ export default function Home() {
         <h2 className="d-flex justify-content-center" >Seja bem vindo {localStorage.getItem('nome')}</h2><br />
         <AgendarHorario>
           <label>Agendar Horário</label>
-          <input type="text" onChange={e => SetNomeCliente(e.target.value)} placeholder="Digite o nome do cliente" required />
+          {idTipoUsuario !== '3' &&
+            <input type="text" onChange={e => SetNomeCliente(e.target.value)} placeholder="Digite o nome do cliente" required />
+          }
           <Funcionarios
             nomeCliente={nomeCliente}
           />

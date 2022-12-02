@@ -9,6 +9,7 @@ import api from '../../../services/api';
 export default function HorariosMarcado() {
   const [horariosMarcados, setHorariosMarcados] = useState([]);
   const idTratamento = localStorage.getItem('idTratamento');
+  const idTipoUsuario = localStorage.getItem("tipo_usuario");
 
   useEffect(() => {
     api
@@ -52,7 +53,7 @@ export default function HorariosMarcado() {
               </div>
               <div className='dados-usuario' >
                 <li className="cliente" >
-                  <div className=''>cliente: {element['nome_cliente']??element['cliente']}</div>
+                  <div className=''>cliente: {element['nome_cliente'] ?? element['cliente']}</div>
                 </li>
                 <li>Funcionario: {element['funcionario']}</li>
                 <li>Tratamento: {element['tratamento']}</li>
@@ -63,13 +64,17 @@ export default function HorariosMarcado() {
                   </a>
                 </li>
                 <div className='confirmar-desmarcar' >
-                  {element['confirmado'] ?
+                  {idTipoUsuario !== '3' && (
+                    element['confirmado'] ?
                     <div className='confirmado' onClick={() => confirmar(element['idHorario'])}>CONFIRMADO</div>
                     :
                     <div className='confirmar' onClick={() => confirmar(element['idHorario'])}>CONFIRMAR</div>
+                  )
+
                   }
                   <div className='desmarcar' onClick={() => desmarcar(element['idHorario'])} >DESMARCAR</div>
                 </div>
+
               </div>
             </Cartao>
           ))}

@@ -23,7 +23,6 @@ import AlterarFolga from './paginas/Folgas/alterar';
 export default function Rota() {
     const token = localStorage.getItem("token");
     let currentUrl = window.location.href.toLowerCase();
-    console.log(token);
     if (token === null || token == 'undefined') {
         if (!currentUrl.includes("/registrar") && !currentUrl.includes("/login")) {
             window.location.href = "/login";
