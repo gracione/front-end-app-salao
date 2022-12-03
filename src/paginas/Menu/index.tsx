@@ -7,8 +7,13 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import BuscarDadosApi from "../../util/util";
 
 export default function Menu() {
-  const history = useNavigate();
+  const perfil: any = [];
+  perfil['1'] = 'Administrativo';
+  perfil['2'] = 'Funcionario';
+  perfil['3'] = 'Cliente';
+  const tipoUsuario: any = localStorage.getItem("tipo_usuario");
 
+  const history = useNavigate();
   const servicos = BuscarDadosApi('servicos', 'listar', { idUsuario: localStorage.getItem('id_usuario') });
 
   function logout() {
@@ -40,6 +45,11 @@ export default function Menu() {
             </Nav.Link>
             <Nav.Link>
               <NavDropdown.Item onClick={logout} >Sair</NavDropdown.Item>
+            </Nav.Link>
+            <Nav.Link>
+              <div>
+                Perfil:{perfil[tipoUsuario]}
+              </div>
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
