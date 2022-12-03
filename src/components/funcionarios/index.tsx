@@ -3,7 +3,11 @@ import BuscarDadosApi from "../../util/util";
 import { CardFuncionario, CardAdicionarFuncionario, Container } from "./styles";
 
 export default function Funcionarios(props: any) {
-  const funcionario = BuscarDadosApi('funcionarios', 'listar');
+  const funcionario = BuscarDadosApi('funcionarios', 'listar', {
+    idUsuario: localStorage.getItem('id_usuario'),
+    tipoUsuario: localStorage.getItem('tipo_usuario')
+  });
+
   return (
     <Container>
       {funcionario.map((element) => (
