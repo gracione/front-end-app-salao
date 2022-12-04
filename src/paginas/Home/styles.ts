@@ -1,12 +1,15 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+    height: auto ;
+    background-image: url('/fundo.png');
+    background-attachment: fixed;
 
     @media (max-width: 767px) {
         .home-usuario{
             width: 100% ;
         }
-        height: 90vh ;
+        min-height: 94vh ;
         display: flex ;
         flex-direction: column ;
         align-items: center ;
@@ -18,7 +21,7 @@ export const Container = styled.div`
         }
         display: flex ;
         justify-content: space-around ;
-        height: 90vh ;
+        min-height: 94vh ;
         padding: 20px ;
     }
 
@@ -51,17 +54,20 @@ export const AgendarHorario = styled.div`
 
 `;
 export const HorariosMarcados = styled.div`
+    min-height: 50vh ;
+    height: auto ;
 
+    display: flex;
+    flex-direction: column;
+    align-items: center ;
+    
     @media (max-width: 767px) {
         width: 100%;
-        min-height: 62vh ;
         border-radius: 2px ;
-        background-color: var(--backgroud-secundaria);
     }
     
     @media (min-width: 767px) {
         width: 500px;
-        min-height: 50vh ;
         border: solid var(--borda) 2px;
         border-radius: 10px ;
         background-color: var(--backgroud-secundaria);

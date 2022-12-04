@@ -23,9 +23,7 @@ export default function Home() {
       </div>
       <HorariosMarcados>
         <label>Horários Marcados</label>
-        <div>
-          <HorariosMarcado></HorariosMarcado>
-        </div>
+        <HorariosMarcado></HorariosMarcado>
       </HorariosMarcados>
     </Container>
   );

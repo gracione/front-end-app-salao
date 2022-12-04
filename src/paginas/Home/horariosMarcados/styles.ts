@@ -1,13 +1,17 @@
 import styled from "styled-components"
 
 export const Cartao = styled.div`
-    width:370px;
-    height:120px;
-    margin: 10px ;
+
+    width:100%;
+    height:100px;
+    margin-top: 5px ;
+
     background:white;
     border-left:solid 10px var(--cor-primaria);
+    
     border-radius:5px;
     text-transform: capitalize;
+
     display:flex;
     justify-content: space-between;
     font-size: 13px ;
