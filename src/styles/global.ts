@@ -276,3 +276,13 @@ export const Button = styled.div`
 	justify-content: center ;
 	align-items: center ;
 `
+
+export const Carregando = styled.div`
+	img{
+		width: 100px ;
+	}
+	display: flex ;
+	flex-direction: column ;
+	justify-content: center ;
+	align-items: center ;
+`
