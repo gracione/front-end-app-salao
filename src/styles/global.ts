@@ -191,9 +191,10 @@ export const Conteudo = styled.div`
 `;
 
 export const Header = styled.div`
+	height: auto;
+	min-height: 94vh ;
 	background-image: url('/fundo.png');
     background-attachment: fixed;
-
 
 	@media (max-width: 767px) {
 		display: flex ;

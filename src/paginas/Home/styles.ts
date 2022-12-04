@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     height: auto ;
+	background-image: url('/fundo.png');
+    background-attachment: fixed;
 
     @media (max-width: 767px) {
         .home-usuario{
