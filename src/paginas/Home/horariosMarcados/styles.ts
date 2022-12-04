@@ -66,11 +66,11 @@ export const Cartao = styled.div`
             }
         }
     .confirmar-desmarcar{
-        background-color: red ;
         height:30%;
         font-size:10px !important;
         font-weight:700 !important;
         display:flex;
+        justify-content:flex-end;
         .confirmar{
             text-align:center;
             width:50%;
@@ -83,6 +83,7 @@ export const Cartao = styled.div`
             text-align:center;
             width:50%;
             background:var(--green-light);
+            
             display:flex;
             flex-direction: column;
             justify-content: center;
