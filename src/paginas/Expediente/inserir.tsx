@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Conteudo } from "../../styles/global";
+import { Conteudo,Header } from "../../styles/global";
 import BuscarDadosApi from "../../util/util";
 import Inserir from "../../util/inserir";
 
@@ -18,21 +18,24 @@ export default function InserirExpediente() {
   });
 
   return (
-    <Conteudo>
-      <div>
-        <h1>Adicionar Expediente</h1>
-        <select
-          onChange={e => setIdFuncionario(e.target.value)}
-          required
-        >
-          <option >Escolha a Profissão</option>
-          {optionFuncionarios}
-        </select>
-        <input type="time" placeholder="Inicio Expediente" onChange={e => setInicioExpediente(e.target.value)} />
-        <input type="time" placeholder="Inicio Almoco" onChange={e => setInicioAlmoco(e.target.value)} />
-        <input type="time" placeholder="Fim Almoco" onChange={e => setFimAlmoco(e.target.value)} />
-        <input type="time" placeholder="Fim Expediente" onChange={e => setFimExpediente(e.target.value)} />
-      </div>
-    </Conteudo>
+    <Header>
+      <Conteudo>
+        <div>
+          <h1>Adicionar Expediente</h1>
+          <select
+            onChange={e => setIdFuncionario(e.target.value)}
+            required
+          >
+            <option >Escolha a Profissão</option>
+            {optionFuncionarios}
+          </select>
+          <input type="time" placeholder="Inicio Expediente" onChange={e => setInicioExpediente(e.target.value)} />
+          <input type="time" placeholder="Inicio Almoco" onChange={e => setInicioAlmoco(e.target.value)} />
+          <input type="time" placeholder="Fim Almoco" onChange={e => setFimAlmoco(e.target.value)} />
+          <input type="time" placeholder="Fim Expediente" onChange={e => setFimExpediente(e.target.value)} />
+        </div>
+      </Conteudo>
+    </Header>
+
   );
 }

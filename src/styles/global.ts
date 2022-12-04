@@ -158,7 +158,6 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 export const Container = styled.div`
-
 	.none{
 		display: none ;
 	}
@@ -192,6 +191,9 @@ export const Conteudo = styled.div`
 `;
 
 export const Header = styled.div`
+	background-image: url('/fundo.png');
+    background-attachment: fixed;
+
 
 	@media (max-width: 767px) {
 		display: flex ;

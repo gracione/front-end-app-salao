@@ -1,6 +1,10 @@
 import styled from "styled-components"
 
 export const Container = styled.div`
+
+    background-image: url('/fundo.png');
+    background-attachment: fixed;
+
 		padding: 3vh;
 		height: 92vh ;
 		display: flex ;
@@ -21,6 +25,10 @@ export const PainelCalendario = styled.div`
 `;
 
 export const Header = styled.div`
+
+    background-image: url('/fundo.png');
+    background-attachment: fixed;
+
 	display: flex ;
     justify-content: space-around ;
 	padding-top:30px ;
