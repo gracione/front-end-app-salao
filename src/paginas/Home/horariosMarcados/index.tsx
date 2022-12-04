@@ -39,6 +39,7 @@ export default function HorariosMarcado() {
   }
 
   if (carregamento) {
+    window.location.href = "/home";
     return (
       <Carregando>
         <img src="/loading.gif" alt="" />
