@@ -21,38 +21,39 @@ export default function Menu() {
   }
 
   return (
-      <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
-        <Container>
-          <Navbar.Brand href="#home">
-            <img width="40px" onClick={() => history("/home")} src="/logo-alternativa.svg" alt="logo Cyan" />
-          </Navbar.Brand>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" className="w-25 border" />
-          <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="me-auto">
-            </Nav>
-            <Nav>
+
+    <Container>
+      <Navbar className="menu" collapseOnSelect expand="lg" bg="primary" variant="dark">
+        <Navbar.Brand className="logo" href="/home">
+          <img width="40px" src="/logo-alternativa.svg" alt="salao" />
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" className="w-25 border" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="me-auto">
+          </Nav>
+          <Nav>
+            <Nav.Link>
+              <Link to="/home">Home</Link>
+            </Nav.Link>
+            {servicos.map((element) => (
               <Nav.Link>
-                <Link to="/home">Home</Link>
+                <Link to={"/" + element.url}>{element.nome}</Link>
               </Nav.Link>
-              {servicos.map((element) => (
-                <Nav.Link>
-                  <Link to={"/" + element.url}>{element.nome}</Link>
-                </Nav.Link>
-              ))}
-              <Nav.Link>
-                <Link to="/configuracoes">Configurações</Link>
-              </Nav.Link>
-              <Nav.Link>
-                <NavDropdown.Item onClick={logout} >Sair</NavDropdown.Item>
-              </Nav.Link>
-              <Nav.Link>
-                <div>
-                  Perfil:{perfil[tipoUsuario]}
-                </div>
-              </Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
+            ))}
+            <Nav.Link>
+              <Link to="/configuracoes">Configurações</Link>
+            </Nav.Link>
+            <Nav.Link>
+              <NavDropdown.Item onClick={logout} >Sair</NavDropdown.Item>
+            </Nav.Link>
+            <Nav.Link>
+              <div>
+                Perfil:{perfil[tipoUsuario]}
+              </div>
+            </Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar >
+    </Container>
   );
 }
