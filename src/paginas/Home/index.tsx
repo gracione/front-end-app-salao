@@ -9,8 +9,7 @@ export default function Home() {
 
   return (
     <Container>
-      <div className="home-usuario" ><br />
-        <h2 className="d-flex justify-content-center" >Seja bem vindo {localStorage.getItem('nome')}</h2><br />
+      <div className="home-usuario" >
         <AgendarHorario>
           <label>Agendar Horário</label>
           {idTipoUsuario !== '3' &&
@@ -19,6 +18,7 @@ export default function Home() {
           <Funcionarios
             nomeCliente={nomeCliente}
           />
+        <h6 className="d-flex justify-content-end" >Usuario: {localStorage.getItem('nome')}</h6>
         </AgendarHorario>
       </div>
       <HorariosMarcados>

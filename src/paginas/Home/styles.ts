@@ -8,11 +8,12 @@ export const Container = styled.div`
     @media (max-width: 767px) {
         .home-usuario{
             width: 100% ;
+            display: flex ;
+            flex-direction: column ;
+            justify-content: center ;
+            align-items: center ;
         }
         min-height: 94vh ;
-        display: flex ;
-        flex-direction: column ;
-        align-items: center ;
     }
     
     @media (min-width: 767px) {
@@ -29,9 +30,9 @@ export const Container = styled.div`
 
 export const AgendarHorario = styled.div`
 
+    background: var(--backgroud-secundaria);
     border: solid var(--borda) 2px;
     border-radius: 10px ;
-    background-color: var(--backgroud-secundaria);
     align-items: center ;
     display: flex;
     flex-direction: column ;
@@ -39,10 +40,11 @@ export const AgendarHorario = styled.div`
     padding: 0px 5% 0px 5% ;
 
     @media (max-width: 767px) {
-        width: 100%;
+        width: 90%;
         min-height: 30vh ;
-        border-radius: 2px ;
-
+        border-radius: 5px ;
+        margin-top: 10px ;
+        
     }
 
     @media (min-width: 767px) {

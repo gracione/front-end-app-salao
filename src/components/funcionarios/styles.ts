@@ -12,21 +12,14 @@ export const Container = styled.div`
 `;
 
 export const CardFuncionario = styled.a`
-        input{
-            display: none ;
-        }
-        label{
-            width: 100% ;
-            height: 100% ;
-            font-size: 15px !important ;
-        }
+        
+        font-size: 25px;
         width: 90px;
         height: 120px ;
         border: solid var(--borda) 2px;
         border-radius: 10px ;
         background-color: white ;
         color: #000;
-        font-weight: 540 ;
 
         margin-left: 10px;
 
@@ -34,6 +27,11 @@ export const CardFuncionario = styled.a`
         flex-direction: column ;
         justify-content: center ;
         align-items: center;
+
+        h6{
+            font-size: 13px ;
+            text-transform: capitalize ;
+        }
 `;
 
 export const CardAdicionarFuncionario = styled.a`

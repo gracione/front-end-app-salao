@@ -11,6 +11,7 @@ export const Cartao = styled.div`
     
     border-radius:5px;
     text-transform: capitalize;
+    box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.2);
 
     display:flex;
     justify-content: space-between;
