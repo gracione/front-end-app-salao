@@ -29,13 +29,13 @@ export default function HorariosMarcado() {
     api.post("/horario/excluir", {
       id: idHorario
     })
-    window.location.href = "/home?desmarcado";
+    window.location.href = "/home";
   }
   function confirmar(idHorario: any) {
     api.post("/horario/confirmar", {
       id: idHorario
     })
-    window.location.href = "/home?confirmado";
+    window.location.href = "/home";
   }
 
   if (carregamento) {
