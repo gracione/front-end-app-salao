@@ -3,6 +3,7 @@ import BuscarDadosApi from "../../util/util";
 import { CardFuncionario, CardAdicionarFuncionario, Container } from "./styles";
 
 export default function Funcionarios(props: any) {
+  const idTipoUsuario = localStorage.getItem("tipo_usuario");
   const funcionario = BuscarDadosApi('funcionarios', 'listar', {
     idUsuario: localStorage.getItem('id_usuario'),
     tipoUsuario: localStorage.getItem('tipo_usuario')
@@ -24,11 +25,14 @@ export default function Funcionarios(props: any) {
         </CardFuncionario>
       ))}
 
-      <CardAdicionarFuncionario href="funcionarios/adicionar" >
-        <h6>Cadastrar</h6>
-        <h6>Funcionário</h6>
-        <h2>+</h2>
-      </CardAdicionarFuncionario>
+      {idTipoUsuario === '1' &&
+
+        <CardAdicionarFuncionario href="funcionarios/adicionar" >
+          <h6>Cadastrar</h6>
+          <h6>Funcionário</h6>
+          <h2>+</h2>
+        </CardAdicionarFuncionario>
+      }
     </Container>
   );
 }

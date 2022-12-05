@@ -5,10 +5,10 @@ export const Container = styled.div`
     background-image: url('/fundo.png');
     background-attachment: fixed;
 
-		padding: 3vh;
-		height: 92vh ;
-		display: flex ;
-		justify-content: space-around ;
+	padding: 3vh;
+	height: 92vh ;
+	display: flex ;
+	justify-content: space-around ;
 `;
 export const PainelCalendario = styled.div`
     height: 50px ;
@@ -44,6 +44,7 @@ export const Calendario = styled.div`
         border: solid 1px var(--cor-primaria);
     }
     .dia,.feriado,.folga{
+        width: 100% ;
         border: solid 1px var(--borda);
         height: 45px;
         list-style-type: none;
@@ -68,7 +69,7 @@ export const Calendario = styled.div`
     }
     .diasSemana{
         display: flex ;
-        
+
         li{
             border: solid 1px var(--borda);
             width: 15%;
