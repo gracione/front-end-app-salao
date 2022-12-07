@@ -24,7 +24,7 @@ export default function HorariosMarcado() {
         console.error("ops! ocorreu um erro" + err);
       });
   }, []);
-
+  
   function desmarcar(idHorario: any) {
     api.post("/horario/excluir", {
       id: idHorario

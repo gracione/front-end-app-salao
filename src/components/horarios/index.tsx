@@ -20,6 +20,7 @@ export default function Horarios(props: any) {
     }).then((response) => setHorarios(response.data));
     setHorarioEscolhido('');
   }, [props.data]);
+  console.log(horario);
 
   function agendarHorario(data: any, horario: any, nomeCliente: any = null) {
     api
