@@ -11,6 +11,8 @@ export default function HorariosMarcado() {
   const idTratamento = localStorage.getItem('idTratamento');
   const idTipoUsuario = localStorage.getItem("tipo_usuario");
 
+  const [naoCarregado, setNaoCarregado] = useState(0);
+
   useEffect(() => {
     api
       .post("/horarios-marcados", {
@@ -23,8 +25,24 @@ export default function HorariosMarcado() {
         setCarregamento(true);
         console.error("ops! ocorreu um erro" + err);
       });
-  }, []);
-  
+
+      if (carregamento) {
+        setNaoCarregado(naoCarregado+1);
+      }
+    
+  }, [naoCarregado]);
+
+  if (carregamento) {
+    return (
+      <Carregando>
+        <img src="/loading.gif" alt="" />
+        <p>
+          Carregando ...
+        </p>
+      </Carregando>
+    )
+  }
+
   function desmarcar(idHorario: any) {
     api.post("/horario/excluir", {
       id: idHorario
@@ -38,19 +56,9 @@ export default function HorariosMarcado() {
     window.location.href = "/home";
   }
 
-  if (carregamento) {
-    window.location.href = "/home";
-    return (
-      <Carregando>
-        <img src="/loading.gif" alt="" />
-        <p>
-          Carregando ...
-        </p>
-      </Carregando>
-    )
-  }
   return (
     <div className="w-75">
+      {naoCarregado}
       {
         horariosMarcados.map((element) => (
           <Cartao>
