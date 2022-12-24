@@ -7,7 +7,7 @@ import { BsFillPencilFill } from "react-icons/bs";
 
 export default function Listar(props: any) {
   const funcao: any = props.funcao;
-  const colunas: any = props.colunas;
+  const colunas: any[] = props.colunas;
   const [listagem, setListagem] = useState([]);
   const [open, setOpen] = useState(false);
   const [erro, setErro] = useState(false);
@@ -44,7 +44,7 @@ export default function Listar(props: any) {
           <FaTrashAlt></FaTrashAlt>
         </td>
       </tr>
-
+      
     )
   });
 

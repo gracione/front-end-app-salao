@@ -1,47 +1,28 @@
-import { useState, useEffect } from 'react';
+import api from '../../../services/api';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { Cartao } from './styles';
-import api from '../../../services/api';
 import { Carregando } from '../../../styles/global';
+import BuscarDadosApi from '../../../util/util';
 
 export default function HorariosMarcado() {
-  const [carregamento, setCarregamento] = useState(false);
-  const [horariosMarcados, setHorariosMarcados] = useState([]);
   const idTratamento = localStorage.getItem('idTratamento');
   const idTipoUsuario = localStorage.getItem("tipo_usuario");
 
-  const [naoCarregado, setNaoCarregado] = useState(0);
+  const horariosMarcados = BuscarDadosApi('horarios-marcados','listar ', { 
+    idUsuario: localStorage.getItem("id_usuario"),
+    idTratamento: idTratamento,
+    tipoUsuario: localStorage.getItem("tipo_usuario")
+   });
 
-  useEffect(() => {
-    api
-      .post("/horarios-marcados", {
-        idUsuario: localStorage.getItem("id_usuario"),
-        idTratamento: idTratamento,
-        tipoUsuario: localStorage.getItem("tipo_usuario"),
-      })
-      .then((response) => setHorariosMarcados(response.data))
-      .catch((err) => {
-        setCarregamento(true);
-        console.error("ops! ocorreu um erro" + err);
-      });
-
-      if (carregamento) {
-        setNaoCarregado(naoCarregado+1);
-      }
-    
-  }, [naoCarregado]);
-
-  if (carregamento) {
-    return (
-      <Carregando>
-        <img src="/loading.gif" alt="" />
-        <p>
-          Carregando ...
-        </p>
-      </Carregando>
-    )
-  }
+    //return (
+    //  <Carregando>
+    //    <img src="/loading.gif" alt="" />
+    //    <p>
+    //      Carregando ...
+    //    </p>
+    //  </Carregando>
+    //)
 
   function desmarcar(idHorario: any) {
     api.post("/horario/excluir", {
@@ -58,7 +39,6 @@ export default function HorariosMarcado() {
 
   return (
     <div className="w-75">
-      {naoCarregado}
       {
         horariosMarcados.map((element) => (
           <Cartao>

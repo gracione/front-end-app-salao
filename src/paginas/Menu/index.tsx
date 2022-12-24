@@ -1,19 +1,18 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Container } from "./style";
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import BuscarDadosApi from "../../util/util";
 
-export default function Menu() {
+export default function Menu(): any {
   const perfil: any = [];
   perfil['1'] = 'Administrativo';
   perfil['2'] = 'Funcionario';
   perfil['3'] = 'Cliente';
   const tipoUsuario: any = localStorage.getItem("tipo_usuario");
 
-  const history = useNavigate();
-  const servicos = BuscarDadosApi('servicos', 'listar', { idUsuario: localStorage.getItem('id_usuario') });
+  const servicos: any = BuscarDadosApi('servicos', 'listar', { idUsuario: localStorage.getItem('id_usuario') });
 
   function logout() {
     localStorage.clear();
@@ -21,7 +20,6 @@ export default function Menu() {
   }
 
   return (
-
     <Container>
       <Navbar className="menu" collapseOnSelect expand="lg" bg="primary" variant="dark">
         <Navbar.Brand className="logo" href="/home">
@@ -31,26 +29,17 @@ export default function Menu() {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
           </Nav>
-          <Nav>
-            <Nav.Link>
-              <Link to="/home">Home</Link>
-            </Nav.Link>
-            {servicos.map((element) => (
-              <Nav.Link>
-                <Link to={"/" + element.url}>{element.nome}</Link>
-              </Nav.Link>
-            ))}
-            <Nav.Link>
-              <Link to="/configuracoes">Configurações</Link>
-            </Nav.Link>
-            <Nav.Link>
-              <NavDropdown.Item onClick={logout} >Sair</NavDropdown.Item>
-            </Nav.Link>
-            <Nav.Link>
-              <div>
-                Perfil:{perfil[tipoUsuario]}
-              </div>
-            </Nav.Link>
+          <Nav >
+            <Link className="m-2" to="/home">Home</Link>
+            {servicos.map((element: any) =>
+              <Link className="m-2" to={"/" + element.url}>{element.nome}</Link>
+
+            )}
+            <Link className="m-2" to="/configuracoes">Configurações</Link>
+            <div className="m-2 text-white" onClick={logout} >Sair</div>
+            <div className="m-2 text-white">
+              Perfil : {perfil[tipoUsuario]}
+            </div>
           </Nav>
         </Navbar.Collapse>
       </Navbar >

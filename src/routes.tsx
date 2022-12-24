@@ -21,8 +21,8 @@ import Menu from './paginas/Menu';
 import AlterarFolga from './paginas/Folgas/alterar';
 
 export default function Rota() {
-    const token = localStorage.getItem("token");
-    let currentUrl = window.location.href.toLowerCase();
+    const token: any = localStorage.getItem("token");
+    let currentUrl: any = window.location.href.toLowerCase();
     if (token === null || token == 'undefined') {
         if (!currentUrl.includes("/registrar") && !currentUrl.includes("/login")) {
             window.location.href = "/login";
@@ -54,7 +54,7 @@ export default function Rota() {
                     <Route path="/informacoes/funcionario=:idUsuarioFuncionario/:idProfissao" element={<Informacoes />} />
                     <Route path="/escolher-horario/funcionario=:idFuncionario/:idProfissao/:idTratamento/:idFiltro" element={<EtapaCalendario />} />
                     <Route path="/escolher-horario/funcionario=:idFuncionario/:idProfissao/:idTratamento/:idFiltro/:nomeCliente" element={<EtapaCalendario />} />
- 
+
                     <Route path="/funcionarios" element={<Listar funcao="funcionarios" colunas={["nome", "profissão"]} />} />
                     <Route path="/funcionarios/alterar/:idFuncionario" element={<AlterarFuncionario />} />
                     <Route path="/funcionarios/adicionar" element={<InserirFuncionario />} />
