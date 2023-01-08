@@ -2,8 +2,9 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     display: flex ;
+    flex-wrap: wrap;
     width: 100% ;
-    height: 130px ;
+    min-height: 130px ;
     border: none ;
     form{
         display: flex;
@@ -22,6 +23,7 @@ export const CardFuncionario = styled.a`
         color: #000;
 
         margin-left: 10px;
+        margin-bottom: 10px;
 
         display: flex;
         flex-direction: column ;
@@ -40,6 +42,7 @@ export const CardAdicionarFuncionario = styled.a`
         border: solid var(--cor-primaria) 2px;
         border-radius: 10px ;
         margin-left: 10px;
+        margin-bottom       : 10px;
 
         display: flex;
         flex-direction: column ;

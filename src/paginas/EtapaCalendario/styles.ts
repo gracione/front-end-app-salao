@@ -65,6 +65,7 @@ export const Calendario = styled.div`
         background-color: var(--borda) ;
     }
     .feriado{
+        font-size: 9px !important ;
         color: black ;
         background-color: var(--yellow) ;
 

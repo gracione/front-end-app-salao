@@ -11,7 +11,7 @@ export default function Home() {
     <Container>
       <div className="home-usuario" >
         <AgendarHorario>
-          <h6 className="bg-white w-25 border titulo" >Agendar Horário</h6>
+          <h6 className="bg-white w-100 border titulo d-flex justify-content-center" >Agendar Horário</h6>
           <div className="w-100" >
             {idTipoUsuario === '1' &&
               <h5>Etapa escolher Funcionário e Profissão</h5>

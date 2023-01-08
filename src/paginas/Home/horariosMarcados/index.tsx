@@ -1,7 +1,7 @@
 import api from '../../../services/api';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
-import { Cartao } from './styles';
+import { Cartao, Container } from './styles';
 import { Carregando } from '../../../styles/global';
 import BuscarDadosApi from '../../../util/util';
 import { useState } from 'react';
@@ -13,11 +13,11 @@ export default function HorariosMarcado() {
   const idTipoUsuario = localStorage.getItem("tipo_usuario");
   const [excluir, setExcluir] = useState(false);
 
-  const horariosMarcados = BuscarDadosApi('horarios-marcados','listar ', { 
+  const horariosMarcados = BuscarDadosApi('horarios-marcados', 'listar ', {
     idUsuario: localStorage.getItem("id_usuario"),
     idTratamento: idTratamento,
     tipoUsuario: localStorage.getItem("tipo_usuario")
-   });
+  });
 
 
   function desmarcar(idHorario: any) {
@@ -25,8 +25,8 @@ export default function HorariosMarcado() {
     api.post("/horario/excluir", {
       id: idHorario
     }).then((response) => (setExcluir(response.data)));
-    
-    if(excluir){
+
+    if (excluir) {
       window.location.href = "/home";
     }
   }
@@ -34,13 +34,13 @@ export default function HorariosMarcado() {
     api.post("/horario/confirmar", {
       id: idHorario
     }).then((response) => (setExcluir(response.data)));
-    if(excluir){
+    if (excluir) {
       window.location.href = "/home";
     }
   }
 
   return (
-    <div className="w-75">
+    <Container>
       <Modal open={excluir} onClose={() => setExcluir(false)}>
         <div className='modal text-danger'>
           <h1>x</h1>
@@ -66,7 +66,7 @@ export default function HorariosMarcado() {
               </li>
               <li>Funcionario: {element['funcionario']}</li>
               <li>Tratamento: {element['tratamento']}</li>
-              <li>
+              <li className='telefone'>
                 <a href={"https://api.whatsapp.com/send/?phone=+55" + element['telefone'] + "&text=oi"}>
                   telefone: {element['telefone'] + " "}
                   <FontAwesomeIcon icon={faWhatsapp} />
@@ -90,14 +90,16 @@ export default function HorariosMarcado() {
 
                 }
 
-                <div className='desmarcar' onClick={() => desmarcar(element['idHorario'])} >DESMARCAR</div>
+                <div className='desmarcar' onClick={() => desmarcar(element['idHorario'])} >
+                  DESMARCAR
+                </div>
               </div>
 
             </div>
           </Cartao>
         ))
       }
-    </div >
+    </Container >
   );
 
 }

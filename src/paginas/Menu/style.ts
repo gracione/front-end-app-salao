@@ -16,6 +16,10 @@ export const Container = styled.div`
         width: 100% ;
         padding: 0px ;
     }
+    .menuB{
+        width: 70px;
+        height: 30px ;
+    }
     @media (max-width: 767px) {
     }
 

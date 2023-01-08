@@ -1,5 +1,20 @@
 import styled from "styled-components"
 
+export const Container = styled.div`
+    @media (max-width: 767px) {
+        width: 100% ;
+        .nome-desmarcar{
+            display: none ;
+        }
+    }
+
+    @media (min-width: 767px) {
+        width: 90% ;
+        .nome-desmarcar-x{
+            display: none ;
+        }
+    }
+`;
 export const Cartao = styled.div`
 
     width:100%;
@@ -24,7 +39,7 @@ export const Cartao = styled.div`
         flex-direction: column;
         justify-content: space-around;
         .horario{
-            font-size:45px;
+            font-size:40px;
             font-weight:540;
             color:var(--cor-primaria);
             display:flex;
@@ -33,7 +48,7 @@ export const Cartao = styled.div`
     
         }
         .data{
-    
+            font-size:10px;    
             display:flex;
             justify-content: center;
             align-items:center;
@@ -51,9 +66,12 @@ export const Cartao = styled.div`
             display: flex ;
             justify-content: space-between ;
             align-items: center ;
-            font-size: 20px ;
+            font-size: 16px ;
             height: 25%;
             color: var(--blue);
+        }
+        .telefone{
+            font-size: 11px ;
         }
         li{
             display: block ;

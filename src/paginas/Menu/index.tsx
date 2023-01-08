@@ -25,7 +25,7 @@ export default function Menu(): any {
         <Navbar.Brand className="logo" href="/home">
           <img width="40px" src="/logo-alternativa.svg" alt="salao" />
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" className="w-25 border" />
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" className="menuB" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
           </Nav>
