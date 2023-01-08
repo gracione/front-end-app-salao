@@ -1,5 +1,5 @@
 
-.voltar{
+.registrar .voltar{
   width: 30px;
   height: 30px;
   display: flex;
@@ -8,30 +8,26 @@
 }
 
 @media (max-width: 767px) {
-  .register-container {
-    width: 90%;
-    height: 100vh;
-    margin: 0 auto;
-    }
-
-  .content {
+  .registrar {
     margin-top: 50px;
     width: 100%;
-    height: 70vh;
+    height: 430px;
+    display: flex;
+    justify-content: center;
   }
-  form{
-    display:block !important;
-    height: 100% !important;
+  .registrar form{
+    width: 90%;
+    height: 90% !important;
 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 
   }
-  .logo{
+  .registrar .logo{
     display: none;
   }
-  input,select{
+  .registrar input,.registrar select{
   background-color: white !important;
   width: 100% !important;
   height: 40px !important;
@@ -41,30 +37,21 @@
 
 @media (min-width: 768px) 
 {
-  .register-container {
-    width: 90%;
-    height: 100vh;
-    margin: 0 auto;
-  
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .content {
+  .registrar {
+    padding-top: 70px;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
   }
-  form{
+  .registrar form{
     height: 400px !important;
   }  
-  .logo{
+  .registrar .logo{
     width: 500px;
     margin-right: 200px;
   }
-  input,select{
+  .registrar input,.registrar select{
     background-color: white !important;
     width: 350px !important;
     height: 40px !important;

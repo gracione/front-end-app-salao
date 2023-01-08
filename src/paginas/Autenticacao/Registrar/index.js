@@ -84,8 +84,7 @@ export default function Registrar() {
     }
   }
   return (
-    <div className="register-container">
-      <div className="content">
+    <div className="registrar">
         <form onSubmit={efetuarRegister}>
 
           <h4 className='text-primary d-flex justify-content-between' >
@@ -156,7 +155,6 @@ export default function Registrar() {
           <button className="button" type="submit">Cadastrar</button>
         </form>
         <img className='logo' src='logo.svg' />
-      </div>
     </div>
   );
 }

@@ -8,7 +8,7 @@ import './styles.css';
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  
+
   async function efetuarLogin(e) {
     e.preventDefault();
 
@@ -25,11 +25,16 @@ export default function Login() {
   }
 
   return (
-    <div className="login-container">
-      <section className="form">
-        <img src='logo.svg' />
+    <div className='content'>
+      <div className='login'>
+        <div className='d-flex justify-content-center'>
+          <div className='w-50' >
+            <img className='logo' src='logo.svg' />
+          </div>
+        </div>
         <form onSubmit={efetuarLogin}>
           <input
+            className='rounded w-100'
             name='email'
             placeholder="Seu e-mail"
             value={email}
@@ -37,6 +42,7 @@ export default function Login() {
             required
           />
           <input
+            className='rounded w-100'
             name='password'
             placeholder="Sua Senha"
             type="password"
@@ -45,14 +51,13 @@ export default function Login() {
             required
           />
 
-          <button className="button" type="submit">Entrar</button>
+          <button className="rounded" type="submit">Entrar</button>
 
-          <Link className="back-link" to="/registrar">
-            <FiLogIn size={16} color="#3498db" />
-            Não tenho cadastro
+          <Link className="button text-white bg-primary rounded" to="/registrar">
+            Cadastrar Clitente
           </Link>
         </form>
-      </section>
+      </div>
     </div>
   );
 }
