@@ -33,8 +33,10 @@ export default function HorariosMarcado() {
   function confirmar(idHorario: any) {
     api.post("/horario/confirmar", {
       id: idHorario
-    })
-    window.location.href = "/home";
+    }).then((response) => (setExcluir(response.data)));
+    if(excluir){
+      window.location.href = "/home";
+    }
   }
 
   return (
@@ -81,9 +83,9 @@ export default function HorariosMarcado() {
                 }
                 {idTipoUsuario === '3' && (
                   element['confirmado'] ?
-                    <div className='confirmado' onClick={() => confirmar(element['idHorario'])}>CONFIRMADO</div>
+                    <div className='confirmado bg-primary'>CONFIRMADO</div>
                     :
-                    <div className='confirmar bg-warning' onClick={() => confirmar(element['idHorario'])}>AGUARDANDO CONFIRMAÇÃO</div>
+                    <div className='confirmar bg-warning'>AGUARDANDO CONFIRMAÇÃO</div>
                 )
 
                 }

@@ -25,17 +25,28 @@ export default function Informacoes() {
 
   let urlNomeCliente = '';
 
-  if(nomeCliente){
-    urlNomeCliente= nomeCliente;
+  if (nomeCliente) {
+    urlNomeCliente = nomeCliente;
   }
   return (
     <Header>
       <Conteudo>
-        <form action={"/escolher-horario/funcionario=" + idUsuarioFuncionario + "/" + idProfissao + "/" + idTratamento + "/" + idFiltro + "/"+urlNomeCliente}>
+        <form action={"/escolher-horario/funcionario=" + idUsuarioFuncionario + "/" + idProfissao + "/" + idTratamento + "/" + idFiltro + "/" + urlNomeCliente}>
           <div>
-            <div>Tempo gasto aproximado {tempoGasto}</div>
+            <h2>Etapa Tratamento</h2>
+            <hr />
+            <div className="border d-flex" >
+              <div className="border w-50 d-flex justify-content-center">
+                Tempo gasto aproximado
+              </div>
+              <div className="border w-50 d-flex justify-content-center">
+                {tempoGasto}
+              </div>
+            </div>
+            <br / >
             <label htmlFor="">Tratamento</label>
             <select
+            className="rounded bg-white"
               onChange={e => setIdTratamento(e.target.value)}
               required
             >
