@@ -11,10 +11,22 @@ export default function Home() {
     <Container>
       <div className="home-usuario" >
         <AgendarHorario>
-          <label>Agendar Horário</label>
-          {idTipoUsuario !== '3' &&
-            <input type="text" onChange={e => SetNomeCliente(e.target.value)} placeholder="Digite o nome do cliente" required />
-          }
+          <h6 className="bg-white w-25 border titulo" >Agendar Horário</h6>
+          <div className="w-100" >
+            {idTipoUsuario === '1' &&
+              <h5>Etapa escolher Funcionario/Profissão</h5>
+            }
+            {idTipoUsuario === '2' &&
+              <h5>Etapa escolher Profissão</h5>
+            }
+            {idTipoUsuario === '3' &&
+              <h5>Etapa escolher Funcionario/Profissão</h5>
+            }
+            {idTipoUsuario !== '3' &&
+              <input type="text" onChange={e => SetNomeCliente(e.target.value)} placeholder="Digite o nome do cliente" required />
+            }
+            <hr />
+          </div>
           <Funcionarios
             nomeCliente={nomeCliente}
           />

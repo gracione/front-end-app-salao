@@ -28,7 +28,7 @@ export const Container = styled.div`
 
 `;
 
-export const AgendarHorario = styled.div`
+export const AgendarHorario = styled.fieldset`
 
     background: var(--backgroud-secundaria);
     border: solid var(--borda) 2px;
@@ -39,6 +39,9 @@ export const AgendarHorario = styled.div`
     justify-content: space-around;
     padding: 0px 5% 0px 5% ;
 
+    .titulo{
+        
+    }
     @media (max-width: 767px) {
         width: 90%;
         min-height: 30vh ;
