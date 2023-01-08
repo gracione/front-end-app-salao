@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 
 export default function Alterar({ modulo, dados }: any) {
   const [open, setOpen] = useState(false);
-
   function alterar(modulo: any, dados: any) {
     let url: any = "/" + modulo + "/alterar";
       api.post(url, dados).then((response) => (setOpen(response.data)));

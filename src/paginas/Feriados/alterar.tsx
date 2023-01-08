@@ -41,7 +41,7 @@ export default function AlterarFeriado() {
           </div>
           <Alterar 
           modulo="feriados"
-          data={{id:idFeriado,data,nome}}
+          dados={{id:idFeriado,data,nome}}
           />
         </Conteudo>
       </Header>
