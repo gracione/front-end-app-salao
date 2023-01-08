@@ -1,5 +1,5 @@
-import { Center, Conteudo } from "../../styles/global";
-import { PainelCalendario, Calendario, Container } from './styles';
+import { Center } from "../../styles/global";
+import { PainelCalendario, Calendario, Container,Conteudo } from './styles';
 
 import { useState } from "react";
 import { useParams } from "react-router-dom";
@@ -51,6 +51,8 @@ export default function EtapaCalendario() {
   return (
     <Container>
       <Conteudo>
+        <h3>Etapa Calendario</h3>
+        <hr />
         <PainelCalendario>
           <div className='mudar-mes' onClick={() => setmes(mes - 1)}> {"<"} </div>
           <b>{meses[mes - 1] + " " + ano}</b>
@@ -58,7 +60,7 @@ export default function EtapaCalendario() {
         </PainelCalendario>
         <Center>
           <Calendario>
-            <ul className="diasSemana" >
+            <div className="diasSemana" >
               <li>Dom</li>
               <li>Seg</li>
               <li>Ter</li>
@@ -66,11 +68,11 @@ export default function EtapaCalendario() {
               <li>Qui</li>
               <li>Sex</li>
               <li>Sab</li>
-            </ul>
+            </div>
             <div className="mes" >
               {
                 dias.map((semana) => (
-                  <ul>
+                  <div className="semanaDia">
                     {diasSemana[semana].map((dia: any) => (
                       <li>
                         {folga.includes(semana + 1) && dia !== 'x' ?
@@ -84,7 +86,7 @@ export default function EtapaCalendario() {
                         }
                       </li>
                     ))}
-                  </ul>
+                  </div>
                 ))
               }
             </div>

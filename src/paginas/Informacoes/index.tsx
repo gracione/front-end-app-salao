@@ -33,7 +33,7 @@ export default function Informacoes() {
       <Conteudo>
         <form action={"/escolher-horario/funcionario=" + idUsuarioFuncionario + "/" + idProfissao + "/" + idTratamento + "/" + idFiltro + "/" + urlNomeCliente}>
           <div>
-            <h2>Etapa Tratamento</h2>
+            <h3>Etapa Tratamento</h3>
             <hr />
             <div className="border d-flex" >
               <div className="border w-50 d-flex justify-content-center">

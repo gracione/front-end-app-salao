@@ -44,11 +44,16 @@ export default function Horarios(props: any) {
       </Modal>
 
       <div>
-        <Center>
-          <DataSelecionada>
-            Data Selecionada {props.data + " " + horarioEscolhido}
-          </DataSelecionada>
-        </Center>
+        <DataSelecionada>
+          <div className="border w-100 d-flex justify-content-between" >
+          <div className="border w-50 d-flex justify-content-center" >
+            Data Selecionada
+          </div>
+          <div className="border w-50 d-flex justify-content-center" >
+          {props.data + " " + horarioEscolhido}
+          </div>
+          </div>
+        </DataSelecionada>
         <HorariosDisponivel>
           {
             horario ?

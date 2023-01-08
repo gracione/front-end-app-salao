@@ -39,4 +39,8 @@ export const DataSelecionada = styled.div`
     font-size: 20px ;
     border-radius: 4px;
     padding: 10px ;
+    
+    display: flex ;
+    justify-content: space-between ;
+    width: 100%;
 `;

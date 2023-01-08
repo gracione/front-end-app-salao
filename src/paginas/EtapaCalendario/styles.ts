@@ -2,13 +2,18 @@ import styled from "styled-components"
 
 export const Container = styled.div`
 
-    background-image: url('/fundo.png');
-    background-attachment: fixed;
-
-	padding: 3vh;
-	height: 92vh ;
-	display: flex ;
-	justify-content: space-around ;
+    @media (min-width: 768px) 
+    {
+        background-image: url('/fundo.png');
+        background-attachment: fixed;
+        padding: 3vh;
+        height: 92vh ;
+        display: flex ;
+        justify-content: space-around ;        
+    }
+    @media (max-width: 767px) {
+        padding: 3vh;
+    }
 `;
 export const PainelCalendario = styled.div`
     height: 50px ;
@@ -69,7 +74,7 @@ export const Calendario = styled.div`
     }
     .diasSemana{
         display: flex ;
-
+        justify-content: space-between;
         li{
             border: solid 1px var(--borda);
             width: 15%;
@@ -84,11 +89,32 @@ export const Calendario = styled.div`
     .mes{
         display: flex ;
         justify-content: space-between ;
-        ul{
-            width: 15%;
+        .semanaDia{
+            display: flex ;
+            flex-direction: column ;
+            width: 100%;
         }
         li{
-            display: block ;
+            display: flex;
         }
     }
     `;
+
+export const Conteudo = styled.div`
+
+	@media (max-width: 767px) {
+		width: 100%;
+		min-height: 30vh;
+		padding: 20px ;
+		background-color: var(--backgroud-secundaria);
+    }
+
+    @media (min-width: 767px) {
+		width: 600px ;
+		min-height: 80vh;
+		border: solid var(--borda) 2px;
+		border-radius: 10px ;
+		background-color: var(--backgroud-secundaria);
+		padding: 20px ;
+	}
+`;
