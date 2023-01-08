@@ -72,13 +72,13 @@ export const Cartao = styled.div`
         }
     .confirmar-desmarcar{
         height:30%;
-        font-size:10px !important;
+        font-size:9px !important;
         font-weight:700 !important;
         display:flex;
         justify-content:flex-end;
         .confirmar{
             text-align:center;
-            width:50%;
+            width:70%;
             background:var(--cor-primaria);
             display:flex;
             flex-direction: column;
@@ -86,7 +86,7 @@ export const Cartao = styled.div`
         }
         .confirmado{
             text-align:center;
-            width:50%;
+            width:70%;
             background:var(--green-light);
             
             display:flex;
@@ -95,7 +95,7 @@ export const Cartao = styled.div`
         }
         .desmarcar{
             text-align:center;
-            width:50%;
+            width:30%;
             background:var(--red-light);
     
             display:flex;

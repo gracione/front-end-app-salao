@@ -4,10 +4,14 @@ import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { Cartao } from './styles';
 import { Carregando } from '../../../styles/global';
 import BuscarDadosApi from '../../../util/util';
+import { useState } from 'react';
+import { Modal } from 'react-responsive-modal';
+
 
 export default function HorariosMarcado() {
   const idTratamento = localStorage.getItem('idTratamento');
   const idTipoUsuario = localStorage.getItem("tipo_usuario");
+  const [excluir, setExcluir] = useState(false);
 
   const horariosMarcados = BuscarDadosApi('horarios-marcados','listar ', { 
     idUsuario: localStorage.getItem("id_usuario"),
@@ -15,20 +19,16 @@ export default function HorariosMarcado() {
     tipoUsuario: localStorage.getItem("tipo_usuario")
    });
 
-    //return (
-    //  <Carregando>
-    //    <img src="/loading.gif" alt="" />
-    //    <p>
-    //      Carregando ...
-    //    </p>
-    //  </Carregando>
-    //)
 
   function desmarcar(idHorario: any) {
+
     api.post("/horario/excluir", {
       id: idHorario
-    })
-    window.location.href = "/home";
+    }).then((response) => (setExcluir(response.data)));
+    
+    if(excluir){
+      window.location.href = "/home";
+    }
   }
   function confirmar(idHorario: any) {
     api.post("/horario/confirmar", {
@@ -39,6 +39,14 @@ export default function HorariosMarcado() {
 
   return (
     <div className="w-75">
+      <Modal open={excluir} onClose={() => setExcluir(false)}>
+        <div className='modal text-danger'>
+          <h1>x</h1>
+          <h2>Erro ao desmarcar horario</h2>
+          <h2><a href={"/home"}>ok</a></h2>
+        </div>
+      </Modal>
+
       {
         horariosMarcados.map((element) => (
           <Cartao>
@@ -71,6 +79,15 @@ export default function HorariosMarcado() {
                 )
 
                 }
+                {idTipoUsuario === '3' && (
+                  element['confirmado'] ?
+                    <div className='confirmado' onClick={() => confirmar(element['idHorario'])}>CONFIRMADO</div>
+                    :
+                    <div className='confirmar bg-warning' onClick={() => confirmar(element['idHorario'])}>AGUARDANDO CONFIRMAÇÃO</div>
+                )
+
+                }
+
                 <div className='desmarcar' onClick={() => desmarcar(element['idHorario'])} >DESMARCAR</div>
               </div>
 

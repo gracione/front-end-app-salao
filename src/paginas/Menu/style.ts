@@ -20,6 +20,6 @@ export const Container = styled.div`
     }
 
     @media (min-width: 767px) {
-        height: 5vh ;
+        height: 30px ;
     }
 `;
