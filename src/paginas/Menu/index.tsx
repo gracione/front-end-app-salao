@@ -37,10 +37,19 @@ export default function Menu(): any {
             )}
             <Link className="m-2" to="/configuracoes">Configurações</Link>
             <div className="m-2 text-white" onClick={logout} >Sair</div>
-            <div className="m-2 text-white border">
-              <small>
-                Perfil : {perfil[tipoUsuario]}
-              </small>
+            <div className="m-2 text-info">
+              <div className="d-flex" >
+                <div>
+                  {perfil[tipoUsuario]}
+                </div>
+                <div>
+
+                </div>
+                : &nbsp;
+                <div >
+                {localStorage.getItem('nome')}
+                </div>
+              </div>
             </div>
           </Nav>
         </Navbar.Collapse>

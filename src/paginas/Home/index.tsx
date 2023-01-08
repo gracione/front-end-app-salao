@@ -18,11 +18,6 @@ export default function Home() {
           <Funcionarios
             nomeCliente={nomeCliente}
           />
-        <h6 className="d-flex justify-content-end border" >
-          <small>
-            Usuario: {localStorage.getItem('nome')}
-          </small>
-        </h6>
         </AgendarHorario>
       </div>
       <HorariosMarcados>
