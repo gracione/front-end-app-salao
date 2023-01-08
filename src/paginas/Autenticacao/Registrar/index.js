@@ -86,14 +86,19 @@ export default function Registrar() {
   return (
     <div className="register-container">
       <div className="content">
-        <section>
-          <h1>Cadastro</h1>
-          <p>Faça seu cadastro, entre na plataforma e agende seu horario.</p>
-
-        </section>
         <form onSubmit={efetuarRegister}>
+
+          <h4 className='text-primary d-flex justify-content-between' >
+            <Link className="bg-primary text-white rounded-circle voltar" to="/login">
+              <FiArrowLeft size={20} />
+            </Link>
+            <div className='p-2 w-75' >
+             Cadastrar Cliente
+            </div>
+          </h4>
           <input
-            placeholder="Seu Nome"
+            className='rounded'
+            placeholder="Nome"
             value={nome}
             onChange={e => setNome(e.target.value)}
             required
@@ -101,8 +106,9 @@ export default function Registrar() {
           {erroNome}
 
           <InputMask
+            className='rounded'
             mask="(99) 9 9999-9999"
-            placeholder="Seu Numero"
+            placeholder="Telefone"
             value={numero}
             onChange={e => setNumero(e.target.value)}
             required
@@ -110,6 +116,7 @@ export default function Registrar() {
           {erroNumero}
 
           <select
+            className='rounded'
             onChange={e => setId_Sexo(e.target.value)}
             required
           >
@@ -119,7 +126,8 @@ export default function Registrar() {
           </select>
           {erroId_sexo}
           <input
-            placeholder="Seu E-mail"
+            className='rounded'
+            placeholder="Email"
             value={email}
             type="email"
             onChange={e => setEmail(e.target.value)}
@@ -127,7 +135,8 @@ export default function Registrar() {
           />
           {erroEmail}
           <input
-            placeholder="Digite sua Senha"
+            className='rounded'
+            placeholder="Senha"
             value={password}
             type="password"
             onChange={e => setPassword(e.target.value)}
@@ -136,7 +145,8 @@ export default function Registrar() {
           {erroPassword}
 
           <input
-            placeholder="Confirme sua Senha"
+            className='rounded'
+            placeholder="Confirmar Senha"
             value={confirmPassword}
             type="password"
             onChange={e => setConfirmPassword(e.target.value)}
@@ -144,11 +154,8 @@ export default function Registrar() {
           />
 
           <button className="button" type="submit">Cadastrar</button>
-          <Link className="back-link" to="/login">
-            <FiArrowLeft size={16} color="#3498db" />
-            Já possuo cadastro
-          </Link>
         </form>
+        <img className='logo' src='logo.svg' />
       </div>
     </div>
   );
