@@ -10,11 +10,12 @@ export const HorariosDisponivel = styled.div`
 
     .selecionado,.disponivel{
         margin: 1px;
-        width: 20%;
-        height: 30px;
+        width: 100px;
+        height: 40px;
         border: solid ;
         border-radius: 4px;
         margin-top: 5px;
+        margin-bottom: 5px;
         font-size: 25px ;
         display: flex;
         justify-content: center;
@@ -36,7 +37,7 @@ export const HorariosDisponivel = styled.div`
 `;
 
 export const DataSelecionada = styled.div`
-    font-size: 20px ;
+    font-size: 15px ;
     border-radius: 4px;
     padding: 10px ;
     

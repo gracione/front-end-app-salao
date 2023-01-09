@@ -2,6 +2,7 @@ import styled from "styled-components"
 
 export const Container = styled.div`
 
+
     @media (min-width: 768px) 
     {
         background-image: url('/fundo.png');
@@ -12,7 +13,6 @@ export const Container = styled.div`
         justify-content: space-around ;        
     }
     @media (max-width: 767px) {
-        padding: 3vh;
     }
 `;
 export const PainelCalendario = styled.div`
@@ -43,7 +43,7 @@ export const Header = styled.div`
 export const Calendario = styled.div`
     width:500px;
     background:white;
-    
+
     .selecionado{
         background-color: var(--cor-primaria);
         border: solid 1px var(--cor-primaria);
@@ -74,6 +74,7 @@ export const Calendario = styled.div`
         align-items: center ;
     }
     .diasSemana{
+        width: 100% ;
         display: flex ;
         justify-content: space-between;
         li{
@@ -88,6 +89,7 @@ export const Calendario = styled.div`
         }
     }
     .mes{
+        width: 100% ;
         display: flex ;
         justify-content: space-between ;
         .semanaDia{
@@ -102,7 +104,6 @@ export const Calendario = styled.div`
     `;
 
 export const Conteudo = styled.div`
-
 	@media (max-width: 767px) {
 		width: 100%;
 		min-height: 30vh;

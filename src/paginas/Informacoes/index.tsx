@@ -36,10 +36,10 @@ export default function Informacoes() {
             <h3>Etapa Tratamento</h3>
             <hr />
             <div className="border d-flex" >
-              <div className="border w-50 d-flex justify-content-center">
+              <div className="border w-75 d-flex justify-content-center">
                 Tempo gasto aproximado
               </div>
-              <div className="border w-50 d-flex justify-content-center">
+              <div className="border w-25 d-flex justify-content-center">
                 {tempoGasto}
               </div>
             </div>
