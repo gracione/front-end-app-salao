@@ -46,12 +46,12 @@ export default function Horarios(props: any) {
       <div>
         <DataSelecionada>
           <div className="border w-100 d-flex justify-content-between" >
-          <div className="border w-50 d-flex justify-content-center" >
-            Data Selecionada
-          </div>
-          <div className="border w-50 d-flex justify-content-center" >
-          {props.data + " " + horarioEscolhido}
-          </div>
+            <div className="border w-50 d-flex justify-content-center" >
+              Data Selecionada
+            </div>
+            <div className="border w-50 d-flex justify-content-center" >
+              {props.data + " " + horarioEscolhido}
+            </div>
           </div>
         </DataSelecionada>
         <HorariosDisponivel>
@@ -68,8 +68,11 @@ export default function Horarios(props: any) {
               :
               <>Nenhum Horario Disponivel</>
           }
+        <div className="relogio" >
+        <label>Modo tradicional<br></br>de procurar<br></br>horário disponível</label>
+        <input type="time" />
+        </div>
         </HorariosDisponivel>
-
       </div>
       <button
         onClick={() => agendarHorario(props.data, horarioEscolhido, nomeCliente)}

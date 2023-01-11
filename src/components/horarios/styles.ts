@@ -8,6 +8,21 @@ export const HorariosDisponivel = styled.div`
     justify-content: space-around;
     flex-wrap: wrap;
 
+    .relogio{
+        margin-bottom: 10px ;
+        width: 180px ;
+        display: flex ;
+        border: solid 2px #808080;
+        font-size: 10px ;
+        border-radius: 4px ;
+        input{
+            width:60% ;
+            height: 100%;
+        }
+        label{
+            width:70% ;
+        }
+    }
     .selecionado,.disponivel{
         margin: 1px;
         width: 100px;

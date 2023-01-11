@@ -17,7 +17,7 @@ export const Container = styled.div`
 `;
 export const Cartao = styled.div`
 
-    width:100%;
+    width:98%;
     height:100px;
     margin-top: 5px ;
 
