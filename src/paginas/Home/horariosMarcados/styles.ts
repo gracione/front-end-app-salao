@@ -15,6 +15,7 @@ export const Container = styled.div`
         }
     }
 `;
+
 export const Cartao = styled.div`
 
     width:98%;
