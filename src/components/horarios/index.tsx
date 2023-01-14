@@ -3,7 +3,7 @@ import { Modal } from 'react-responsive-modal';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import api from '../../services/api';
-import { Container, Center } from "../../styles/global";
+import { Container } from "../../styles/global";
 
 export default function Horarios(props: any) {
   const [horario, setHorarios] = useState([]);
@@ -68,10 +68,10 @@ export default function Horarios(props: any) {
               :
               <>Nenhum Horario Disponivel</>
           }
-        <div className="relogio" >
-        <label>Modo tradicional<br></br>de procurar<br></br>horário disponível</label>
-        <input type="time" />
-        </div>
+          <div className="relogio" >
+            <label>Modo tradicional<br></br>de procurar<br></br>horário disponível</label>
+            <input type="time" />
+          </div>
         </HorariosDisponivel>
       </div>
       <button
