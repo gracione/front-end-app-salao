@@ -2,7 +2,6 @@ import api from '../../services/api';
 import { Conteudo, Header } from "../../styles/global";
 import { useState, useEffect } from "react";
 import Alterar from "../../util/alterar";
-import { Container } from 'react-bootstrap';
 
 export default function Configuracoes() {
   const [nome, setNome] = useState('');
