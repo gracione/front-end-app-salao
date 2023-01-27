@@ -8,6 +8,7 @@ import { Container } from "../../styles/global";
 export default function Horarios(props: any) {
   const [horario, setHorarios] = useState([]);
   const [horarioEscolhido, setHorarioEscolhido] = useState('');
+  const [modoTradicional, setModoTradicional] = useState('');
   const { idFuncionario, idProfissao, idTratamento, idFiltro, nomeCliente } = useParams();
   const [open, setOpen] = useState(false);
 
@@ -29,7 +30,8 @@ export default function Horarios(props: any) {
         idCliente: localStorage.getItem('id_usuario'),
         idTratamento: idTratamento,
         idFuncionario: idFuncionario,
-        nomeCliente: nomeCliente
+        nomeCliente: nomeCliente,
+        modoTradicional: modoTradicional, 
       }).then((response) => (setOpen(response.data)));
   }
   return (
@@ -69,7 +71,9 @@ export default function Horarios(props: any) {
           }
           <div className="relogio" >
             <label>Modo tradicional<br></br>de procurar<br></br>horário disponível</label>
-            <input type="time" />
+            <input type="time"
+                onChange={e => setModoTradicional(e.target.value)}            
+            />
           </div>
         </HorariosDisponivel>
       </div>
