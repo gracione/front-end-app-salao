@@ -31,16 +31,18 @@ export default function Horarios(props: any) {
         idTratamento: idTratamento,
         idFuncionario: idFuncionario,
         nomeCliente: nomeCliente,
-        modoTradicional: modoTradicional, 
+        modoTradicional: modoTradicional,
       }).then((response) => (setOpen(response.data)));
   }
   return (
     <Container >
       <Modal open={open} onClose={() => setOpen(false)}>
         <div className='modal'>
-          <img src="/icons/salvo.png" alt="" />
-          <h2>Horario agendado com sucesso!</h2>
-          <h2><a href={"/home"}>ok</a></h2>
+          <div className='salvo'>
+            <img src="/icons/salvo.png" alt="" />
+            <h2>Horario agendado com sucesso!</h2>
+            <h2><a href={"/home"}>ok</a></h2>
+          </div>
         </div>
       </Modal>
       <div>
@@ -71,7 +73,7 @@ export default function Horarios(props: any) {
           <div className="relogio" >
             <label>Modo tradicional<br></br>de procurar<br></br>horário disponível</label>
             <input type="time"
-                onChange={e => setModoTradicional(e.target.value)}            
+              onChange={e => setModoTradicional(e.target.value)}
             />
           </div>
         </HorariosDisponivel>

@@ -116,20 +116,28 @@ export const GlobalStyle = createGlobalStyle`
 	tr:nth-child(even) {
 		background-color: #dddddd;
 	}
+
 	.modal{
-		top: 100px ;
-		left: 100px ;
-		width: 400px ;
-		height: 200px ;
-		background-color: white ;
-		position: absolute ;
-		border:solid ;
-		border-radius: 10px ;
+		width: 100%;
+		height: 100vh ;
+		background: rgba(0, 0, 0, .5);
 		display: flex ;
-		justify-content:space-around ;
+		justify-content:center;
 		align-items: center ;
-		flex-direction: column ;
-		color: green ;
+		.salvo{
+			top: 100px ;
+			width: 350px ;
+			height: 200px ;
+			background-color: white ;
+			position: absolute ;
+			border:solid ;
+			border-radius: 10px ;
+			display: flex ;
+			justify-content:space-around ;
+			text-align: center ;
+			align-items: center ;
+			flex-direction: column ;
+			color: green ;
 		a{
 			color: #195800 ;
 			font-size: 40px ;

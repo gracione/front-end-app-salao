@@ -43,12 +43,13 @@ export default function HorariosMarcado() {
     <Container>
       <Modal open={excluir} onClose={() => setExcluir(false)}>
         <div className='modal'>
-          <img src="/icons/salvo.png" alt="" />
-          <h2>Horario desmarcado com sucesso!</h2>
-          <h2><a href={"/home"}>ok</a></h2>
+          <div className='salvo'>
+            <img src="/icons/salvo.png" alt="" />
+            <h2>Horario desmarcado com sucesso!</h2>
+            <h2><a href={"/home"}>ok</a></h2>
+          </div>
         </div>
       </Modal>
-
       {
         horariosMarcados.map((element) => (
           <Cartao>

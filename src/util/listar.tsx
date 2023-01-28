@@ -38,13 +38,13 @@ export default function Listar(props: any) {
           <td>{element[nomeColuna]}</td>
         ))}
         <td width={"20px"}>
-          <a href={link['editar']} className='editar' ><BsFillPencilFill/></a>
+          <a href={link['editar']} className='editar' ><BsFillPencilFill /></a>
         </td>
         <td width={"20px"} onClick={() => excluir(element.id)} className='excluir'>
           <FaTrashAlt></FaTrashAlt>
         </td>
       </tr>
-      
+
     )
   });
 
@@ -53,16 +53,20 @@ export default function Listar(props: any) {
       <Conteudo>
         <Modal open={open} onClose={() => setOpen(false)}>
           <div className='modal'>
-            <img src="/icons/erro.png" alt="" />
-            <h2>Item excluido com susseco</h2>
-            <h2><a href={"/" + funcao}>Ok</a></h2>
+            <div className='salvo'>
+              <img src="/icons/erro.png" alt="" />
+              <h2>Item excluido com susseco</h2>
+              <h2><a href={"/" + funcao}>Ok</a></h2>
+            </div>
           </div>
         </Modal>
         <Modal open={erro} onClose={() => setErro(false)}>
           <div className='modal'>
-            <img src="/icons/erro.png" alt="" />
-            <h2>Erro</h2>
-            <h2><a href={"/" + funcao}>Ok</a></h2>
+            <div className='salvo'>
+              <img src="/icons/erro.png" alt="" />
+              <h2>Erro</h2>
+              <h2><a href={"/" + funcao}>Ok</a></h2>
+            </div>
           </div>
         </Modal>
         <TituloFuncao>

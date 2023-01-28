@@ -12,10 +12,12 @@ export default function Inserir({modulo, dados}: any) {
   return (
     <div>
       <Modal open={open} onClose={() => setOpen(false)}>
-        <div className='modal'>
+      <div className='modal'>
+          <div className='salvo'>
           <img src="/icons/salvo.png" alt="" />
           <h2>Item salvo com sucesso!</h2>
           <h2><a href={"/" + modulo}>ok</a></h2>
+        </div>
         </div>
       </Modal>
       <button onClick={() => inserir(modulo, dados)} >Inserir</button>
