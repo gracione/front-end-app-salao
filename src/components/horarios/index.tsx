@@ -43,7 +43,6 @@ export default function Horarios(props: any) {
           <h2><a href={"/home"}>ok</a></h2>
         </div>
       </Modal>
-
       <div>
         <DataSelecionada>
           <div className="border w-100 d-flex justify-content-between" >

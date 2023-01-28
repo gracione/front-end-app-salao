@@ -42,9 +42,9 @@ export default function HorariosMarcado() {
   return (
     <Container>
       <Modal open={excluir} onClose={() => setExcluir(false)}>
-        <div className='modal text-danger'>
-          <h1>x</h1>
-          <h2>Erro ao desmarcar horario</h2>
+        <div className='modal'>
+          <img src="/icons/salvo.png" alt="" />
+          <h2>Horario desmarcado com sucesso!</h2>
           <h2><a href={"/home"}>ok</a></h2>
         </div>
       </Modal>
