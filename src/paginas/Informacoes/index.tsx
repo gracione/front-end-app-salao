@@ -13,6 +13,11 @@ export default function Informacoes() {
   const [idFiltro, setIdFiltro] = useState('0');
   const { idUsuarioFuncionario, idProfissao, nomeCliente } = useParams();
   let tratamentoPorProfissao = BuscarDadosApi('tratamentos', 'listar-id-profissao', { id: idProfissao });
+  const idTipoUsuario = localStorage.getItem("tipo_usuario");
+
+  if(idTipoUsuario !== '3' && nomeCliente === undefined){
+    window.location.href = "/home";
+  }
 
   useEffect(() => {
     api
@@ -43,7 +48,6 @@ export default function Informacoes() {
                 {tempoGasto}
               </div>
             </div>
-            <br / >
             <label htmlFor="">Tratamento</label>
             <select
             className="rounded bg-white"
