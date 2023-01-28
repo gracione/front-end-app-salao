@@ -10,7 +10,7 @@ export default function AlterarTratamento() {
   const [tratamento, setTratamento]: any = useState([]);
   const [filtro, setFiltro]: any = useState([]);
   const profissoes: any = BuscarDadosApi('profissao', 'listar');
-
+  
   const [nomeTratamento, setNomeTratamento]: any = useState([]);
   const [tempoGasto, setTempoGasto]: any = useState([]);
   const [idProfissao, setIdProfissao] = useState("");
@@ -25,7 +25,8 @@ export default function AlterarTratamento() {
       .then((response) =>
       (
         setFiltro(response.data.filtro),
-        setTratamento(response.data)
+        setTratamento(response.data),
+        setIdProfissao(response.data.id_profissao)
       )
       );
   }, []);
@@ -51,6 +52,7 @@ export default function AlterarTratamento() {
   return (
     <Header>
       <Conteudo>
+      <h3>Alterar dados do tratamento</h3>
         <input
           placeholder="Tratamento"
           defaultValue={tratamento.nome}
@@ -68,10 +70,10 @@ export default function AlterarTratamento() {
         <select
           required
           onChange={e => setIdProfissao(e.target.value)}
-          defaultValue={tratamento.id_profissao}
+          value={idProfissao}
         >
           {profissoes.map((element: any) => (
-            <option value={element.id}>
+            <option value={element.id} >
               {element.profissão}</option>
           ))}
         </select>
