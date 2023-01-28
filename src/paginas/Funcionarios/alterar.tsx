@@ -97,11 +97,12 @@ export default function AlterarFuncionario() {
           <select
             required
             onChange={e => alterarProfissao(e.target.value, element.id_funcionario)}
-            defaultValue={element.id}
+            value={element.id}
           >
-            <option value={'-1'}>Deletar</option>
-            {profissoes.map((element: any) => (
-              <option value={element.id}>{element.profissão}</option>
+            <option value={'-1'} >Deletar{element.id}</option>
+            {profissoes.map((prof: any) => (
+
+                <option value={prof.id}>{prof.profissão}</option>
             ))}
           </select>
         ))}
@@ -115,7 +116,7 @@ export default function AlterarFuncionario() {
               <option>Escolha a Profissão</option>
               {
                 profissoes.map((element) => (
-                  <option value={element.id}>{element.profissão + " " + i}</option>
+                  <option value={element.id}>{element.profissão}</option>
                 ))
               }
             </select>
