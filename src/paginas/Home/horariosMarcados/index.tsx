@@ -12,6 +12,7 @@ export default function HorariosMarcado() {
   const idTratamento = localStorage.getItem('idTratamento');
   const idTipoUsuario = localStorage.getItem("tipo_usuario");
   const [excluir, setExcluir] = useState(false);
+  const [confima, setConfimar] = useState(false);
 
   const horariosMarcados = BuscarDadosApi('horarios-marcados', 'listar ', {
     idUsuario: localStorage.getItem("id_usuario"),
@@ -33,7 +34,7 @@ export default function HorariosMarcado() {
   function confirmar(idHorario: any) {
     api.post("/horario/confirmar", {
       id: idHorario
-    }).then((response) => (setExcluir(response.data)));
+    }).then((response) => (setConfimar(response.data)));
     if (excluir) {
       window.location.href = "/home";
     }
@@ -46,6 +47,15 @@ export default function HorariosMarcado() {
           <div className='salvo'>
             <img src="/icons/salvo.png" alt="" />
             <h2>Horario desmarcado com sucesso!</h2>
+            <h2><a href={"/home"}>ok</a></h2>
+          </div>
+        </div>
+      </Modal>
+      <Modal open={confima} onClose={() => setConfimar(false)}>
+        <div className='modal'>
+          <div className='salvo'>
+            <img src="/icons/salvo.png" alt="" />
+            <h2>Horario confirmado com sucesso!</h2>
             <h2><a href={"/home"}>ok</a></h2>
           </div>
         </div>
