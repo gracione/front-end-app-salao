@@ -9,20 +9,17 @@ import { Modal } from 'react-responsive-modal';
 
 
 export default function HorariosMarcado() {
-  const idTratamento = localStorage.getItem('idTratamento');
   const idTipoUsuario = localStorage.getItem("tipo_usuario");
   const [excluir, setExcluir] = useState(false);
   const [confima, setConfimar] = useState(false);
 
   const horariosMarcados = BuscarDadosApi('horarios-marcados', 'listar ', {
     idUsuario: localStorage.getItem("id_usuario"),
-    idTratamento: idTratamento,
     tipoUsuario: localStorage.getItem("tipo_usuario")
   });
 
 
   function desmarcar(idHorario: any) {
-
     api.post("/horario/excluir", {
       id: idHorario
     }).then((response) => (setExcluir(response.data)));

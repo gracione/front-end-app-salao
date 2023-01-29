@@ -13,7 +13,7 @@ export default function Menu(): any {
   const tipoUsuario: any = localStorage.getItem("tipo_usuario");
   let servicos:any =[];
 
-  if(tipoUsuario === 1){
+  if(tipoUsuario === '1'){
     servicos = BuscarDadosApi('servicos', 'listar', { idUsuario: localStorage.getItem('id_usuario') });
   }
 

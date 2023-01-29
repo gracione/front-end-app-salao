@@ -66,11 +66,11 @@ export default function Informacoes() {
               }
 
             </select>
+            <Filtros
+              data={idTratamento}
+              setIdFiltro={setIdFiltro}
+            />
           </div>
-          <Filtros
-            data={idTratamento}
-            setIdFiltro={setIdFiltro}
-          />
           <button>Prosseguir</button>
         </form>
       </Conteudo>
