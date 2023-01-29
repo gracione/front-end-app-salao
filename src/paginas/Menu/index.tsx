@@ -11,8 +11,11 @@ export default function Menu(): any {
   perfil['2'] = 'Funcionario';
   perfil['3'] = 'Cliente';
   const tipoUsuario: any = localStorage.getItem("tipo_usuario");
+  let servicos:any =[];
 
-  const servicos: any = BuscarDadosApi('servicos', 'listar', { idUsuario: localStorage.getItem('id_usuario') });
+  if(tipoUsuario === 1){
+    servicos = BuscarDadosApi('servicos', 'listar', { idUsuario: localStorage.getItem('id_usuario') });
+  }
 
   function logout() {
     localStorage.clear();
