@@ -2,7 +2,6 @@ import api from '../../../services/api';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { Cartao, Container } from './styles';
-import { Carregando } from '../../../styles/global';
 import BuscarDadosApi from '../../../util/util';
 import { useState } from 'react';
 import { Modal } from 'react-responsive-modal';
@@ -49,8 +48,8 @@ export default function HorariosMarcado() {
         </div>
       </Modal>
       <Modal open={confima} onClose={() => setConfimar(false)}>
-        <div className='modal'>
           <div className='salvo'>
+        <div className='modal'>
             <img src="/icons/salvo.png" alt="" />
             <h2>Horario confirmado com sucesso!</h2>
             <h2><a href={"/home"}>ok</a></h2>

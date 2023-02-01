@@ -9,10 +9,16 @@ export default function Funcionarios(props: any) {
     tipoUsuario: localStorage.getItem('tipo_usuario')
   });
 
+  if(idTipoUsuario !== '3' && props.nomeCliente.length <= 0) {
+    return (
+      <h5>Digite o nome do cliente</h5>
+    )
+  }
+
   return (
     <Container>
       {funcionario.map((element) => (
-        <CardFuncionario href={"informacoes/funcionario=" + element.id + "/" + element.id_profissao + "/" + props.nomeCliente}>
+        <CardFuncionario href={"informacoes/funcionario=" + element.id + "/" + element.id_profissao + "/" + props.nomeCliente} className='funcionarios' >
           <h6>
             {element.nome}
           </h6>
