@@ -20,7 +20,7 @@ export default function InserirFolga() {
           >
             <option >Escolha o Funcionario</option>
             {funcionario.map((element: any) => (
-              <option value={[element.id_funcionario, element.id]}>{element.nome}</option>
+              <option value={[element.id_funcionario, element.id]}>{element.nome} {element.profissão}</option>
             ))}
           </select>
           <select

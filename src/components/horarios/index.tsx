@@ -31,6 +31,7 @@ export default function Horarios(props: any) {
         idTratamento: idTratamento,
         idFuncionario: idFuncionario,
         nomeCliente: nomeCliente,
+        nomeUsuario: localStorage.getItem('nome'),
         modoTradicional: modoTradicional,
       }).then((response) => (setOpen(response.data)));
   }
