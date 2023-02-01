@@ -1,9 +1,8 @@
 import { Center } from "../../styles/global";
 import { PainelCalendario, Calendario, Container,Conteudo } from './styles';
-
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-
+import api from "../../../src/services/api";
 import Horarios from '../../components/horarios';
 import BuscarDadosApi from "../../util/util";
 
@@ -44,9 +43,18 @@ export default function EtapaCalendario() {
 
   const { idFuncionario } = useParams();
   const folga = BuscarDadosApi('folgas', 'listar-id-funcionario', { idFuncionario });
-  const feriados = BuscarDadosApi('feriados', 'listarFeriadoPorMes', { mes, ano });
+  const [feriados,setFeriados] = useState([]);
   const dias = [0, 1, 2, 3, 4, 5, 6];
   const diasSemana = criarArrayCalendario(ano, mes);
+  
+  useEffect(() => {
+    api
+      .post("/feriados/listarFeriadoPorMes", {
+        mes,
+        ano
+      })
+      .then((response) => setFeriados(response.data));
+  }, [mes]);
 
   return (
     <Container>
