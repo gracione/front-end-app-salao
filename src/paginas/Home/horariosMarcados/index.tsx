@@ -12,11 +12,19 @@ export default function HorariosMarcado() {
   const [excluir, setExcluir] = useState(false);
   const [confima, setConfimar] = useState(false);
 
-  const horariosMarcados = BuscarDadosApi('horarios-marcados', 'listar ', {
-    idUsuario: localStorage.getItem("id_usuario"),
-    tipoUsuario: localStorage.getItem("tipo_usuario")
-  });
-
+  
+  let horariosMarcados: any = [];
+  
+  try {
+    horariosMarcados = BuscarDadosApi('horarios-marcados', 'listar ', {
+      idUsuario: localStorage.getItem("id_usuario"),
+      tipoUsuario: localStorage.getItem("tipo_usuario")
+    });
+  } catch (err) {
+    window.location.href = "/home";
+    console.error(err);
+  }
+  
 
   function desmarcar(idHorario: any) {
     api.post("/horario/excluir", {
@@ -57,7 +65,7 @@ export default function HorariosMarcado() {
         </div>
       </Modal>
       {
-        horariosMarcados.map((element) => (
+        horariosMarcados.map((element:any) => (
           <Cartao>
             <div className='dados-horario'>
               <div className="horario" >
@@ -82,7 +90,7 @@ export default function HorariosMarcado() {
               <div className='confirmar-desmarcar' >
                 {idTipoUsuario !== '3' && (
                   element['confirmado'] ?
-                    <div className='confirmado' onClick={() => confirmar(element['idHorario'])}>CONFIRMADO</div>
+                    <div className='confirmado' >CONFIRMADO</div>
                     :
                     <div className='confirmar' onClick={() => confirmar(element['idHorario'])}>CONFIRMAR</div>
                 )
