@@ -2,8 +2,6 @@ import { Link } from "react-router-dom";
 import { Container } from "./style";
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import BuscarDadosApi from "../../util/util";
 
 export default function Menu(): any {
   const perfil: any = [];
@@ -11,11 +9,6 @@ export default function Menu(): any {
   perfil['2'] = 'Funcionario';
   perfil['3'] = 'Cliente';
   const tipoUsuario: any = localStorage.getItem("tipo_usuario");
-  let servicos:any =[];
-
-  if(tipoUsuario === '1'){
-    servicos = BuscarDadosApi('servicos', 'listar', { idUsuario: localStorage.getItem('id_usuario') });
-  }
 
   function logout() {
     localStorage.clear();
@@ -34,10 +27,16 @@ export default function Menu(): any {
           </Nav>
           <Nav >
             <Link className="m-2" to="/home">Home</Link>
-            {servicos.map((element: any) =>
-              <Link className="m-2" to={"/" + element.url}>{element.nome}</Link>
-
-            )}
+            { tipoUsuario === '1' && (
+              <>
+                <Link className="m-2" to={"/funcionarios"} >funcionários</Link>
+                <Link className="m-2" to={"/feriados"} >feriados</Link>
+                <Link className="m-2" to={"/folgas"} >folgas</Link>
+                <Link className="m-2" to={"/tratamentos"} >tratamentos</Link>
+                <Link className="m-2" to={"/profissao"} >profissão</Link>
+              </>
+            )
+            }
             <Link className="m-2" to="/configuracoes">Configurações</Link>
             <div className="m-2 text-white" onClick={logout} >Sair</div>
             <div className="m-2 text-info">
@@ -50,7 +49,7 @@ export default function Menu(): any {
                 </div>
                 : &nbsp;
                 <div >
-                {localStorage.getItem('nome')}
+                  {localStorage.getItem('nome')}
                 </div>
               </div>
             </div>

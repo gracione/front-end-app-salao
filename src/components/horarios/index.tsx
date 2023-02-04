@@ -9,7 +9,7 @@ export default function Horarios(props: any) {
   const [horario, setHorarios] = useState([]);
   const [horarioEscolhido, setHorarioEscolhido] = useState('');
   const [modoTradicional, setModoTradicional] = useState('');
-  const { idFuncionario, idProfissao, idTratamento, idFiltro, nomeCliente } = useParams();
+  const { idFuncionario, idTratamento, idFiltro, nomeCliente } = useParams();
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -79,12 +79,13 @@ export default function Horarios(props: any) {
           </div>
         </HorariosDisponivel>
       </div>
-      <button
-        onClick={() => agendarHorario(props.data, horarioEscolhido, nomeCliente)}
-      >
-        Agendar
-      </button>
-
+      {horarioEscolhido.length > 0 &&
+        <button
+          onClick={() => agendarHorario(props.data, horarioEscolhido, nomeCliente)}
+        >
+          Agendar
+        </button>
+      }
     </Container>
   );
 }
