@@ -1,7 +1,7 @@
 import Alterar from "../../util/alterar";
 import { Center, Conteudo, Header } from "../../styles/global";
 import api from '../../services/api';
-import { useState, useEffect } from "react";
+import { useState, useEffect, JSXElementConstructor, ReactElement, ReactFragment, ReactPortal } from "react";
 import { useParams } from "react-router-dom";
 import BuscarDadosApi from "../../util/util";
 import { AdicionarPrifissao } from "./styles";
@@ -13,6 +13,7 @@ export default function AlterarFuncionario() {
   const [listagem, setListagem]: any = useState([]);
   const [profissao, setProfissao]: any = useState([]);
   const [expediente, setExpediente]: any = useState([]);
+  const [profissoes, setProfissoes]: any = useState([]);
   const [inicioDeExpediente, setInicioDeExpediente]: any = useState('');
   const [inicioHorarioAlmoco, setInicioHorarioAlmoco]: any = useState('');
   const [fimHorarioAlmoco, setFimHorarioAlmoco]: any = useState('');
@@ -20,7 +21,22 @@ export default function AlterarFuncionario() {
 
   const { idFuncionario } = useParams();
 
-  const profissoes = BuscarDadosApi('profissao', 'listar');
+  useEffect(() => {
+    api
+      .post("/funcionarios/listar-id", {
+        id: idFuncionario
+      })
+      .then((response) =>
+        [setProfissao(response.data['profissao']),
+        setListagem(response.data['funcionario']),
+        setExpediente(response.data['expediente']),
+        setProfissoes(response.data['profissoes'])
+        ]
+      );
+
+
+  }, []);
+
 
   const [profissoesAlteradas, setProfissoesAlteradas] = useState(profissao);
   const profissoesAlteradasAux: any = profissoesAlteradas;
@@ -28,30 +44,8 @@ export default function AlterarFuncionario() {
   const [profissoesCadastradas, setProfissoesCadastradas] = useState([]);
   const profissoesCadastradasAux: any = profissoesCadastradas;
 
-
   const [quantidadeProfissoes, setQuantidadeProfissoes] = useState(0);
 
-
-  useEffect(() => {
-    api
-      .post("/profissao/listar-id-funcionario", {
-        id: idFuncionario
-      })
-      .then((response) => setProfissao(response.data));
-
-    api
-      .post("/funcionarios/listar-id", {
-        id: idFuncionario
-      })
-      .then((response) => setListagem(response.data));
-
-    api
-      .post("/expediente/listar-id", {
-        id: idFuncionario
-      })
-      .then((response) => setExpediente(response.data));
-
-  }, []);
 
   function adicionarProfissao(valor: any, indice: any) {
     profissoesCadastradasAux[indice] = valor;
@@ -102,7 +96,7 @@ export default function AlterarFuncionario() {
             <option value={'-1'} >Deletar</option>
             {profissoes.map((prof: any) => (
 
-                <option value={prof.id}>{prof.profissão}</option>
+              <option value={prof.id}>{prof.profissão}</option>
             ))}
           </select>
         ))}
@@ -115,7 +109,7 @@ export default function AlterarFuncionario() {
             >
               <option>Escolha a Profissão</option>
               {
-                profissoes.map((element) => (
+                profissoes.map((element: { id: string | number | readonly string[] | undefined; profissão: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; }) => (
                   <option value={element.id}>{element.profissão}</option>
                 ))
               }
