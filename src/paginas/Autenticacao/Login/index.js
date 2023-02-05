@@ -19,7 +19,7 @@ export default function Login() {
       localStorage.setItem('nome', response.data.nome);
       window.location.href = "/home";
     } catch (err) {
-      alert('Falha no login, tente novamente.');
+      alert('Usuário e/ou senha inválidos.');
     }
   }
 

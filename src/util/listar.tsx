@@ -61,10 +61,10 @@ export default function Listar(props: any) {
           </div>
         </Modal>
         <Modal open={erro} onClose={() => setErro(false)}>
-          <div className='modal'>
-            <div className='salvo'>
+          <div className='modal '>
+            <div className='salvo text-danger'>
               <img src="/icons/erro.png" alt="" />
-              <h2>Erro</h2>
+              <h3>Erro<br></br>veja se existem no sistema itens associados</h3>
               <h2><a href={"/" + funcao}>Ok</a></h2>
             </div>
           </div>
