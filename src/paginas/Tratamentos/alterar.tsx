@@ -52,7 +52,7 @@ export default function AlterarTratamento() {
   return (
     <Header>
       <Conteudo>
-      <h3>Alterar dados do tratamento</h3>
+      <h3>Alterar tratamento</h3>
         <input
           placeholder="Tratamento"
           defaultValue={tratamento.nome}

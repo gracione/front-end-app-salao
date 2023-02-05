@@ -71,7 +71,7 @@ export default function AlterarFuncionario() {
   return (
     <Header>
       <Conteudo>
-        <h3 >Alterar dados do Funcionário</h3>
+        <h3 >Alterar Funcionário</h3>
         <label>Nome</label>
         <input
           defaultValue={listagem['nome']}
