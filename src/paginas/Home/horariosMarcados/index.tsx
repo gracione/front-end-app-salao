@@ -56,8 +56,8 @@ export default function HorariosMarcado() {
         </div>
       </Modal>
       <Modal open={confima} onClose={() => setConfimar(false)}>
-          <div className='salvo'>
         <div className='modal'>
+          <div className='salvo'>
             <img src="/icons/salvo.png" alt="" />
             <h2>Horario confirmado com sucesso!</h2>
             <h2><a href={"/home"}>ok</a></h2>

@@ -79,7 +79,7 @@ export default function Horarios(props: any) {
           </div>
         </HorariosDisponivel>
       </div>
-      {horarioEscolhido.length > 0 || modoTradicional.length > 0 &&
+      {(horarioEscolhido.length > 0 || modoTradicional.length > 0) &&
         <button
           onClick={() => agendarHorario(props.data, horarioEscolhido, nomeCliente)}
         >
