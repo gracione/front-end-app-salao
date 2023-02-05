@@ -80,7 +80,7 @@ export default function HorariosMarcado() {
                 <div className=''>cliente: {element['nome_cliente'] ?? element['cliente']}</div>
               </li>
               <li>Funcionario: {element['funcionario']}</li>
-              <li>Tratamento: {element['tratamento']}</li>
+              <li className='text-lowercase'>Tratamento: {element['tratamento']}</li>
               <li className='telefone'>
                 <a href={"https://api.whatsapp.com/send/?phone=+55" + element['telefone'] + "&text=oi"}>
                   telefone: {element['telefone'] + " "}

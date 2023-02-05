@@ -64,7 +64,11 @@ export default function Listar(props: any) {
           <div className='modal '>
             <div className='salvo text-danger'>
               <img src="/icons/erro.png" alt="" />
-              <h3>Erro<br></br>veja se existem no sistema itens associados</h3>
+              <h3>Erro<br></br>
+              <div className='text-lowercase'>
+              veja se existe no sistema itens associados
+              </div>
+              </h3>
               <h2><a href={"/" + funcao}>Ok</a></h2>
             </div>
           </div>

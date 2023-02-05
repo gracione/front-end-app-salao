@@ -22,7 +22,7 @@ export default function AlterarProfissao() {
     <Header>
 
       <Conteudo>
-        <h3>Alterar dados da profissão</h3>
+        <h3>Alterar Profissão</h3>
         <small>Nome</small>
         <input
           name='nome'
