@@ -14,13 +14,13 @@ export default function Home() {
           <h6 className="bg-white w-100 border titulo d-flex justify-content-center" >Agendar Horário</h6>
           <div className="w-100" >
             {idTipoUsuario === '1' &&
-              <h5>Etapa escolher Funcionário e Profissão</h5>
+              <h5>Etapa Escolher Funcionário e Profissão</h5>
             }
             {idTipoUsuario === '2' &&
-              <h5>Etapa escolher Profissão</h5>
+              <h5>Etapa Escolher Profissão</h5>
             }
             {idTipoUsuario === '3' &&
-              <h5>Etapa escolher Funcionário e Profissão</h5>
+              <h5>Etapa Escolher Funcionário e Profissão</h5>
             }
             {idTipoUsuario !== '3' &&
               <input type="text" onChange={e => SetNomeCliente(e.target.value)} placeholder="Digite o nome do cliente" required />
