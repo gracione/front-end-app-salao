@@ -9,13 +9,13 @@ export default function AlterarTratamento() {
   const { idTratamento } = useParams();
   const [tratamento, setTratamento]: any = useState([]);
   const [filtro, setFiltro]: any = useState([]);
-  const profissoes: any = BuscarDadosApi('profissao', 'listar');
   
   const [nomeTratamento, setNomeTratamento]: any = useState([]);
   const [tempoGasto, setTempoGasto]: any = useState([]);
   const [idProfissao, setIdProfissao] = useState("");
   const [filtroTipo, setFiltroTipo] = useState([]);
   const [filtro_, setFiltro_] = useState([]);
+  const [profissoes, setProfissoes]: any = useState([]);
 
   useEffect(() => {
     api
@@ -23,10 +23,11 @@ export default function AlterarTratamento() {
         id: idTratamento
       })
       .then((response) =>
-      (
-        setFiltro(response.data.filtro),
-        setTratamento(response.data),
-        setIdProfissao(response.data.id_profissao)
+      ([
+        setFiltro(response.data['tratamentos'].filtro),
+        setTratamento(response.data['tratamentos']),
+        setIdProfissao(response.data['tratamentos'].id_profissao),
+        setProfissoes(response.data['profissoes'])]
       )
       );
   }, []);
