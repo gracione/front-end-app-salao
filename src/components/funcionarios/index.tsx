@@ -8,7 +8,7 @@ export default function Funcionarios(props: any) {
     idUsuario: localStorage.getItem('id_usuario'),
     tipoUsuario: localStorage.getItem('tipo_usuario')
   });
-
+  
   if (idTipoUsuario !== '3' && props.nomeCliente.length <= 0) {
   }
 

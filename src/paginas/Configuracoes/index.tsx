@@ -12,7 +12,7 @@ export default function Configuracoes() {
 
   useEffect(() => {
     api
-      .post("/configuracao/listar-id")
+      .post("/configuracao/dados-configuracao")
       .then((response) => setListagem(response.data));
 
   }, []);
