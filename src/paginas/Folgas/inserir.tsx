@@ -13,7 +13,7 @@ export default function InserirFolga() {
     <Header>
       <Conteudo>
         <div>
-          <h3>Adicionar folga ao funcionario</h3>
+          <h3>Adicionar folga</h3>
           <select
             onChange={e => setIdFuncionario(e.target.value)}
             required
