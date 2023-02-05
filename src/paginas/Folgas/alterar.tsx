@@ -21,8 +21,8 @@ export default function AlterarFolga() {
     <Header>
       <Conteudo>
         <div>
-          <h3>Adicionar folga ao funcionario</h3>
-          <label>Funcionario {listagem['funcionario']}</label>
+          <h3>Alterar Folga</h3>
+          <label>Funcionario {listagem['profissao']} {listagem['funcionario']}</label>
           {
             listagem['dia_semana'] !== undefined &&
             <select

@@ -60,7 +60,7 @@ export default function Rota() {
                 <Route path="/feriados/adicionar" element={< InserirFeriado />} />
                 <Route path="/feriados/alterar/:idFeriado" element={< AlterarFeriado />} />
 
-                <Route path="/folgas" element={<Listar funcao="folgas" colunas={["funcionario", "folga"]} />} />
+                <Route path="/folgas" element={<Listar funcao="folgas" colunas={["funcionario", "profissao","folga"]} />} />
                 <Route path="/folgas/adicionar" element={< InserirFolga />} />
                 <Route path="/folgas/alterar/:idFolga" element={< AlterarFolga />} />
 

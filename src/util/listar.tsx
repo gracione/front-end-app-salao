@@ -82,7 +82,7 @@ export default function Listar(props: any) {
         <table>
           <tr>
             {colunas.map((nome: any) => (
-              <th>{nome.replaceAll('_', ' ')}</th>
+              <th className='text-capitalize' >{nome.replaceAll('_', ' ')}</th>
             ))}
             <th colSpan={2} ></th>
           </tr>
