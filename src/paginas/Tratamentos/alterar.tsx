@@ -1,6 +1,5 @@
 import api from '../../services/api';
 import { useParams } from "react-router-dom";
-import BuscarDadosApi from "../../util/util";
 import Alterar from "../../util/alterar";
 import { useState, useEffect } from "react";
 import { Conteudo, Header } from "../../styles/global";
