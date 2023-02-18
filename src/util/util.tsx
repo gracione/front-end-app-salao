@@ -9,11 +9,6 @@ export default function BuscarDadosApi(funcao: string, opcao: string, dados: any
   useEffect(() => {
     api.post(url, {dados: dados})
     .then((response) => setListagem(response.data))
-    .catch((error) => {
-      alert('Fazer login novamente.');
-      localStorage.clear();
-      window.location.href = "/login";
-    });
   }, []);
 
   return listagem;
