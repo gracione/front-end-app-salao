@@ -49,7 +49,7 @@ export default function EtapaCalendario() {
   
   useEffect(() => {
     api
-      .post("/feriados/listarFeriadoPorMes", {
+      .post("/feriados/listar-mes-ano", {
         mes,
         ano
       })
