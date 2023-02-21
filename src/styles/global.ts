@@ -29,12 +29,15 @@ export const GlobalStyle = createGlobalStyle`
 		outline:none;
 		box-sizing: border-box;
 	}
+
 	a{
 		color:var(--shape);
 	}
+
 	.border{
 		border: solid ;
 	}
+
 	select,input{
 		padding: 0px;
 		width: 100%;
@@ -45,6 +48,7 @@ export const GlobalStyle = createGlobalStyle`
 		border-radius: 2px ;
 		border: solid var(--borda) 2px !important;
 	}
+
 	button{
 		width: 100%;
 		height: 40px ;
@@ -58,53 +62,58 @@ export const GlobalStyle = createGlobalStyle`
 		align-items: center ;
 		justify-content: center ;
 	}
-
 	.display-flex{
 		display: flex ;
 	}
-
-		.editar{
+	.editar{
 			color: var(--blue-light);
 		}
-		.excluir{
-			color: var(--red-light);
-		}
-	a{
-		text-decoration: none ;
+	.excluir{
+		color: var(--red-light);
 	}
+
+	a{
+	text-decoration: none;
+	}
+
 	form{
 		height: 100%;
-		display: flex ;
-		flex-direction: column ;
-		justify-content: space-between ;	
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
 	}
+
 	.p-1{
 		padding: 10px;
 	}
+
 	h3{
-		text-transform: capitalize ;
+		text-transform: capitalize;
 	}
+
 	fieldset{
-		border-radius: 4px;
-		margin:5px ;
-		border: solid 1px var(--borda) ;
-		background-color: #fff5ee ;
+	border-radius: 4px;
+	margin: 5px;
+	border: solid 1px var(--borda);
+	background-color: #fff5ee;
 	}
+
 	.inputTable{
-		height: 30px ;
-		border: solid 1px var(--borda) ;
-		background-color: white ;
-		margin: 0 ;
-		border-radius: 0% ;
-		display: flex;
-		justify-content: center ;
-		align-items: center ;
+	height: 30px;
+	border: solid 1px var(--borda);
+	background-color: white;
+	margin: 0;
+	border-radius: 0 % ;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	}
+
 	table {
-		background-color: white ;
+		background-color: white;
 		font-family: arial, sans-serif;
 		border-collapse: collapse;
-		width: 100%;
+		width: 100 %;
 	}
 
 	td, th {
@@ -118,49 +127,51 @@ export const GlobalStyle = createGlobalStyle`
 	}
 
 	.modal{
-		width: 100%;
-		height: 100vh ;
-		background: rgba(0, 0, 0, .5);
-		display: flex ;
-		justify-content:center;
-		align-items: center ;
-		.salvo{
-			top: 100px ;
-			width: 350px ;
-			height: 200px ;
-			background-color: white ;
-			position: absolute ;
-			border:solid ;
-			border-radius: 10px ;
-			display: flex ;
-			justify-content:space-around ;
-			text-align: center ;
-			align-items: center ;
-			flex-direction: column ;
-			color: green ;
+	width: 100 %;
+	height: 100vh;
+	background: rgba(0, 0, 0, .5);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	}
+
+	.salvo{
+			top: 100px;
+			width: 350px;
+			height: 200px;
+			background-color: white;
+			position: absolute;
+			border: solid;
+			border-radius: 10px;
+			display: flex;
+			justify-content: space-around;
+			text-align: center;
+			align-items: center;
+			flex-direction: column;
+			color: green;
 		a{
-			color: #195800 ;
-			font-size: 40px ;
+			color: #195800;
+			font-size: 40px;
 		}
 		img{
-			width: 50px ;
+			width: 50px;
 		}
 	}
 
 	.red{
-		background-color: red ;
+		background-color: red;
 	}
 	.blue{
-		background-color: blue ;
+		background-color: blue;
 	}
 	.center{
-		display: flex ;
-		justify-content: center ;
-		align-items: center ;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 	.column{
-		display: flex ;
-		flex-direction: column ;
+		display: flex;
+		flex-direction: column;
 	}
 
 `;
@@ -176,7 +187,7 @@ export const Container = styled.div`
 	margin: 0px ;
 	padding: 0px;
 	width: 100% ;
-	height: 100% ;
+	min-height: 100vh ;
 	display: flex ;
 	flex-direction: column ;
 	justify-content: space-between ;
@@ -201,7 +212,7 @@ export const Conteudo = styled.div`
 	}
 `;
 
-export const Header = styled.div`
+	export const Header = styled.div`
 	height: auto;
 	min-height: 94vh ;
 	background-image: url('/fundo.png');
@@ -220,12 +231,12 @@ export const Header = styled.div`
 
 
 `
-export const TituloFuncao = styled.div`
+	export const TituloFuncao = styled.div`
 	display: flex;
 	justify-content: space-between ;
 	align-items: center;
 `;
-export const Adicionar = styled.a`
+	export const Adicionar = styled.a`
 	@media (max-width: 767px) {
 		margin-bottom: 5px ;
 		width:55px ;
@@ -260,11 +271,11 @@ export const Adicionar = styled.a`
 
 `;
 
-export const Center = styled.div`
+	export const Center = styled.div`
 	display: flex;
 	justify-content: center ;
 `;
-export const AdicionarItem = styled.div`
+	export const AdicionarItem = styled.div`
 	width: 100% ;
 	height: 40px ;
 	align-items: center ;
@@ -276,7 +287,7 @@ export const AdicionarItem = styled.div`
 	background-color:var(--shape) ;
 	color: var(--borda) ;
 `;
-export const Button = styled.div`
+	export const Button = styled.div`
 	width: 90% ;
 	height: 25px ;
 	background-color: var(--blue) ;
@@ -286,9 +297,9 @@ export const Button = styled.div`
 	display: flex ;
 	justify-content: center ;
 	align-items: center ;
-`
+`;
 
-export const Carregando = styled.div`
+	export const Carregando = styled.div`
 	img{
 		width: 100px ;
 	}
@@ -296,4 +307,4 @@ export const Carregando = styled.div`
 	flex-direction: column ;
 	justify-content: center ;
 	align-items: center ;
-`
+`;

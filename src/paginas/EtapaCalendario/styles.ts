@@ -2,13 +2,12 @@ import styled from "styled-components"
 
 export const Container = styled.div`
 
-
     @media (min-width: 768px) 
     {
         background-image: url('/fundo.png');
         background-attachment: fixed;
         padding: 3vh;
-        height: 92vh ;
+        min-height: 92vh ;
         display: flex ;
         justify-content: space-around ;        
     }
