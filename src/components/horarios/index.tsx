@@ -61,12 +61,23 @@ export default function Horarios(props: any) {
           {
             horario ?
               horario.map((element) => (
-                <div
+                <tr
                   className={horarioEscolhido === element['inicio'] ? "selecionado" : "disponivel"}
                   onClick={() => setHorarioEscolhido(element['inicio'])}
                 >
-                  {element['inicio']}
-                </div>
+                  <th>
+                    <div>Inicio</div>
+                    <div className="h6" >
+                      {element['inicio']}
+                    </div>
+                  </th>
+                  <th>
+                    <div>Fim</div>
+                    <div className="h6" >
+                      {element['fim']}
+                    </div>
+                  </th>
+                </tr>
               ))
               :
               <>Nenhum Horario Disponivel</>

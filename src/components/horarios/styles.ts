@@ -23,13 +23,13 @@ export const HorariosDisponivel = styled.div`
     }
     .selecionado,.disponivel{
         margin: 1px;
-        width: 100px;
+        width: 130px;
         height: 40px;
         border: solid ;
         border-radius: 4px;
         margin-top: 5px;
         margin-bottom: 5px;
-        font-size: 25px ;
+        font-size: 10px ;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -37,6 +37,13 @@ export const HorariosDisponivel = styled.div`
                                                 
         &:active {
             opacity: 0.6;
+        }
+        th{
+            padding-top: 13% ;
+            width: 100% ;
+            border: none ;
+            align-items: center ;
+            align-self:center;
         }
     }
 
