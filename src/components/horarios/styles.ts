@@ -25,8 +25,7 @@ export const HorariosDisponivel = styled.div`
         margin: 1px;
         width: 130px;
         height: 40px;
-        border: solid ;
-        border-radius: 4px;
+        border-radius: 2px;
         margin-top: 5px;
         margin-bottom: 5px;
         font-size: 10px ;
@@ -52,7 +51,7 @@ export const HorariosDisponivel = styled.div`
     }
     .disponivel{
         color: var(--blue) ;
-        background-color: white ;
+        background-color: #00BFFF ;
     }
 `;
 
