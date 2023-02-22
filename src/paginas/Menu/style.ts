@@ -2,28 +2,57 @@ import styled from "styled-components";
 
 export const Container = styled.div`
         display: flex;
-        justify-content: space-between ;
-        width: 100% ;
+        justify-content: space-between;
+        width: 50px ;
         text-transform: capitalize;
-
-    .logo{
-        margin:0 ;
-        padding:0    ;
-        height: 100% ;
-    }
-    .menu{
-        height: 100%;
-        width: 100% ;
-        padding: 0px ;
-    }
-    .menuB{
-        width: 70px;
-        height: 30px ;
-    }
+        flex-direction: column ;
+        position: fixed ;
+                
     @media (max-width: 767px) {
+        width: 100% ;
+        .desktop{
+            display: none ;
+        }
+        .logo{
+            margin:0 ;
+            padding:0    ;
+            height: 100% ;
+        }
+        .menu{
+            height: 100%;
+            width: 100% ;
+            padding: 0px ;
+        }
+        .menuB{
+            width: 70px;
+            height: 30px ;
+        }
     }
 
     @media (min-width: 767px) {
-        height: 30px ;
+        .mobile{
+            display: none ;
+        }
+        .logo{
+            margin:0 ;
+            padding:0    ;
+            height: 10vh ;
+        }
+
+        .desktop{
+            width: 100% ;
+            height: 80vh ;
+            display: flex ;
+            flex-direction: column ;
+        }
+        .menu{
+            display: flex ;
+            flex-direction: column ;
+            height: 100%;
+            width: 100% ;
+            padding: 0px ;
+        }
+
+        height: 100vh ;
     }
 `;

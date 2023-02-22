@@ -2,6 +2,11 @@ import { Link } from "react-router-dom";
 import { Container } from "./style";
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { AiFillSetting, AiFillHome} from "react-icons/ai";
+import { BsFillCalendarDayFill } from "react-icons/bs";
+import { FaSignOutAlt, FaCalendarDay,FaUserPlus } from "react-icons/fa";
+import { GiHairStrands } from "react-icons/gi";
+import { RiBriefcase4Fill } from "react-icons/ri"; 
 
 export default function Menu(): any {
   const perfil: any = [];
@@ -22,12 +27,12 @@ export default function Menu(): any {
           <img width="40px" src="/logo-alternativa.svg" alt="salao" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" className="menuB" />
-        <Navbar.Collapse id="responsive-navbar-nav">
+        <Navbar.Collapse id="responsive-navbar-nav bg-dark">
           <Nav className="me-auto">
           </Nav>
-          <Nav >
+          <Nav className="mobile">
             <Link className="m-2" to="/home">Home</Link>
-            { tipoUsuario === '1' && (
+            {tipoUsuario === '1' && (
               <>
                 <Link className="m-2" to={"/funcionarios"} >funcionários</Link>
                 <Link className="m-2" to={"/feriados"} >feriados</Link>
@@ -53,6 +58,22 @@ export default function Menu(): any {
                 </div>
               </div>
             </div>
+          </Nav>
+  
+          <Nav className="desktop" >
+            <Link className="m-2" to="/home"><AiFillHome /></Link>
+            {tipoUsuario === '1' && (
+              <>
+                <Link className="m-2" to={"/funcionarios"} ><FaUserPlus /></Link>
+                <Link className="m-2" to={"/feriados"} ><FaCalendarDay /></Link>
+                <Link className="m-2" to={"/folgas"} ><BsFillCalendarDayFill /></Link>
+                <Link className="m-2" to={"/tratamentos"} ><GiHairStrands /></Link>
+                <Link className="m-2" to={"/profissao"} ><RiBriefcase4Fill /></Link>
+              </>
+            )
+            }
+            <Link className="m-2" to="/configuracoes"><AiFillSetting /></Link>
+            <div className="m-2 text-white" onClick={logout} ><FaSignOutAlt /></div>
           </Nav>
         </Navbar.Collapse>
       </Navbar >
