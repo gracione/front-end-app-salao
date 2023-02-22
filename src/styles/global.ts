@@ -197,6 +197,7 @@ export const Conteudo = styled.div`
 
 	@media (max-width: 767px) {
 		width: 100%;
+		margin-top: 03% ;
 		min-height: 91vh;
 		padding: 20px ;
 		background-color: var(--backgroud-secundaria);
@@ -209,6 +210,7 @@ export const Conteudo = styled.div`
 		border-radius: 10px ;
 		background-color: var(--backgroud-secundaria);
 		padding: 20px ;
+		margin-left: 03% ;
 	}
 `;
 
