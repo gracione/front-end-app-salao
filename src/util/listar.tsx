@@ -6,6 +6,7 @@ import { FaTrashAlt } from "react-icons/fa";
 import { BsFillPencilFill } from "react-icons/bs";
 import ModalSalvar from './ModalSalvar';
 import ModalErro from './ModalErro';
+import { Link } from "react-router-dom";
 
 export default function Listar(props: any) {
   const funcao: any = props.funcao;
@@ -64,7 +65,9 @@ export default function Listar(props: any) {
           <h3>
             {funcao}
           </h3>
-          <Adicionar href={funcao + "/adicionar"}>+</Adicionar>
+          <Link to={"adicionar"}>
+            <Adicionar>+</Adicionar>
+          </Link>
         </TituloFuncao>
         <table className='w-100'>
           <tr>
