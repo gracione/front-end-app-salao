@@ -79,7 +79,7 @@ export default function Listar(props: any) {
           </h3>
           <Adicionar href={funcao + "/adicionar"}>+</Adicionar>
         </TituloFuncao>
-        <table>
+        <table className='w-100'>
           <tr>
             {colunas.map((nome: any) => (
               <th className='text-capitalize' >{nome.replaceAll('_', ' ')}</th>
