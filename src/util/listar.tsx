@@ -4,6 +4,8 @@ import { Adicionar, Conteudo, Header, TituloFuncao } from '../styles/global';
 import { useState, useEffect } from "react";
 import { FaTrashAlt } from "react-icons/fa";
 import { BsFillPencilFill } from "react-icons/bs";
+import ModalSalvar from './ModalSalvar';
+import ModalErro from './ModalErro';
 
 export default function Listar(props: any) {
   const funcao: any = props.funcao;
@@ -20,6 +22,7 @@ export default function Listar(props: any) {
   let listar: any = [];
 
   function excluir(id: any) {
+
     api.post("/" + funcao + "/excluir", { id: id })
       .then((response) => (
         setOpen(response.data),
@@ -52,26 +55,10 @@ export default function Listar(props: any) {
     <Header>
       <Conteudo>
         <Modal open={open} onClose={() => setOpen(false)}>
-          <div className='modal'>
-            <div className='salvo'>
-              <img src="/icons/erro.png" alt="" />
-              <h2>Item excluido com susseco</h2>
-              <h2><a href={"/" + funcao}>Ok</a></h2>
-            </div>
-          </div>
+          <ModalSalvar funcao={funcao} />
         </Modal>
         <Modal open={erro} onClose={() => setErro(false)}>
-          <div className='modal '>
-            <div className='salvo text-danger'>
-              <img src="/icons/erro.png" alt="" />
-              <h3>Erro<br></br>
-              <div className='text-lowercase'>
-              veja se existe no sistema itens associados
-              </div>
-              </h3>
-              <h2><a href={"/" + funcao}>Ok</a></h2>
-            </div>
-          </div>
+          <ModalErro  funcao={funcao} />
         </Modal>
         <TituloFuncao>
           <h3>
