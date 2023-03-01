@@ -142,7 +142,7 @@ export const GlobalStyle = createGlobalStyle`
 			background-color: white;
 			position: absolute;
 			border: solid;
-			border-radius: 10px;
+			border-radius: 5px;
 			display: flex;
 			justify-content: space-around;
 			text-align: center;
@@ -207,7 +207,7 @@ export const Conteudo = styled.div`
 		width: 600px ;
 		min-height: 80vh;
 		border: solid var(--borda) 2px;
-		border-radius: 10px ;
+		border-radius: 5px ;
 		background-color: var(--backgroud-secundaria);
 		padding: 20px ;
 		margin-left: 03% ;

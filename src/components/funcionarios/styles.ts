@@ -18,7 +18,7 @@ export const CardFuncionario = styled.a`
         width: 90px;
         height: 120px ;
         border: solid var(--borda) 2px;
-        border-radius: 10px ;
+        border-radius: 5px ;
         background-color: white ;
         color: #000;
 
@@ -40,7 +40,7 @@ export const CardAdicionarFuncionario = styled.a`
         width: 90px;
         height: 120px;
         border: solid var(--cor-primaria) 2px;
-        border-radius: 10px ;
+        border-radius: 5px ;
         margin-left: 10px;
         margin-bottom       : 10px;
 

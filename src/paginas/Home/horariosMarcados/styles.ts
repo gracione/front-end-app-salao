@@ -81,7 +81,7 @@ export const Cartao = styled.div`
                 height: 100% ;
                 color: black ;
                 border: solid ;
-                border-radius: 3px ;
+                border-radius: 5px ;
                 padding:2px ;
                 background-color: white ;
             }
