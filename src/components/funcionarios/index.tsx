@@ -1,5 +1,5 @@
 import BuscarDadosApi from "../../util/util";
-
+import { Link } from "react-router-dom";
 import { CardFuncionario, CardAdicionarFuncionario, Container } from "./styles";
 
 export default function Funcionarios(props: any) {
@@ -8,7 +8,7 @@ export default function Funcionarios(props: any) {
     idUsuario: localStorage.getItem('id_usuario'),
     tipoUsuario: localStorage.getItem('tipo_usuario')
   });
-  
+
   if (idTipoUsuario !== '3' && props.nomeCliente.length <= 0) {
   }
 
@@ -47,11 +47,13 @@ export default function Funcionarios(props: any) {
 
       {idTipoUsuario === '1' &&
 
-        <CardAdicionarFuncionario href="funcionarios/adicionar" >
-          <h6>Cadastrar</h6>
-          <h6>Funcionário</h6>
-          <h2>+</h2>
-        </CardAdicionarFuncionario>
+        <Link to={"/funcionarios/adicionar"}>
+          <CardAdicionarFuncionario>
+            <h6>Cadastrar</h6>
+            <h6>Funcionário</h6>
+            <h2>+</h2>
+          </CardAdicionarFuncionario>
+        </Link>
       }
     </Container>
   );
