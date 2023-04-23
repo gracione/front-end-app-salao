@@ -2,17 +2,19 @@ import { Link } from "react-router-dom";
 import { Container } from "./style";
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { AiFillSetting, AiFillHome} from "react-icons/ai";
+import { AiFillSetting, AiFillHome } from "react-icons/ai";
 import { BsFillCalendarDayFill } from "react-icons/bs";
-import { FaSignOutAlt, FaCalendarDay,FaUserPlus } from "react-icons/fa";
+import { FaSignOutAlt, FaCalendarDay, FaUserPlus } from "react-icons/fa";
 import { GiHairStrands } from "react-icons/gi";
-import { RiBriefcase4Fill } from "react-icons/ri"; 
+import { RiBriefcase4Fill } from "react-icons/ri";
+import { BiTimeFive } from "react-icons/bi"
 
 export default function Menu(): any {
-  const perfil: any = [];
-  perfil['1'] = 'Administrativo';
-  perfil['2'] = 'Funcionario';
-  perfil['3'] = 'Cliente';
+  const perfil: any = [
+    'nenhum',
+    'Administrativo',
+    'Funcionario',
+    'Cliente'];
   const tipoUsuario: any = localStorage.getItem("tipo_usuario");
 
   function logout() {
@@ -59,7 +61,7 @@ export default function Menu(): any {
               </div>
             </div>
           </Nav>
-  
+
           <Nav className="desktop" >
             <Link className="m-2" to="/home"><AiFillHome /></Link>
             {tipoUsuario === '1' && (
@@ -69,6 +71,7 @@ export default function Menu(): any {
                 <Link className="m-2" to={"/folgas"} ><BsFillCalendarDayFill /></Link>
                 <Link className="m-2" to={"/tratamentos"} ><GiHairStrands /></Link>
                 <Link className="m-2" to={"/profissao"} ><RiBriefcase4Fill /></Link>
+                <Link className="m-2" to={"/expediente"}><BiTimeFive /></Link>
               </>
             )
             }
