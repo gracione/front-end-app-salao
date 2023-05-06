@@ -29,9 +29,10 @@ export default function Home() {
           </div>
           <Funcionarios
             nomeCliente={nomeCliente}
-          />
+          /> 
         </AgendarHorario>
       </div>
+      
       <HorariosMarcados>
         <label>Horários Marcados</label>
         <HorariosMarcado></HorariosMarcado>
