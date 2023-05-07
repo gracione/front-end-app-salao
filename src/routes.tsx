@@ -1,3 +1,4 @@
+import { Container } from './styles/global';
 import { Route, Routes } from 'react-router-dom';
 import Home from './paginas/Home/index';
 import Login from './paginas/Autenticacao/Login/index';
@@ -16,7 +17,6 @@ import InserirFeriado from "./paginas/Feriados/inserir";
 import InserirFolga from "./paginas/Folgas/inserir";
 import AlterarFeriado from './paginas/Feriados/alterar';
 import Listar from './util/listar';
-import { Container } from './styles/global';
 import Menu from './paginas/Menu';
 import AlterarFolga from './paginas/Folgas/alterar';
 

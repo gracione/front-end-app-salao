@@ -39,14 +39,30 @@ export const GlobalStyle = createGlobalStyle`
 	}
 
 	select,input{
-		padding: 0px;
 		width: 100%;
 		height: 30px;
 		font-size: 15px ;
 		padding-left:10px ;
-		margin-bottom: 5px ;
-		border-radius: 2px ;
-		border: solid var(--borda) 2px !important;
+		color: white;
+		background: none ;
+		border: none;
+	}
+
+	.select,.input{
+		color: white;
+		background: rgba(100,100,100, 0.3) ;
+		border-radius: 3px;
+		display: flex ;
+		justify-content: center ;
+		align-items: center ;
+		padding: 30px ;
+	}
+
+	.h-10 {
+		height: 10% !important;
+	}
+	.h-20 {
+		height: 20% !important;
 	}
 
 	button{
