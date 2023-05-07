@@ -28,9 +28,8 @@ export default function Login() {
 
   const onSuccess = (res: any) => {
     setProfile(res.profileObj);
-    let url: any = "/login/inserir";
-    api.post(url, profile).then((response) => (setOpen(response.data)));
-
+    let url: any = "/login";
+    api.post(url, res.profileObj).then((response) => (setOpen(response.data)));
   };
 
   const onFailure = (err: any) => {
@@ -48,7 +47,7 @@ export default function Login() {
           <GiFairyWand />
         </div>
         <div className='w-10 h-10 input d-flex justify-content-around'>
-        <RiLoginBoxFill/>
+          <RiLoginBoxFill />
           <div>Cadastrar</div>
         </div>
       </div>
