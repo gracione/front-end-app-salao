@@ -4,7 +4,7 @@ export const Container = styled.div`
 
     @media (min-width: 768px) 
     {
-        background-image: url('/fundo.png');
+        background-image: url('/fundo/fundo-login.png');
         background-attachment: fixed;
         padding: 3vh;
         min-height: 92vh ;
@@ -30,7 +30,7 @@ export const PainelCalendario = styled.div`
 
 export const Header = styled.div`
 
-    background-image: url('/fundo.png');
+    background-image: url('/fundo/fundo-login.png');
     background-attachment: fixed;
 
 	display: flex ;

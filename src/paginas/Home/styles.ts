@@ -2,7 +2,9 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     height: auto ;
-	background-image: url('/fundo.png');
+    background: linear-gradient(rgba(0,0,0,1.4), rgba(0,0,0,0.4)),
+    url('/fundo/fundo-login.png');
+    background-size: 1500px 750px;
     background-attachment: fixed;
 
     @media (max-width: 767px) {

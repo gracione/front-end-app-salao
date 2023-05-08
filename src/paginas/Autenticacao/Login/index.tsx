@@ -24,14 +24,28 @@ export default function Login() {
     gapi.load('client:auth2', initClient);
   });
 
-  const [open, setOpen] = useState(false);
-
   const onSuccess = (res: any) => {
     setProfile(res.profileObj);
     let url: any = "/login";
     
     try {
       api.post(url, res.profileObj).then((response) => ( 
+        localStorage.setItem('token', response.data.token),
+        localStorage.setItem('id_usuario', response.data.id_usuario),
+        localStorage.setItem('tipo_usuario', response.data.tipo_usuario),
+        localStorage.setItem('nome', response.data.nome)
+        ));
+      window.location.href = "/home";
+    } catch (err) {
+      alert('Usuário e/ou senha inválidos.');
+    }
+  };
+
+  function efetuarLogin(res: any){
+    let url: any = "/login";
+    
+    try {
+      api.post(url, { email, password }).then((response) => ( 
         localStorage.setItem('token', response.data.token),
         localStorage.setItem('id_usuario', response.data.id_usuario),
         localStorage.setItem('tipo_usuario', response.data.tipo_usuario),
@@ -48,7 +62,7 @@ export default function Login() {
     console.log('failed', err);
   };
 
-  const logOut = () => {
+    const logOut = () => {
     setProfile(null);
   };
   return (
@@ -64,7 +78,7 @@ export default function Login() {
         </div>
       </div>
       <div className='w-100 h-75 d-flex justify-content-center'>
-        <form action="">
+        <form onSubmit={efetuarLogin}>
           <div className='input h-20'>
             <FaUserAlt />
             <input
