@@ -29,7 +29,19 @@ export default function Login() {
   const onSuccess = (res: any) => {
     setProfile(res.profileObj);
     let url: any = "/login";
-    api.post(url, res.profileObj).then((response) => (setOpen(response.data)));
+    
+    try {
+      api.post(url, res.profileObj).then((response) => ( 
+        localStorage.setItem('token', response.data.token),
+        localStorage.setItem('id_usuario', response.data.id_usuario),
+        localStorage.setItem('tipo_usuario', response.data.tipo_usuario),
+        localStorage.setItem('nome', response.data.nome)
+        ));
+      window.location.href = "/home";
+    } catch (err) {
+      alert('Usuário e/ou senha inválidos.');
+    }
+
   };
 
   const onFailure = (err: any) => {
