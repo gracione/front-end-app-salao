@@ -1,5 +1,6 @@
 import { Container } from './styles';
 import { FaUserAlt } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 import { HiKey } from "react-icons/hi";
 import { RiLoginBoxFill } from "react-icons/ri";
 import React, { useState, useEffect } from 'react';
@@ -74,7 +75,9 @@ export default function Login() {
         </div>
         <div className='w-10 h-10 input d-flex justify-content-around'>
           <RiLoginBoxFill />
-          <div>Cadastrar</div>
+          <Link className="m-2" to="/registrar">
+            Cadastrar Clitente
+          </Link>
         </div>
       </div>
       <div className='w-100 h-75 d-flex justify-content-center'>
