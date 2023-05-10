@@ -12,9 +12,9 @@ import api from '../../../services/api';
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [profile, setProfile] = useState(null);
   const clientId = "959861611664-n7ql4k5hf128e48qbsspdhu0vdkd3sar.apps.googleusercontent.com";
 
-  const [profile, setProfile] = useState(Object);
   useEffect(() => {
     const initClient = () => {
       gapi.client.init({
@@ -25,17 +25,16 @@ const Login = () => {
     gapi.load('client:auth2', initClient);
   });
 
-  const onSuccess = (res: any) => {
+  const onSuccess = async (res: any) => {
     setProfile(res.profileObj);
     let url: any = "/login";
 
     try {
-      api.post(url, res.profileObj).then((response) => (
-        localStorage.setItem('token', response.data.token),
-        localStorage.setItem('id_usuario', response.data.id_usuario),
-        localStorage.setItem('tipo_usuario', response.data.tipo_usuario),
-        localStorage.setItem('nome', response.data.nome)
-      ));
+      const response = await api.post(url, res.profileObj);
+      localStorage.setItem('token', response.data.token);
+      localStorage.setItem('id_usuario', response.data.id_usuario);
+      localStorage.setItem('tipo_usuario', response.data.tipo_usuario);
+      localStorage.setItem('nome', response.data.nome);
       window.location.href = "/home";
     } catch (err) {
       alert('Usuário e/ou senha inválidos.');
@@ -103,7 +102,6 @@ const Login = () => {
               required
             />
           </div>
-          <div className='border' onClick={efetuarLogin} >entrar</div>
           <button className="rounded bg-dark h-20" type="submit">Entrar</button>
 
           <div className=''>
