@@ -9,43 +9,25 @@ import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import { gapi } from 'gapi-script';
 import api from '../../../services/api';
 
+const GOOGLE_CLIENT_ID = "959861611664-n7ql4k5hf128e48qbsspdhu0vdkd3sar.apps.googleusercontent.com";
+
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [profile, setProfile] = useState(null);
-  const clientId = "959861611664-n7ql4k5hf128e48qbsspdhu0vdkd3sar.apps.googleusercontent.com";
 
   useEffect(() => {
     const initClient = () => {
       gapi.client.init({
-        clientId: clientId,
+        clientId: GOOGLE_CLIENT_ID,
         scope: ''
       });
     };
     gapi.load('client:auth2', initClient);
   });
 
-  const onSuccess = async (res: any) => {
-    setProfile(res.profileObj);
-    let url: any = "/login";
-
+  const processarLogin = async (data: any) => {
     try {
-      const response = await api.post(url, res.profileObj);
-      localStorage.setItem('token', response.data.token);
-      localStorage.setItem('id_usuario', response.data.id_usuario);
-      localStorage.setItem('tipo_usuario', response.data.tipo_usuario);
-      localStorage.setItem('nome', response.data.nome);
-      window.location.href = "/home";
-    } catch (err) {
-      alert('Usuário e/ou senha inválidos.');
-    }
-  };
-
-  const efetuarLogin = async (event: any) => {
-    event.preventDefault();
-    const url = "/login";
-    try {
-      const response = await api.post(url, { email, password });
+      const response = await api.post("/login", data);
       localStorage.setItem('token', response.data.token);
       localStorage.setItem('id_usuario', response.data.id_usuario);
       localStorage.setItem('tipo_usuario', response.data.tipo_usuario);
@@ -55,7 +37,18 @@ const Login = () => {
       alert('Ocorreu um erro ao processar a solicitação de login');
     }
   };
-
+  
+  const fazerLoginComGoogle = async (res: any) => {
+    const data = res.profileObj;
+    await processarLogin(data);
+  };
+  
+  const fazerLogin = async (event: any) => {
+    event.preventDefault();
+    const data = { email, password };
+    await processarLogin(data);
+  };
+  
   const onFailure = (err: any) => {
     console.log('failed', err);
   };
@@ -75,7 +68,7 @@ const Login = () => {
         </div>
       </div>
       <div className='w-100 h-75 d-flex justify-content-center'>
-        <form onSubmit={efetuarLogin}>
+        <form onSubmit={fazerLogin}>
           <div className='input h-20'>
             <FaUserAlt />
             <input
@@ -103,9 +96,9 @@ const Login = () => {
 
           <div className=''>
               <GoogleLogin
-                clientId={clientId}
+                clientId={GOOGLE_CLIENT_ID}
                 buttonText="Login com Google"
-                onSuccess={onSuccess}
+                onSuccess={fazerLoginComGoogle}
                 onFailure={onFailure}
                 cookiePolicy={'single_host_origin'}
                 isSignedIn={true}
