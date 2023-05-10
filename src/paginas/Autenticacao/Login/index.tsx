@@ -42,7 +42,7 @@ export default function Login() {
     }
   };
 
-  function efetuarLogin(res: any){
+  function efetuarLogin(){
     let url: any = "/login";
     
     try {
@@ -81,7 +81,7 @@ export default function Login() {
         </div>
       </div>
       <div className='w-100 h-75 d-flex justify-content-center'>
-        <form onSubmit={efetuarLogin}>
+        <form >
           <div className='input h-20'>
             <FaUserAlt />
             <input
@@ -105,6 +105,7 @@ export default function Login() {
               required
             />
           </div>
+          <div className='border' onClick={efetuarLogin} >entrar</div>
           <button className="rounded bg-dark h-20" type="submit">Entrar</button>
 
           <div className=''>

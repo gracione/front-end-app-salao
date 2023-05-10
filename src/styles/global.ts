@@ -20,6 +20,7 @@ export const GlobalStyle = createGlobalStyle`
 
 		--text-title: #363F5F;
 		--text-body: #969CB3;
+		--text: white;
 		--shape: #FFF;
 
 	}
@@ -45,6 +46,7 @@ export const GlobalStyle = createGlobalStyle`
 		padding-left:10px ;
 		background: none;
 		border: none;
+		color: var(--text) ;
 	}
 
 	.select,.input{

@@ -149,7 +149,7 @@ export default function Registrar() {
           />
         </div>
         {erroPassword}
-        <div className='h-10 mb-2 input'>
+        <div className='h-10 mb-2g input'>
           <input
             className='rounded'
             placeholder="Confirmar Senha"
