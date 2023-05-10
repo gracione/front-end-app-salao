@@ -21,7 +21,7 @@ export default function Registrar() {
   const [erroEmail, setErroEmail] = useState(null)
   const [erroPassword, setErroPassword] = useState(null)
 
-  async function efetuarRegister(e) {
+  function efetuarRegister(e) {
     e.preventDefault();
     const data = {
       nome,
@@ -85,25 +85,26 @@ export default function Registrar() {
   }
   return (
     <div className="registrar">
-        <form onSubmit={efetuarRegister}>
+      <form onSubmit={efetuarRegister}>
 
-          <h4 className='text-primary d-flex justify-content-between' >
-            <Link className="bg-primary text-white rounded-circle voltar" to="/login">
-              <FiArrowLeft size={20} />
-            </Link>
-            <div className='p-2 w-75' >
-             Cadastrar Cliente
-            </div>
-          </h4>
+        <h4 className='text-primary d-flex justify-content-between' >
+          <Link className="bg-primary text-white rounded-circle voltar" to="/login">
+            <FiArrowLeft size={20} />
+          </Link>
+          <div className='p-2 w-75' >
+            Cadastrar Cliente
+          </div>
+        </h4>
+        <div className='h-10 mb-1 input'>
           <input
-            className='rounded'
             placeholder="Nome"
             value={nome}
             onChange={e => setNome(e.target.value)}
             required
           />
-          {erroNome}
-
+        </div>
+        {erroNome}
+        <div className='h-10 mb-1 input'>
           <InputMask
             className='rounded'
             mask="(99) 9 9999-9999"
@@ -112,8 +113,9 @@ export default function Registrar() {
             onChange={e => setNumero(e.target.value)}
             required
           />
-          {erroNumero}
-
+        </div>
+        {erroNumero}
+        <div className='h-10 mb-1 input'>
           <select
             className='rounded'
             onChange={e => setId_Sexo(e.target.value)}
@@ -123,7 +125,9 @@ export default function Registrar() {
             <option value={1}>Masculino</option>
             <option value={2}>Feminino</option>
           </select>
-          {erroId_sexo}
+        </div>
+        {erroId_sexo}
+        <div className='h-10 mb-1 input'>
           <input
             className='rounded'
             placeholder="Email"
@@ -132,7 +136,9 @@ export default function Registrar() {
             onChange={e => setEmail(e.target.value)}
             required
           />
-          {erroEmail}
+        </div>
+        {erroEmail}
+        <div className='h-10 mb-1 input'>
           <input
             className='rounded'
             placeholder="Senha"
@@ -141,8 +147,9 @@ export default function Registrar() {
             onChange={e => setPassword(e.target.value)}
             required
           />
-          {erroPassword}
-
+        </div>
+        {erroPassword}
+        <div className='h-10 mb-2 input'>
           <input
             className='rounded'
             placeholder="Confirmar Senha"
@@ -151,10 +158,11 @@ export default function Registrar() {
             onChange={e => setConfirmPassword(e.target.value)}
             required
           />
+        </div>
 
-          <button className="button" type="submit">Cadastrar</button>
-        </form>
-        <img className='logo' src='logo.svg' />
-    </div>
+        <button className="button" type="submit">Cadastrar</button>
+      </form>
+      <img className='logo' src='logo.svg' />
+    </div >
   );
 }

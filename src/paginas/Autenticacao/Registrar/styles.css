@@ -24,14 +24,6 @@
     justify-content: space-between;
 
   }
-  .registrar .logo{
-    display: none;
-  }
-  .registrar input,.registrar select{
-  background-color: white !important;
-  width: 100% !important;
-  height: 40px !important;
-}
 
 }
 
@@ -50,11 +42,6 @@
   .registrar .logo{
     width: 500px;
     margin-right: 200px;
-  }
-  .registrar input,.registrar select{
-    background-color: white !important;
-    width: 350px !important;
-    height: 40px !important;
   }
 }
 

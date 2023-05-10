@@ -43,8 +43,7 @@ export const GlobalStyle = createGlobalStyle`
 		height: 30px;
 		font-size: 15px ;
 		padding-left:10px ;
-		color: white;
-		background: none ;
+		background: none;
 		border: none;
 	}
 
@@ -200,6 +199,13 @@ export const Container = styled.div`
 		display: flex;
 	}
 	
+	background-color: red ;
+	background: linear-gradient(rgba(0,0,0,1.4), rgba(0,0,0,0.4)),
+    url('/fundo/fundo-login.png');
+    background-size: 1500px 750px;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+	color: black ;
 	margin: 0px ;
 	padding: 0px;
 	width: 100% ;
