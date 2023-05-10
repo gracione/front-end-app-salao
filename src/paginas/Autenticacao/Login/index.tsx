@@ -9,7 +9,7 @@ import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import { gapi } from 'gapi-script';
 import api from '../../../services/api';
 
-export default function Login() {
+const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const clientId = "959861611664-n7ql4k5hf128e48qbsspdhu0vdkd3sar.apps.googleusercontent.com";
@@ -28,42 +28,40 @@ export default function Login() {
   const onSuccess = (res: any) => {
     setProfile(res.profileObj);
     let url: any = "/login";
-    
+
     try {
-      api.post(url, res.profileObj).then((response) => ( 
+      api.post(url, res.profileObj).then((response) => (
         localStorage.setItem('token', response.data.token),
         localStorage.setItem('id_usuario', response.data.id_usuario),
         localStorage.setItem('tipo_usuario', response.data.tipo_usuario),
         localStorage.setItem('nome', response.data.nome)
-        ));
+      ));
       window.location.href = "/home";
     } catch (err) {
       alert('Usuário e/ou senha inválidos.');
     }
   };
 
-  function efetuarLogin(){
-    let url: any = "/login";
-    
+  const efetuarLogin = async (event: any) => {
+    event.preventDefault();
+    const url = "/login";
     try {
-      api.post(url, { email, password }).then((response) => ( 
-        localStorage.setItem('token', response.data.token),
-        localStorage.setItem('id_usuario', response.data.id_usuario),
-        localStorage.setItem('tipo_usuario', response.data.tipo_usuario),
-        localStorage.setItem('nome', response.data.nome)
-        ));
+      const response = await api.post(url, { email, password });
+      localStorage.setItem('token', response.data.token);
+      localStorage.setItem('id_usuario', response.data.id_usuario);
+      localStorage.setItem('tipo_usuario', response.data.tipo_usuario);
+      localStorage.setItem('nome', response.data.nome);
       window.location.href = "/home";
-    } catch (err) {
-      alert('Usuário e/ou senha inválidos.');
+    } catch (error) {
+      alert('Ocorreu um erro ao processar a solicitação de login');
     }
-
   };
 
   const onFailure = (err: any) => {
     console.log('failed', err);
   };
 
-    const logOut = () => {
+  const logOut = () => {
     setProfile(null);
   };
   return (
@@ -81,7 +79,7 @@ export default function Login() {
         </div>
       </div>
       <div className='w-100 h-75 d-flex justify-content-center'>
-        <form >
+        <form onSubmit={efetuarLogin}>
           <div className='input h-20'>
             <FaUserAlt />
             <input
@@ -129,3 +127,5 @@ export default function Login() {
     </Container>
   );
 }
+
+export default Login;
