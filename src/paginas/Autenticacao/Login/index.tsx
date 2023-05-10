@@ -60,9 +60,6 @@ const Login = () => {
     console.log('failed', err);
   };
 
-  const logOut = () => {
-    setProfile(null);
-  };
   return (
     <Container>
       <div className='w-100 d-flex justify-content-between'>
@@ -105,11 +102,6 @@ const Login = () => {
           <button className="rounded bg-dark h-20" type="submit">Entrar</button>
 
           <div className=''>
-            {profile ? (
-              <div>
-                <GoogleLogout clientId={clientId} buttonText="Log out" onLogoutSuccess={logOut} />
-              </div>
-            ) : (
               <GoogleLogin
                 clientId={clientId}
                 buttonText="Login com Google"
@@ -118,7 +110,6 @@ const Login = () => {
                 cookiePolicy={'single_host_origin'}
                 isSignedIn={true}
               />
-            )}
           </div>
         </form>
       </div>

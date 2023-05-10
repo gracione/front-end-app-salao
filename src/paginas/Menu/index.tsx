@@ -7,9 +7,12 @@ import { BsFillCalendarDayFill } from "react-icons/bs";
 import { FaSignOutAlt, FaCalendarDay, FaUserPlus } from "react-icons/fa";
 import { GiHairStrands } from "react-icons/gi";
 import { RiBriefcase4Fill } from "react-icons/ri";
-import { BiTimeFive } from "react-icons/bi"
+import { BiTimeFive } from "react-icons/bi";
+import { GoogleLogout } from 'react-google-login';
 
 export default function Menu(): any {
+  const clientId = "959861611664-n7ql4k5hf128e48qbsspdhu0vdkd3sar.apps.googleusercontent.com";
+
   const perfil: any = [
     'nenhum',
     'Administrativo',
@@ -17,10 +20,10 @@ export default function Menu(): any {
     'Cliente'];
   const tipoUsuario: any = localStorage.getItem("tipo_usuario");
 
-  function logout() {
+  const logOut = () => {
     localStorage.clear();
     window.location.href = "/login";
-  }
+  };
 
   return (
     <Container>
@@ -45,7 +48,6 @@ export default function Menu(): any {
             )
             }
             <Link className="m-2" to="/configuracoes">Configurações</Link>
-            <div className="m-2 text-white" onClick={logout} >Sair</div>
             <div className="m-2 text-info">
               <div className="d-flex" >
                 <div>
@@ -76,7 +78,19 @@ export default function Menu(): any {
             )
             }
             <Link className="m-2" to="/configuracoes"><AiFillSetting /></Link>
-            <div className="m-2 text-white" onClick={logout} ><FaSignOutAlt /></div>
+            <div>
+              <GoogleLogout
+                clientId={clientId}
+                onLogoutSuccess={logOut}
+                render={(renderProps) => (
+                  <div className="btn text-info" onClick={renderProps.onClick}>
+                    <FaSignOutAlt />
+                  </div>
+                )}
+              />
+
+            </div>
+
           </Nav>
         </Navbar.Collapse>
       </Navbar >
