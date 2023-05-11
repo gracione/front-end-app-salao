@@ -37,18 +37,18 @@ const Login = () => {
       alert('Ocorreu um erro ao processar a solicitação de login');
     }
   };
-  
+
   const fazerLoginComGoogle = async (res: any) => {
     const data = res.profileObj;
     await processarLogin(data);
   };
-  
+
   const fazerLogin = async (event: any) => {
     event.preventDefault();
     const data = { email, password };
     await processarLogin(data);
   };
-  
+
   const onFailure = (err: any) => {
     console.log('failed', err);
   };
@@ -69,43 +69,45 @@ const Login = () => {
       </div>
       <div className='w-100 h-75 d-flex justify-content-center'>
         <form onSubmit={fazerLogin}>
-          <div className='input h-20'>
-            <FaUserAlt />
-            <input
-              className='rounded w-100'
-              name='email'
-              placeholder="Seu e-mail"
-              value={email}
-              onChange={e => setEmail(e.target.value)}
-              required
-            />
-          </div>
-          <div className='input h-20'>
-            <HiKey />
-            <input
-              className='rounded w-100'
-              name='password'
-              placeholder="Sua Senha"
-              type="password"
-              value={password}
-              onChange={e => setPassword(e.target.value)}
-              required
-            />
-          </div>
-          <button className="rounded bg-dark h-20" type="submit">Entrar</button>
-
-          <div className=''>
-              <GoogleLogin
-                clientId={GOOGLE_CLIENT_ID}
-                buttonText="Login com Google"
-                onSuccess={fazerLoginComGoogle}
-                onFailure={onFailure}
-                cookiePolicy={'single_host_origin'}
-                isSignedIn={true}
+            <div className='input h-20'>
+              <FaUserAlt />
+              <input
+                className='rounded w-100'
+                id="email"
+                name='email'
+                type="email"
+                placeholder="exemplo@exemplo.com"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+                required
               />
+            </div>
+            <div className='input h-20'>
+                <HiKey />
+              <input
+                className='rounded w-100'
+                id="password"
+                name='password'
+                type="password"
+                placeholder="********"
+                value={password}
+                onChange={e => setPassword(e.target.value)}
+                required
+              />
+            </div>
+          <button className="rounded bg-dark h-20" type="submit">Entrar</button>
+          <div className=''>
+            <GoogleLogin
+              clientId={GOOGLE_CLIENT_ID}
+              buttonText="Login com Google"
+              onSuccess={fazerLoginComGoogle}
+              onFailure={onFailure}
+              cookiePolicy={'single_host_origin'}
+              isSignedIn={true}
+            />
           </div>
         </form>
-      </div>
+        </div>
     </Container>
   );
 }
