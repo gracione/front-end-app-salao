@@ -10,21 +10,17 @@ import { RiBriefcase4Fill } from "react-icons/ri";
 import { BiTimeFive } from "react-icons/bi";
 import { GoogleLogout } from 'react-google-login';
 
+const iconLogout = <FaSignOutAlt />;
+const clientId = "959861611664-n7ql4k5hf128e48qbsspdhu0vdkd3sar.apps.googleusercontent.com";
+const perfil: any = ['nenhum', 'Administrativo', 'Funcionario', 'Cliente'];
+const tipoUsuario: any = localStorage.getItem("tipo_usuario");
+
+const logOut = () => {
+  localStorage.clear();
+  window.location.href = "/login";
+};
+
 export default function Menu(): any {
-  const clientId = "959861611664-n7ql4k5hf128e48qbsspdhu0vdkd3sar.apps.googleusercontent.com";
-
-  const perfil: any = [
-    'nenhum',
-    'Administrativo',
-    'Funcionario',
-    'Cliente'];
-  const tipoUsuario: any = localStorage.getItem("tipo_usuario");
-
-  const logOut = () => {
-    localStorage.clear();
-    window.location.href = "/login";
-  };
-
   return (
     <Container>
       <Navbar className="menu" collapseOnSelect expand="lg" bg="primary" variant="dark">
@@ -50,17 +46,10 @@ export default function Menu(): any {
             <Link className="m-2" to="/configuracoes">Configurações</Link>
             <div className="m-2 text-info">
               <div className="d-flex" >
-                <div>
-                  {perfil[tipoUsuario]}
-                </div>
-                <div>
-
-                </div>
+                <div>{perfil[tipoUsuario]}</div>
                 : &nbsp;
-                <div >
-                  {localStorage.getItem('nome')}
+                <div >{localStorage.getItem('nome')}</div>
                 </div>
-              </div>
             </div>
           </Nav>
 
@@ -90,9 +79,8 @@ export default function Menu(): any {
               />
 
             </div>
-
-          </Nav>
-        </Navbar.Collapse>
+            </Nav>
+            </Navbar.Collapse>
       </Navbar >
     </Container>
   );
