@@ -1,12 +1,6 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    height: auto ;
-    background: linear-gradient(rgba(0,0,0,1.4), rgba(0,0,0,0.4)),
-    url('/fundo/fundo-login.png');
-    background-size: 1500px 750px;
-    background-attachment: fixed;
-
     @media (max-width: 767px) {
         .home-usuario{
             width: 100% ;
@@ -33,7 +27,7 @@ export const Container = styled.div`
 export const AgendarHorario = styled.fieldset`
 
     background: var(--backgroud-secundaria);
-    border: solid var(--borda) 2px;
+    border: none
     border-radius: 5px ;
     align-items: center ;
     display: flex;
@@ -41,9 +35,6 @@ export const AgendarHorario = styled.fieldset`
     justify-content: space-around;
     padding: 0px 5% 0px 5% ;
 
-    .titulo{
-        
-    }
     @media (max-width: 767px) {
         width: 97%;
         min-height: 30vh ;
@@ -57,8 +48,6 @@ export const AgendarHorario = styled.fieldset`
         min-height:30vh ;
         border-radius: 5px;
     }
-
-
 `;
 export const HorariosMarcados = styled.div`
     min-height: 50vh ;

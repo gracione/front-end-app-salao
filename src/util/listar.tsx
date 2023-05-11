@@ -14,7 +14,7 @@ export default function Listar(props: any) {
   const [listagem, setListagem] = useState([]);
   const [open, setOpen] = useState(false);
   const [erro, setErro] = useState(false);
-
+console.log(colunas);
   useEffect(() => {
     api.post("/" + funcao + "/listar", {
     }).then((response) => setListagem(response.data));
@@ -22,17 +22,15 @@ export default function Listar(props: any) {
 
   let listar: any = [];
 
-  function excluir(id: any) {
-
-    api.post("/" + funcao + "/excluir", { id: id })
-      .then((response) => (
-        setOpen(response.data),
-        setErro(!response.data))
-      );
+  async function excluir(id: number): Promise<void> {
+    const response = await api.post(`/${funcao}/excluir`, { id });
+    setOpen(response.data);
+    setErro(!response.data);
   }
 
   let link: any = [];
   listagem.forEach((element: any) => {
+    console.log(element);
     link['editar'] = "/" + funcao + "/alterar/" + element.id;
     link['listagem'] = "/" + funcao;
 
@@ -48,7 +46,6 @@ export default function Listar(props: any) {
           <FaTrashAlt></FaTrashAlt>
         </td>
       </tr>
-
     )
   });
 
@@ -59,7 +56,7 @@ export default function Listar(props: any) {
           <ModalSalvar funcao={funcao} />
         </Modal>
         <Modal open={erro} onClose={() => setErro(false)}>
-          <ModalErro  funcao={funcao} />
+          <ModalErro funcao={funcao} />
         </Modal>
         <TituloFuncao>
           <h3>

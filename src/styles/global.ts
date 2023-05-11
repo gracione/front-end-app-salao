@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const GlobalStyle = createGlobalStyle`
 	:root {
 		--backgroud: #ED00B9;
-		--backgroud-secundaria: #FFF;
+		--backgroud-secundaria: rgba(31, 31, 90, 0.6);
 		--borda: #D0B6B6;
 		--red: #E52E4D;
 		--green: #70853e;
@@ -13,7 +13,6 @@ export const GlobalStyle = createGlobalStyle`
 
 		--cor-primaria: #5090F3;
 		--cor-secundaria: #969CB3;
-
 		--blue-light: #5090F3;
 		--red-light: #FF5353;
 		--green-light: #3ADF00;
@@ -33,10 +32,6 @@ export const GlobalStyle = createGlobalStyle`
 
 	a{
 		color:var(--shape);
-	}
-
-	.border{
-		border: solid ;
 	}
 
 	select,input{
@@ -104,33 +99,26 @@ export const GlobalStyle = createGlobalStyle`
 		padding: 10px;
 	}
 
-	h3{
-		text-transform: capitalize;
-	}
-
 	fieldset{
 	border-radius: 4px;
 	margin: 5px;
-	border: solid 1px var(--borda);
 	background-color: #fff5ee;
 	}
 
 	.inputTable{
 	height: 30px;
-	border: solid 1px var(--borda);
 	background-color: white;
 	margin: 0;
-	border-radius: 0 % ;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	}
 
 	table {
-		background-color: white;
+		background-color: rgba(100,100,100, 0.3);
 		font-family: arial, sans-serif;
 		border-collapse: collapse;
-		width: 100 %;
+		width: 100% ;
 	}
 
 	td, th {
@@ -140,7 +128,7 @@ export const GlobalStyle = createGlobalStyle`
 	}
 
 	tr:nth-child(even) {
-		background-color: #dddddd;
+		background-color: rgba(600,600,600, 0.4);
 	}
 
 	.modal{
@@ -174,47 +162,22 @@ export const GlobalStyle = createGlobalStyle`
 			width: 50px;
 		}
 	}
-
-	.red{
-		background-color: red;
-	}
-	.blue{
-		background-color: blue;
-	}
-	.center{
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
-	.column{
-		display: flex;
-		flex-direction: column;
-	}
-
 `;
 
 export const Container = styled.div`
-	.none{
-		display: none ;
-	}
-	.display-flex{
-		display: flex;
-	}
-	
-	background-color: red ;
-	background: linear-gradient(rgba(0,0,0,1.4), rgba(0,0,0,0.4)),
+  background: linear-gradient(rgba(0,0,0,1.4), rgba(0,0,0,0.4)),
     url('/fundo/fundo-login.png');
-    background-size: 1500px 750px;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-	color: black ;
-	margin: 0px ;
-	padding: 0px;
-	width: 100% ;
-	min-height: 100vh ;
-	display: flex ;
-	flex-direction: column ;
-	justify-content: space-between ;
+  background-size: 1500px 750px;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  color: black;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
 export const Conteudo = styled.div`
@@ -230,7 +193,7 @@ export const Conteudo = styled.div`
     @media (min-width: 767px) {
 		width: 600px ;
 		min-height: 80vh;
-		border: solid var(--borda) 2px;
+		border: none;
 		border-radius: 5px ;
 		background-color: var(--backgroud-secundaria);
 		padding: 20px ;
@@ -238,31 +201,30 @@ export const Conteudo = styled.div`
 	}
 `;
 
-	export const Header = styled.div`
-	height: auto;
-	min-height: 94vh ;
-	background-image: url('/fundo/fundo-login.png');
-    background-attachment: fixed;
+export const Header = styled.div`
+  height: auto;
+  min-height: 94vh;
+  background-image: url('/fundo/fundo-login.png');
+  background-attachment: fixed;
 
-	@media (max-width: 767px) {
-		display: flex ;
-		background-color: var(--backgroud-secundaria);
-    }
+  @media (max-width: 767px) {
+    display: flex;
+    background-color: var(--backgroud-secundaria);
+  }
 
-    @media (min-width: 767px) {
-		display: flex ;
-		padding-top:30px ;
-		margin-left:40px ;
-	}
+  @media (min-width: 767px) {
+    display: flex;
+    padding-top: 30px;
+    margin-left: 40px;
+  }
+`;
 
-
-`
-	export const TituloFuncao = styled.div`
+export const TituloFuncao = styled.div`
 	display: flex;
 	justify-content: space-between ;
 	align-items: center;
 `;
-	export const Adicionar = styled.a`
+export const Adicionar = styled.a`
 	@media (max-width: 767px) {
 		margin-bottom: 5px ;
 		width:55px ;
@@ -297,11 +259,11 @@ export const Conteudo = styled.div`
 
 `;
 
-	export const Center = styled.div`
+export const Center = styled.div`
 	display: flex;
 	justify-content: center ;
 `;
-	export const AdicionarItem = styled.div`
+export const AdicionarItem = styled.div`
 	width: 100% ;
 	height: 40px ;
 	align-items: center ;
@@ -313,7 +275,7 @@ export const Conteudo = styled.div`
 	background-color:var(--shape) ;
 	color: var(--borda) ;
 `;
-	export const Button = styled.div`
+export const Button = styled.div`
 	width: 90% ;
 	height: 25px ;
 	background-color: var(--blue) ;
@@ -325,7 +287,7 @@ export const Conteudo = styled.div`
 	align-items: center ;
 `;
 
-	export const Carregando = styled.div`
+export const Carregando = styled.div`
 	img{
 		width: 100px ;
 	}
