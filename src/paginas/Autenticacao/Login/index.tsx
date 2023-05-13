@@ -32,6 +32,7 @@ const Login = () => {
       localStorage.setItem('id_usuario', response.data.id_usuario);
       localStorage.setItem('tipo_usuario', response.data.tipo_usuario);
       localStorage.setItem('nome', response.data.nome);
+      localStorage.setItem('img_url', response.data.img_url);
       window.location.href = "/home";
     } catch (error) {
       alert('Ocorreu um erro ao processar a solicitação de login');
