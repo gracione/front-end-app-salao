@@ -10,7 +10,7 @@ const Menu = () => {
   const userType = localStorage.getItem("tipo_usuario");
   const userName = localStorage.getItem("nome");
   const userImageUrl = localStorage.getItem("img_url");
-  const userProfileImage = userImageUrl ? <img width="30px" src={userImageUrl} /> : <FontAwesomeIcon icon={faUser} />;
+  const userProfileImage = userImageUrl ? <img className="rounded-circle" width="30px" src={userImageUrl} alt="User" /> : <FontAwesomeIcon icon={faUser} />;
 
   const handleLogout = () => {
     localStorage.clear();
@@ -18,11 +18,11 @@ const Menu = () => {
   };
 
   return (
-    <Navbar expand="lg" bg="dark" variant="dark">
-      <Navbar.Brand href="/">Realize</Navbar.Brand>
+    <Navbar expand="lg" bg="dark" variant="dark" className="">
+      <Navbar.Brand href="/" className="mr-auto">Realize</Navbar.Brand>
       <Navbar.Toggle aria-controls="menu-navbar" />
       <Navbar.Collapse id="menu-navbar">
-        <Nav className="mr-auto">
+        <Nav className="ml-auto">
           {userType === '1' && (
             <>
               <Nav.Link as={Link} to={"/funcionarios"}>Funcionario</Nav.Link>
@@ -41,12 +41,11 @@ const Menu = () => {
               </NavDropdown>
             </>
           )}
-        </Nav>
-        <Nav className="ml-auto">
           <NavDropdown
             title={
               <>
-                {userProfileImage}{userName}
+                {userProfileImage}
+                <span className="ml-2">{userName}</span>
               </>
             }
             id="user-dropdown"
