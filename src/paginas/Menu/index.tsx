@@ -18,13 +18,13 @@ const Menu = () => {
   };
 
   return (
-    <Navbar expand="lg" bg="dark" variant="dark" className="">
-      <Navbar.Brand href="/" className="mr-auto">Realize</Navbar.Brand>
-      <Navbar.Toggle aria-controls="menu-navbar" />
-      <Navbar.Collapse id="menu-navbar">
-        <Nav className="ml-auto">
+    <Navbar expand="lg" variant="dark" className="bg-transparent">
+      <Navbar.Brand href="/" className="m-2">Realize</Navbar.Brand>
+      <Navbar.Toggle aria-controls="menu-navbar" className="w-25" />
+      <Navbar.Collapse id="menu-navbar" className="">
+        <Nav className="w-100 ml-auto d-flex justify-content-end">
           {userType === '1' && (
-            <>
+            <div>
               <Nav.Link as={Link} to={"/funcionarios"}>Funcionario</Nav.Link>
               <Nav.Link as={Link} to={"/feriados"}>Feriados</Nav.Link>
               <Nav.Link as={Link} to={"/folgas"}>Folgas</Nav.Link>
@@ -39,7 +39,7 @@ const Menu = () => {
                   Relatório de Estoque
                 </NavDropdown.Item>
               </NavDropdown>
-            </>
+            </div>
           )}
           <NavDropdown
             title={
@@ -68,6 +68,7 @@ const Menu = () => {
         </Nav>
       </Navbar.Collapse>
     </Navbar>
+
   );
 };
 
