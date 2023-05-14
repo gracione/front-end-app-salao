@@ -24,14 +24,14 @@ const Menu = () => {
       <Navbar.Collapse id="menu-navbar" className="">
         <Nav className="w-100 ml-auto d-flex justify-content-end">
           {userType === '1' && (
-            <div>
-              <Nav.Link as={Link} to={"/funcionarios"}>Funcionario</Nav.Link>
-              <Nav.Link as={Link} to={"/feriados"}>Feriados</Nav.Link>
-              <Nav.Link as={Link} to={"/folgas"}>Folgas</Nav.Link>
-              <Nav.Link as={Link} to={"/procedimentos"}>Procedimentos</Nav.Link>
-              <Nav.Link as={Link} to={"/profissao"}>Profissão</Nav.Link>
-              <Nav.Link as={Link} to={"/expediente"}>Expediente</Nav.Link>
-              <NavDropdown title="Relatórios">
+            <>
+              <Nav.Link className="m-1" as={Link} to={"/funcionarios"}>Funcionario</Nav.Link>
+              <Nav.Link className="m-1" as={Link} to={"/feriados"}>Feriados</Nav.Link>
+              <Nav.Link className="m-1" as={Link} to={"/folgas"}>Folgas</Nav.Link>
+              <Nav.Link className="m-1" as={Link} to={"/procedimentos"}>Procedimentos</Nav.Link>
+              <Nav.Link className="m-1" as={Link} to={"/profissao"}>Profissão</Nav.Link>
+              <Nav.Link className="m-1" as={Link} to={"/expediente"}>Expediente</Nav.Link>
+              <NavDropdown className="m-1" title="Relatórios">
                 <NavDropdown.Item>
                   Relatório de Vendas
                 </NavDropdown.Item>
@@ -39,7 +39,7 @@ const Menu = () => {
                   Relatório de Estoque
                 </NavDropdown.Item>
               </NavDropdown>
-            </div>
+            </>
           )}
           <NavDropdown
             title={
