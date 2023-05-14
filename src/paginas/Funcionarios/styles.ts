@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 
-export const AdicionarPrifissao = styled.div`
+export const AdicionarProfissao = styled.div`
     height: 30px ;
     color:white;
     margin-bottom: 10px ;

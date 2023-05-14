@@ -4,7 +4,7 @@ import api from '../../services/api';
 import { useState, useEffect, JSXElementConstructor, ReactElement, ReactFragment, ReactPortal } from "react";
 import { useParams } from "react-router-dom";
 import BuscarDadosApi from "../../util/util";
-import { AdicionarPrifissao } from "./styles";
+import { AdicionarProfissao } from "./styles";
 
 export default function AlterarFuncionario() {
   const [nome, setNome] = useState('');
@@ -116,9 +116,9 @@ export default function AlterarFuncionario() {
             </select>
           )}
         </div>
-        <AdicionarPrifissao onClick={() => setQuantidadeProfissoes(quantidadeProfissoes + 1)}>
+        <AdicionarProfissao onClick={() => setQuantidadeProfissoes(quantidadeProfissoes + 1)}>
           Adicionar mais uma profissão
-        </AdicionarPrifissao>
+        </AdicionarProfissao>
         <table>
           <tr>
             <th colSpan={4}>

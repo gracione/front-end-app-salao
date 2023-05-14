@@ -2,16 +2,16 @@ import { useState } from 'react';
 import InputMask from "react-input-mask";
 
 import { Conteudo, Header } from "../../styles/global";
-import { AdicionarPrifissao } from "./styles";
+import { AdicionarProfissao } from "./styles";
 
 import Inserir from "../../util/inserir";
 import BuscarDadosApi from "../../util/util";
 
 export default function InserirFuncionario() {
-  const [inicioExpediente, setInicioExpediente] = useState('');
-  const [inicioAlmoco, setInicioAlmoco] = useState('');
-  const [fimAlmoco, setFimAlmoco] = useState('');
-  const [fimExpediente, setFimExpediente] = useState('');
+  const [inicioExpediente, setInicioExpediente] = useState('07:00');
+  const [inicioAlmoco, setInicioAlmoco] = useState('11:00');
+  const [fimAlmoco, setFimAlmoco] = useState('13:00');
+  const [fimExpediente, setFimExpediente] = useState('18:00');
 
   const [nome, setNome] = useState('');
   const [numero, setNumero] = useState('');
@@ -28,7 +28,7 @@ export default function InserirFuncionario() {
     profissoesCadastradasAux[indice] = valor;
     setProfissoesCadastradas(profissoesCadastradasAux);
   }
-
+  
   return (
     <Header>
       <Conteudo>
@@ -91,14 +91,14 @@ export default function InserirFuncionario() {
             </select>
           )}
         </div>
-        <AdicionarPrifissao onClick={() => setQuantidadeProfissoes(quantidadeProfissoes + 1)}>
+        <AdicionarProfissao onClick={() => setQuantidadeProfissoes(quantidadeProfissoes + 1)}>
           Adicionar mais uma profissão
-        </AdicionarPrifissao>
+        </AdicionarProfissao>
         <fieldset className="p-1 display-flex">
-          <input type="time" placeholder="Inicio Expediente" onChange={e => setInicioExpediente(e.target.value)} />
-          <input type="time" placeholder="Inicio Almoco" onChange={e => setInicioAlmoco(e.target.value)} />
-          <input type="time" placeholder="Fim Almoco" onChange={e => setFimAlmoco(e.target.value)} />
-          <input type="time" placeholder="Fim Expediente" onChange={e => setFimExpediente(e.target.value)} />
+          <input type="time" value={inicioExpediente} placeholder="Inicio Expediente" onChange={e => setInicioExpediente(e.target.value)} style={{ color: 'black' }} />
+          <input type="time" value={inicioAlmoco} placeholder="Inicio Almoco" onChange={e => setInicioAlmoco(e.target.value)} style={{ color: 'black' }} />
+          <input type="time" value={fimAlmoco} placeholder="Fim Almoco" onChange={e => setFimAlmoco(e.target.value)} style={{ color: 'black' }} />
+          <input type="time" value={fimExpediente} placeholder="Fim Expediente" onChange={e => setFimExpediente(e.target.value)} style={{ color: 'black' }} />
         </fieldset>
         <Inserir
           modulo="funcionarios"

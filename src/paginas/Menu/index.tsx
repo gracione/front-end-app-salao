@@ -28,7 +28,7 @@ const Menu = () => {
               <Nav.Link className="m-1" as={Link} to={"/funcionarios"}>Funcionario</Nav.Link>
               <Nav.Link className="m-1" as={Link} to={"/feriados"}>Feriados</Nav.Link>
               <Nav.Link className="m-1" as={Link} to={"/folgas"}>Folgas</Nav.Link>
-              <Nav.Link className="m-1" as={Link} to={"/procedimentos"}>Procedimentos</Nav.Link>
+              <Nav.Link className="m-1" as={Link} to={"/tratamentos"}>Procedimentos</Nav.Link>
               <Nav.Link className="m-1" as={Link} to={"/profissao"}>Profissão</Nav.Link>
               <Nav.Link className="m-1" as={Link} to={"/expediente"}>Expediente</Nav.Link>
               <NavDropdown className="m-1" title="Relatórios">
