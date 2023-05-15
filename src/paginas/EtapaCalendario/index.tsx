@@ -69,13 +69,13 @@ export default function EtapaCalendario() {
         <Center>
           <Calendario>
             <div className="diasSemana" >
-              <li>Dom</li>
-              <li>Seg</li>
-              <li>Ter</li>
-              <li>Qua</li>
-              <li>Qui</li>
-              <li>Sex</li>
-              <li>Sab</li>
+              <li>D</li>
+              <li>S</li>
+              <li>T</li>
+              <li>Q</li>
+              <li>Q</li>
+              <li>S</li>
+              <li>S</li>
             </div>
             <div className="mes" >
               {

@@ -15,7 +15,7 @@ export default function Home() {
       {/* Área de agendamento de horários */}
       <div className="home-usuario">
         <AgendarHorario>
-          <h6 className="bg-white w-100 border titulo d-flex justify-content-center">Agendar Horário</h6>
+          <h4 className="w-100 d-flex justify-content-center">Agendar Horário</h4>
           <div className="w-100">
             {/* Define a etapa adequada baseada no tipo de usuário */}
             {tipo_usuario === '1' && <h5>Etapa Escolher Funcionário e Profissão</h5>}

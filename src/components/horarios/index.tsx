@@ -36,7 +36,7 @@ export default function Horarios(props: any) {
       }).then((response) => (setOpen(response.data)));
   }
   return (
-    <Container >
+    <>
       <Modal open={open} onClose={() => setOpen(false)}>
         <div className='modal'>
           <div className='salvo'>
@@ -97,6 +97,6 @@ export default function Horarios(props: any) {
           Agendar
         </button>
       }
-    </Container>
+    </>
   );
 }

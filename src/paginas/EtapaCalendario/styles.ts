@@ -41,23 +41,22 @@ export const Header = styled.div`
 `
 export const Calendario = styled.div`
     width:500px;
-    background:white;
 
     .selecionado{
         background-color: var(--cor-primaria);
-        border: solid 1px var(--cor-primaria);
+        border-radius:100%;
     }
     .dia,.feriado,.folga{
         width: 100% ;
-        border: solid 1px var(--borda);
-        height: 45px;
+        height: 65px;
         list-style-type: none;
         display: flex ;
         justify-content: center ;
         align-items: center ;
         text-align: center ;
         text-transform: capitalize;
-        font-size: 13px ;
+        font-size: 15px ;
+        font-weight: 500;
     }
     .folga{
         color: black;
@@ -77,7 +76,9 @@ export const Calendario = styled.div`
         display: flex ;
         justify-content: space-between;
         li{
-            border: solid 1px var(--borda);
+            color:white;
+            border-bottom: solid 2px var(--borda);
+            padding-bottom:10px;
             width: 15%;
             height: 30px;
             list-style-type: none;
@@ -113,7 +114,6 @@ export const Conteudo = styled.div`
     @media (min-width: 767px) {
 		width: 600px ;
 		min-height: 80vh;
-		border: solid var(--borda) 2px;
 		border-radius: 5px ;
 		background-color: var(--backgroud-secundaria);
 		padding: 20px ;

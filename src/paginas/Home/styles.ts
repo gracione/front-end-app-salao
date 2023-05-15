@@ -51,7 +51,7 @@ export const AgendarHorario = styled.fieldset`
 `;
 export const HorariosMarcados = styled.div`
     min-height: 50vh ;
-    height: auto ;
+    height: auto ;  
 
     margin: 1px ;
     display: flex;
@@ -65,7 +65,6 @@ export const HorariosMarcados = styled.div`
     
     @media (min-width: 767px) {
         width: 500px;
-        border: solid var(--borda) 2px;
         border-radius: 5px ;
         background-color: var(--backgroud-secundaria);
     }
