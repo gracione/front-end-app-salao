@@ -115,10 +115,10 @@ export const GlobalStyle = createGlobalStyle`
 	}
 
 	table {
-		background-color: rgba(100,100,100, 0.3);
+		background-color: rgba(250,250,250, 0.2);
 		font-family: arial, sans-serif;
-		border-collapse: collapse;
 		width: 100% ;
+		border:none;
 	}
 
 	td, th {

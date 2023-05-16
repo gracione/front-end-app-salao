@@ -39,8 +39,8 @@ export default function Listar(props: any) {
             <Adicionar>+</Adicionar>
           </Link>
         </TituloFuncao>
-        <table className="w-100">
-          <thead>
+        <table className="w-100 border-none" >
+          <thead >
             <tr>
               {colunas.map((nome: string) => (
                 <th className="text-capitalize" key={nome}>
