@@ -30,6 +30,7 @@
     "react": "^18.1.0",
     "react-bootstrap": "^2.6.0",
     "react-dom": "^18.1.0",
+    "react-dropzone": "^14.2.3",
     "react-icons": "^4.6.0",
     "react-input": "^4.1.3",
     "react-input-component": "^0.2.0",
