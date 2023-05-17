@@ -163,8 +163,8 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 export const Container = styled.div`
-  background: linear-gradient(rgba(0,0,0,1.4), rgba(0,0,0,0.4)),
-    url('/fundo/fundo-login.png');
+  background: linear-gradient(rgba(0, 0, 0, 1.4), rgba(0, 0, 0, 0.4)),
+    url("/fundo/fundo-login.png");
   background-size: 100% 100vh;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -179,29 +179,31 @@ export const Container = styled.div`
 `;
 
 export const Conteudo = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
-	@media (max-width: 767px) {
-		width: 100%;
-		margin-top: 03% ;
-		min-height: 91vh;
-		padding: 20px ;
-		background-color: var(--backgroud-secundaria);
-    }
+  @media (max-width: 767px) {
+    width: 100%;
+    margin-top: 03%;
+    min-height: 91vh;
+    padding: 20px;
+    background-color: var(--backgroud-secundaria);
+  }
 
-    @media (min-width: 767px) {
-		width: 600px ;
-		min-height: 80vh;
-		border: none;
-		border-radius: 5px ;
-		background-color: var(--backgroud-secundaria);
-		padding: 20px ;
-		margin-left: 03% ;
-	}
+  @media (min-width: 767px) {
+    width: 50%;
+    min-height: 70vh !important;
+    border-radius: 5px;
+    background-color: var(--backgroud-secundaria);
+    padding: 20px;
+    margin: 1vh;
+  }
 `;
 
 export const Header = styled.div`
   height: auto;
-  min-height: 94vh;
+  min-height: 90vh;
 
   @media (max-width: 767px) {
     display: flex;
@@ -216,79 +218,78 @@ export const Header = styled.div`
 `;
 
 export const TituloFuncao = styled.div`
-	display: flex;
-	justify-content: space-between ;
-	align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 export const Adicionar = styled.a`
-	@media (max-width: 767px) {
-		margin-bottom: 5px ;
-		width:55px ;
-		height: 50px;
-		border-radius: 100%;
+  @media (max-width: 767px) {
+    margin-bottom: 5px;
+    width: 55px;
+    height: 50px;
+    border-radius: 100%;
 
-		background-color: var(--cor-primaria) ;
-		text-decoration: none;
-		font-size: 40px ;
-		color: var(--shape);
+    background-color: var(--cor-primaria);
+    text-decoration: none;
+    font-size: 40px;
+    color: var(--shape);
 
-		display: flex ;
-		justify-content:center ;
-		align-items: center ;
-    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-    @media (min-width: 767px) {
-		margin: 10px ;
-		width:65px ;
-		height: 65px;
-		border-radius: 100%;
+  @media (min-width: 767px) {
+    margin: 10px;
+    width: 65px;
+    height: 65px;
+    border-radius: 100%;
 
-		background-color: var(--cor-primaria) ;
-		text-decoration: none;
-		font-size: 40px ;
-		color: var(--shape);
-		
-		display: flex ;
-		justify-content:center ;
-		align-items: center ;
-	}
+    background-color: var(--cor-primaria);
+    text-decoration: none;
+    font-size: 40px;
+    color: var(--shape);
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 export const Center = styled.div`
-	display: flex;
-	justify-content: center ;
+  display: flex;
+  justify-content: center;
 `;
 export const AdicionarItem = styled.div`
-	width: 100% ;
-	height: 40px ;
-	align-items: center ;
-	display: flex ;
-	justify-content: center;
-	font-size: 30px;
-	border: solid 1px;
-	border-radius: 2px ;
-	background-color:var(--shape) ;
-	color: var(--borda) ;
+  width: 100%;
+  height: 40px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+  border: solid 1px;
+  border-radius: 2px;
+  background-color: var(--shape);
+  color: var(--borda);
 `;
 export const Button = styled.div`
-	width: 90% ;
-	height: 25px ;
-	background-color: var(--blue) ;
-	border-radius: 5px ;
-	color: white ;
+  width: 90%;
+  height: 25px;
+  background-color: var(--blue);
+  border-radius: 5px;
+  color: white;
 
-	display: flex ;
-	justify-content: center ;
-	align-items: center ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const Carregando = styled.div`
-	img{
-		width: 100px ;
-	}
-	display: flex ;
-	flex-direction: column ;
-	justify-content: center ;
-	align-items: center ;
+  img {
+    width: 100px;
+  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
