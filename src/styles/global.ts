@@ -36,24 +36,22 @@ export const GlobalStyle = createGlobalStyle`
 
 	select,input{
 		width: 100%;
-		height: 30px;
-		font-size: 15px ;
+		height: 5vh;
+		font-size: 2vh;
 		padding-left:10px ;
-		background: none;
+		background: none !important;
+		color:brack;
 		border: none;
-		color: var(--text) ;
 	}
 
 	.select,.input{
-		color: white;
-		background: rgba(100,100,100, 0.3) ;
+		background: rgba(100,100,100, 0.3);
 		border-radius: 3px;
 		display: flex ;
 		justify-content: center ;
 		align-items: center ;
 		padding: 30px ;
 	}
-
 	.h-10 {
 		height: 10% !important;
 	}
@@ -167,7 +165,7 @@ export const GlobalStyle = createGlobalStyle`
 export const Container = styled.div`
   background: linear-gradient(rgba(0,0,0,1.4), rgba(0,0,0,0.4)),
     url('/fundo/fundo-login.png');
-  background-size: 1500px 750px;
+  background-size: 100% 100vh;
   background-attachment: fixed;
   background-repeat: no-repeat;
   color: black;
