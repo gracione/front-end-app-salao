@@ -6,6 +6,7 @@ export const Container = styled.div`
     width: 100% ;
     min-height: 130px ;
     border: none ;
+
     form{
         display: flex;
         width: 100% ;
@@ -19,8 +20,7 @@ export const CardFuncionario = styled.a`
         height: 120px ;
         border: solid var(--borda) 2px;
         border-radius: 5px ;
-        background-color: white ;
-        color: #000;
+        background-color: rgba(14, 14, 20, 1);;
 
         margin-left: 10px;
         margin-bottom: 10px;

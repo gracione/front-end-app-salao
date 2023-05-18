@@ -20,7 +20,6 @@ export default function AlterarFeriado() {
   }, []);
 
   return (
-    <Container>
       <Header>
         <Conteudo>
           <div>
@@ -45,6 +44,5 @@ export default function AlterarFeriado() {
           />
         </Conteudo>
       </Header>
-    </Container>
   );
 }

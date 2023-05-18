@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const GlobalStyle = createGlobalStyle`
 	:root {
 		--backgroud: #ED00B9;
-		--backgroud-secundaria: rgba(255, 255, 255, 0.3);
+		--backgroud-secundaria: rgba(23, 24, 33, 0.8);
 		--borda: #D0B6B6;
 		--red: #E52E4D;
 		--green: #70853e;
@@ -17,10 +17,10 @@ export const GlobalStyle = createGlobalStyle`
 		--red-light: #FF5353;
 		--green-light: #3ADF00;
 
-		--text-title: #363F5F;
-		--text-body: #969CB3;
-		--text: white;
-		--shape: #FFF;
+		--text-title: white;
+		--text-body: white;
+		--text: rgba(232, 232, 232, 0.8);
+		--shape: white;
 
 	}
 	* {
@@ -28,6 +28,7 @@ export const GlobalStyle = createGlobalStyle`
 		padding:0;
 		outline:none;
 		box-sizing: border-box;
+		color: var(--text);
 	}
 
 	a{
@@ -39,8 +40,8 @@ export const GlobalStyle = createGlobalStyle`
 		height: 5vh;
 		font-size: 2vh;
 		padding-left:10px ;
-		background: none !important;
-		color:brack;
+		background: rgba(100,100,100, 0.3);
+		color:var(--text);
 		border: none;
 	}
 
