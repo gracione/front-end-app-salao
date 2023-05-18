@@ -9,8 +9,6 @@ export default function InserirFolga() {
 
   return (
     <>
-      <div>
-        <h3>Adicionar folga</h3>
         <select onChange={(e) => setIdFuncionario(e.target.value)} required>
           <option>Escolha o Funcionario</option>
           {funcionario.map((element: any) => (
@@ -29,7 +27,6 @@ export default function InserirFolga() {
           <option value={6}>Sexta Feira</option>
           <option value={7}>Sabado</option>
         </select>
-      </div>
       <Inserir modulo="folgas" dados={{ diaSemana, dados: idFuncionario }} />
     </>
   );

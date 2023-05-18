@@ -31,19 +31,27 @@ export const GlobalStyle = createGlobalStyle`
 		color: var(--text);
 	}
 
-	a{
-		color:var(--shape);
+	.modal-content{
+		background-color: rgba(23, 24, 33, 1);
 	}
 
 	select,input{
 		width: 100%;
-		height: 5vh;
-		font-size: 2vh;
-		padding-left:10px ;
-		background: rgba(100,100,100, 0.3);
-		color:var(--text);
 		border: none;
+		height: 44px;
+		font-size: 18px;
+		padding-left: 10px;
+		background: rgba(100,100,100,0.3);
+		color: var(--text);
+		border: none;
+		margin-bottom: 1vh;
+		border-radius: 2px;
 	}
+
+	select option {
+		background-color: rgb(46 47 53 / 100%);
+    color: var(--text);
+		}
 
 	.select,.input{
 		background: rgba(100,100,100, 0.3);

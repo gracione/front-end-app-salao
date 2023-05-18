@@ -1,4 +1,3 @@
-import { Conteudo, Header } from "../../styles/global";
 import { useState } from "react";
 import Inserir from "../../util/inserir";
 import { Form, Button } from "react-bootstrap";

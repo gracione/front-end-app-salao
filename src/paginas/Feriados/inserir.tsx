@@ -6,16 +6,13 @@ export default function InserirFeriado() {
   const [nome, setFeriado] = useState("");
   return (
     <>
-      <div>
-        <h2>Adicionar Feriado</h2>
-        <input
-          type="text"
-          placeholder="Nome do feriado"
-          onChange={(e) => setFeriado(e.target.value)}
-          required
-        />
-        <input type="date" onChange={(e) => setData(e.target.value)} required />
-      </div>
+      <input
+        type="text"
+        placeholder="Nome do feriado"
+        onChange={(e) => setFeriado(e.target.value)}
+        required
+      />
+      <input type="date" onChange={(e) => setData(e.target.value)} required />
       <Inserir modulo="feriados" dados={{ data, nome }} />
     </>
   );

@@ -50,7 +50,7 @@ export default function Informacoes() {
             </div>
             <label htmlFor="">Tratamento</label>
             <select
-            className="rounded bg-white"
+            className="rounded"
               onChange={e => setIdTratamento(e.target.value)}
               required
             >

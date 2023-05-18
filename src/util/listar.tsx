@@ -36,7 +36,11 @@ export default function Listar(props: any) {
         <Modal show={erroModal} onHide={() => setErro(false)}>
           <ModalErro funcao={funcao} />
         </Modal>
-        <Modal show={modalAberto} onHide={() => setModalAberto(false)}>
+        <Modal
+          show={modalAberto}
+          onHide={() => setModalAberto(false)}
+          dialogClassName="modal-escuro"
+        >
           <Modal.Header closeButton>
             <Modal.Title>Adicionar {funcao}</Modal.Title>
           </Modal.Header>
