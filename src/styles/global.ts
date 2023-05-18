@@ -112,30 +112,20 @@ export const GlobalStyle = createGlobalStyle`
 	align-items: center;
 	}
 
-	table {
-		background-color: rgba(250,250,250, 0.2);
-		font-family: arial, sans-serif;
-		width: 100% ;
-		border:none;
-	}
 
 	td, th {
-		border: 1px solid #dddddd;
+		border-bottom: 1px solid rgba(600,600,600, 0.4);
 		text-align: left;
 		padding: 8px;
 	}
 
-	tr:nth-child(even) {
-		background-color: rgba(600,600,600, 0.4);
-	}
-
 	.modal{
-	width: 100 %;
-	height: 100vh;
-	background: rgba(0, 0, 0, .5);
-	display: flex;
-	justify-content: center;
-	align-items: center;
+		width: 100% ;
+		height: 100vh;
+		background: rgba(0, 0, 0, .5);
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 
 	.salvo{
@@ -179,10 +169,6 @@ export const Container = styled.div`
 `;
 
 export const Conteudo = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
   @media (max-width: 767px) {
     width: 100%;
     margin-top: 03%;
@@ -211,7 +197,6 @@ export const Header = styled.div`
   }
 
   @media (min-width: 767px) {
-    display: flex;
     padding-top: 30px;
     margin-left: 40px;
   }

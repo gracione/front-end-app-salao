@@ -52,11 +52,11 @@ export default function Listar(props: any) {
 
         <div>
           <TituloFuncao>
-            <h3>{funcao}</h3>
+            <h3 className="text-capitalize">{funcao}</h3>
             <Adicionar onClick={() => setModalAberto(true)}>+</Adicionar>
           </TituloFuncao>
 
-          <table className="w-100 border-none">
+          <table className="w-100">
             <thead>
               <tr>
                 {colunas.map((nome: string) => (
