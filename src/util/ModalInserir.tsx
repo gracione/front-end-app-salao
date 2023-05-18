@@ -9,7 +9,7 @@ export default function ModalInserir(props: any) {
 
   let paginaInserir;
 
-  if (funcao === "funcionario") {
+  if (funcao === "funcionarios") {
     paginaInserir = <Funcionario />;
   } else if (funcao === "feriados") {
     paginaInserir = <Feriados />;
