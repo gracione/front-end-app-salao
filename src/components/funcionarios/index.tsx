@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom";
 import BuscarDadosApi from "../../util/util";
-import { CardFuncionario, CardAdicionarFuncionario, Container } from "./styles";
+import { CardFuncionario, Container } from "./styles";
 import { useState, useEffect } from "react";
 import api from "../../services/api";
 import Filtros from "./filtro";
+import { FaClock } from "react-icons/fa";
 
 export default function Funcionarios(props: any) {
   const idTipoUsuario: any = localStorage.getItem("tipo_usuario");
@@ -75,16 +75,6 @@ export default function Funcionarios(props: any) {
         </CardFuncionario>
       ))}
 
-      {idTipoUsuario === "1" && (
-        <Link to={"/funcionarios/adicionar"}>
-          <CardAdicionarFuncionario>
-            <h6>Cadastrar</h6>
-            <h6>Funcionário</h6>
-            <h2>+</h2>
-          </CardAdicionarFuncionario>
-        </Link>
-      )}
-
       {formActive && (
         <form
           action={
@@ -101,10 +91,9 @@ export default function Funcionarios(props: any) {
           }
         >
           <div>
-            <h3>Etapa Tratamento</h3>
-            <hr />
-            <div className="border d-flex">
-              <div className="border w-75 d-flex justify-content-center">
+            <div className="d-flex">
+              <div className="border w-75 d-flex justify-content-center align-items-center">
+                <FaClock className="mr-4" />
                 Tempo gasto aproximado
               </div>
               <div className="border w-25 d-flex justify-content-center">
