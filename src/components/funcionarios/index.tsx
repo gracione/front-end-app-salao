@@ -29,11 +29,7 @@ export default function Funcionarios(props: any) {
       .then((response) => setTempoGasto(response.data));
   }, [idTratamento, idFiltro]);
 
-  let urlNomeCliente = "";
-
-  if (nomeCliente) {
-    urlNomeCliente = nomeCliente;
-  }
+  let urlNomeCliente = nomeCliente || "";
 
   useEffect(() => {
     api
@@ -56,18 +52,8 @@ export default function Funcionarios(props: any) {
       {funcionario.map((element: any) => (
         <CardFuncionario
           key={element.id}
-          className={
-            idTipoUsuario !== "3" && props.nomeCliente.length <= 0
-              ? "opacity-50 text-secondary"
-              : ""
-          }
-          onClick={() =>
-            etapaTratamento({
-              funcionario: element.id,
-              id_profissao: element.id_profissao,
-              nomeCliente: props.nomeCliente,
-            })
-          }
+          className={`${idTipoUsuario !== "3" && props.nomeCliente.length <= 0 ? "opacity-50 text-secondary" : ""}`}
+          onClick={() => etapaTratamento({ funcionario: element.id, id_profissao: element.id_profissao, nomeCliente: props.nomeCliente })}
         >
           <h6>{element.nome}</h6>
           <h6>{element.profissão}</h6>
@@ -77,18 +63,7 @@ export default function Funcionarios(props: any) {
 
       {formActive && (
         <form
-          action={
-            "/escolher-horario/funcionario=" +
-            idUsuarioFuncionario +
-            "/" +
-            idProfissao +
-            "/" +
-            idTratamento +
-            "/" +
-            idFiltro +
-            "/" +
-            urlNomeCliente
-          }
+          action={`/escolher-horario/funcionario=${idUsuarioFuncionario}/${idProfissao}/${idTratamento}/${idFiltro}/${urlNomeCliente}`}
         >
           <div>
             <div className="d-flex">
