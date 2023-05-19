@@ -1,52 +1,81 @@
-import BuscarDadosApi from "../../util/util";
 import { Link } from "react-router-dom";
+import BuscarDadosApi from "../../util/util";
 import { CardFuncionario, CardAdicionarFuncionario, Container } from "./styles";
+import { useState, useEffect } from "react";
+import api from "../../services/api";
+import Filtros from "./filtro";
 
 export default function Funcionarios(props: any) {
   const idTipoUsuario: any = localStorage.getItem("tipo_usuario");
-  const funcionario = BuscarDadosApi('funcionarios', 'listar-funcionarios', {
-    idUsuario: localStorage.getItem('id_usuario'),
-    tipoUsuario: localStorage.getItem('tipo_usuario')
+  const funcionario = BuscarDadosApi("funcionarios", "listar-funcionarios", {
+    idUsuario: localStorage.getItem("id_usuario"),
+    tipoUsuario: localStorage.getItem("tipo_usuario"),
   });
+  const [tempoGasto, setTempoGasto] = useState(0);
+  const [idTratamento, setIdTratamento] = useState("0");
+  const [idFiltro, setIdFiltro] = useState("0");
+  const [formActive, setFormActive] = useState(false);
+  const [idUsuarioFuncionario, setIdUsuarioFuncionario] = useState("");
+  const [idProfissao, setIdProfissao] = useState("");
+  const [nomeCliente, setNomeCliente] = useState("");
+  const [tratamentoPorProfissao, setTratamentoPorProfissao] = useState([]);
 
-  if (idTipoUsuario !== '3' && props.nomeCliente.length <= 0) {
+  useEffect(() => {
+    api
+      .post("/horario/tempo-gasto", {
+        filtros: idFiltro,
+        tratamento: idTratamento,
+      })
+      .then((response) => setTempoGasto(response.data));
+  }, [idTratamento, idFiltro]);
+
+  let urlNomeCliente = "";
+
+  if (nomeCliente) {
+    urlNomeCliente = nomeCliente;
+  }
+
+  useEffect(() => {
+    api
+      .post("/tratamentos/listar-id-profissao", {
+        id: idProfissao,
+      })
+      .then((response) => setTratamentoPorProfissao(response.data));
+  }, [idProfissao, formActive]);
+
+  function etapaTratamento(dados: any) {
+    setIdUsuarioFuncionario(dados.funcionario);
+    setIdProfissao(dados.id_profissao);
+    setNomeCliente(dados.nomeCliente);
+
+    setFormActive(!formActive);
   }
 
   return (
     <Container>
-      {funcionario.map((element) => (
-        idTipoUsuario !== '3' && props.nomeCliente.length <= 0 ?
-          <CardFuncionario className="opacity-50 text-secondary" >
-            <h6>
-              {element.nome}
-            </h6>
-            <h6>
-              {element.profissão}
-            </h6>
-            <h2>
-              {element.id}
-            </h2>
-          </CardFuncionario>
-          :
-          <CardFuncionario
-            href={"informacoes/funcionario=" + element.id + "/" + element.id_profissao + "/" + props.nomeCliente} className='funcionarios'
-
-          >
-            <h6>
-              {element.nome}
-            </h6>
-            <h6>
-              {element.profissão}
-            </h6>
-            <h2>
-              {element.id}
-            </h2>
-          </CardFuncionario>
-
+      {funcionario.map((element: any) => (
+        <CardFuncionario
+          key={element.id}
+          className={
+            idTipoUsuario !== "3" && props.nomeCliente.length <= 0
+              ? "opacity-50 text-secondary"
+              : ""
+          }
+          onClick={() =>
+            etapaTratamento({
+              funcionario: element.id,
+              id_profissao: element.id_profissao,
+              nomeCliente: props.nomeCliente,
+            })
+          }
+        >
+          <h6>{element.nome}</h6>
+          <h6>{element.profissão}</h6>
+          <h2>{element.id}</h2>
+        </CardFuncionario>
       ))}
 
-      {idTipoUsuario === '1' &&
-
+      {idTipoUsuario === "1" && (
         <Link to={"/funcionarios/adicionar"}>
           <CardAdicionarFuncionario>
             <h6>Cadastrar</h6>
@@ -54,7 +83,52 @@ export default function Funcionarios(props: any) {
             <h2>+</h2>
           </CardAdicionarFuncionario>
         </Link>
-      }
+      )}
+
+      {formActive && (
+        <form
+          action={
+            "/escolher-horario/funcionario=" +
+            idUsuarioFuncionario +
+            "/" +
+            idProfissao +
+            "/" +
+            idTratamento +
+            "/" +
+            idFiltro +
+            "/" +
+            urlNomeCliente
+          }
+        >
+          <div>
+            <h3>Etapa Tratamento</h3>
+            <hr />
+            <div className="border d-flex">
+              <div className="border w-75 d-flex justify-content-center">
+                Tempo gasto aproximado
+              </div>
+              <div className="border w-25 d-flex justify-content-center">
+                {tempoGasto}
+              </div>
+            </div>
+            <label htmlFor="">Tratamento</label>
+            <select
+              className="rounded"
+              onChange={(e) => setIdTratamento(e.target.value)}
+              required
+            >
+              <option value="">------ Selecione ------</option>
+              {tratamentoPorProfissao.map((element: any) => (
+                <option key={element.id} value={element.id}>
+                  {element.nome}
+                </option>
+              ))}
+            </select>
+            <Filtros data={idTratamento} setIdFiltro={setIdFiltro} />
+          </div>
+          <button>Prosseguir</button>
+        </form>
+      )}
     </Container>
   );
 }

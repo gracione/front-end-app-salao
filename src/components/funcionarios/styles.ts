@@ -4,7 +4,7 @@ export const Container = styled.div`
     display: flex ;
     flex-wrap: wrap;
     width: 100% ;
-    min-height: 130px ;
+    min-height: 230px ;
     border: none ;
 
     form{
@@ -13,7 +13,7 @@ export const Container = styled.div`
     }
 `;
 
-export const CardFuncionario = styled.a`
+export const CardFuncionario = styled.div`
         
         font-size: 25px;
         width: 90px;
