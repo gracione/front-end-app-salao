@@ -14,7 +14,7 @@ export const Container = styled.div`
     }
 `;
 
-export const CardFuncionario = styled.div`
+export const CardFuncionario = styled.button`
         
         font-size: 25px;
         width: 90px;

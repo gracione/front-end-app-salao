@@ -51,14 +51,15 @@ export default function Funcionarios(props: any) {
     <Container>
       {funcionario.map((element: any) => (
         <CardFuncionario
-          key={element.id}
-          className={`${idTipoUsuario !== "3" && props.nomeCliente.length <= 0 ? "opacity-50 text-secondary" : ""}`}
-          onClick={() => etapaTratamento({ funcionario: element.id, id_profissao: element.id_profissao, nomeCliente: props.nomeCliente })}
-        >
-          <h6>{element.nome}</h6>
-          <h6>{element.profissão}</h6>
-          <h2>{element.id}</h2>
-        </CardFuncionario>
+        key={element.id}
+        className={`${idTipoUsuario !== "3" && props.nomeCliente.length <= 0 ? "opacity-50 text-secondary" : ""}`}
+        onClick={() => etapaTratamento({ funcionario: element.id, id_profissao: element.id_profissao, nomeCliente: props.nomeCliente })}
+        disabled={idTipoUsuario !== "3" && props.nomeCliente.length <= 0}
+      >
+        <h6>{element.nome}</h6>
+        <h6>{element.profissão}</h6>
+        <h2>{element.id}</h2>
+      </CardFuncionario>
       ))}
 
       {formActive && (
@@ -83,7 +84,7 @@ export default function Funcionarios(props: any) {
             >
               <option value="">------ Selecione ------</option>
               {tratamentoPorProfissao.map((element: any) => (
-                <option key={element.id} value={element.id}>
+                <option key={element.id} value={element.id} aria-required>
                   {element.nome}
                 </option>
               ))}
