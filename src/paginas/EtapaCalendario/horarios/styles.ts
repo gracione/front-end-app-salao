@@ -47,11 +47,12 @@ export const HorariosDisponivel = styled.div`
     }
 
     .selecionado{
-        background-color: var(--cor-primaria) ;
+        background-color: var(--cor-secundaria) ;
     }
     .disponivel{
-        color: var(--blue) ;
-        background-color: #00BFFF ;
+        color: black !important;
+        border: solid black;
+        background-color: var(--cor-primaria) ;
     }
 `;
 

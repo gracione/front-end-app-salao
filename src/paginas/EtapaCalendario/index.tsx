@@ -3,7 +3,7 @@ import { PainelCalendario, Calendario, Container,Conteudo } from './styles';
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import api from "../../../src/services/api";
-import Horarios from '../../components/horarios';
+import Horarios from './horarios';
 import BuscarDadosApi from "../../util/util";
 
 function criarArrayCalendario(ano = 0, mes = 0) {

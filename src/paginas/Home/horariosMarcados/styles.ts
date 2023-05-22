@@ -10,7 +10,7 @@ export const Container = styled.div`
 
     @media (min-width: 767px) {
         width: 90% ;
-        .nome-desmarcar-x{
+        .nome-desmarcar-x {
             display: none ;
         }
     }
@@ -22,7 +22,7 @@ export const Cartao = styled.div`
     height:100px;
     margin-top: 5px ;
 
-    background:white;
+    background:rgba(43, 34, 43, 1);
     border-left:solid 10px var(--cor-primaria);
     
     border-radius:5px;
@@ -53,7 +53,7 @@ export const Cartao = styled.div`
             display:flex;
             justify-content: center;
             align-items:center;
-    
+
         }
     }
     .dados-usuario{

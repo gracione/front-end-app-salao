@@ -11,7 +11,7 @@ export const GlobalStyle = createGlobalStyle`
 		--blue: #482a7b;
 		--yellow: #fdff40;
 
-		--cor-primaria: #5090F3;
+		--cor-primaria: white;
 		--cor-secundaria: #969CB3;
 		--blue-light: #5090F3;
 		--red-light: #FF5353;
@@ -20,7 +20,7 @@ export const GlobalStyle = createGlobalStyle`
 		--text-title: white;
 		--text-body: white;
 		--text: rgba(232, 232, 232, 0.8);
-		--shape: white;
+		--shape: black;
 
 	}
 	* {

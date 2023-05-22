@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Funcionarios from '../../components/funcionarios';
+import Funcionarios from './funcionarios';
 import HorariosMarcado from './horariosMarcados';
 import { AgendarHorario, Container, HorariosMarcados } from './styles';
 

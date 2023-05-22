@@ -6,15 +6,12 @@ import BuscarDadosApi from '../../../util/util';
 import { useState } from 'react';
 import { Modal } from 'react-responsive-modal';
 
-
 export default function HorariosMarcado() {
-  const idTipoUsuario = localStorage.getItem("tipo_usuario");
   const [excluir, setExcluir] = useState(false);
   const [confima, setConfimar] = useState(false);
 
-  
   let horariosMarcados: any = [];
-  
+
   try {
     horariosMarcados = BuscarDadosApi('horarios-marcados', 'listar ', {
       idUsuario: localStorage.getItem("id_usuario"),
@@ -24,24 +21,27 @@ export default function HorariosMarcado() {
     window.location.href = "/home";
     console.error(err);
   }
-  
 
   function desmarcar(idHorario: any) {
     api.post("/horario/excluir", {
       id: idHorario
-    }).then((response) => (setExcluir(response.data)));
-
-    if (excluir) {
-      window.location.href = "/home";
-    }
+    }).then((response) => {
+      setExcluir(response.data);
+      if (response.data) {
+        window.location.href = "/home";
+      }
+    });
   }
+
   function confirmar(idHorario: any) {
     api.post("/horario/confirmar", {
       id: idHorario
-    }).then((response) => (setConfimar(response.data)));
-    if (excluir) {
-      window.location.href = "/home";
-    }
+    }).then((response) => {
+      setConfimar(response.data);
+      if (response.data) {
+        window.location.href = "/home";
+      }
+    });
   }
 
   return (
@@ -64,57 +64,36 @@ export default function HorariosMarcado() {
           </div>
         </div>
       </Modal>
-      {
-        horariosMarcados.map((element:any) => (
-          <Cartao>
-            <div className='dados-horario'>
-              <div className="horario" >
-                {element['horario']}
-              </div>
-              <div className="data" >
-                {element['data']}
+      {horariosMarcados.map((element: any) => (
+        <Cartao key={element.idHorario}>
+          <div className='dados-horario'>
+            <div className="horario" >
+              {element.horario}
+            </div>
+            <div className="data" >
+              {element.data}
+            </div>
+          </div>
+          <div className='dados-usuario' >
+            <li className="cliente" >
+              <div className=''>cliente: {element.nome_cliente ?? element.cliente}</div>
+            </li>
+            <li>Funcionario: {element.funcionario}</li>
+            <li className='text-lowercase'>Tratamento: {element.tratamento}</li>
+            <li className='telefone'>
+              <a href={"https://api.whatsapp.com/send/?phone=+55" + element.telefone + "&text=oi"}>
+                telefone: {element.telefone + " "}
+                <FontAwesomeIcon icon={faWhatsapp} />
+              </a>
+            </li>
+            <div className='confirmar-desmarcar' >
+              <div className='desmarcar' onClick={() => desmarcar(element.idHorario)} >
+                DESMARCAR
               </div>
             </div>
-            <div className='dados-usuario' >
-              <li className="cliente" >
-                <div className=''>cliente: {element['nome_cliente'] ?? element['cliente']}</div>
-              </li>
-              <li>Funcionario: {element['funcionario']}</li>
-              <li className='text-lowercase'>Tratamento: {element['tratamento']}</li>
-              <li className='telefone'>
-                <a href={"https://api.whatsapp.com/send/?phone=+55" + element['telefone'] + "&text=oi"}>
-                  telefone: {element['telefone'] + " "}
-                  <FontAwesomeIcon icon={faWhatsapp} />
-                </a>
-              </li>
-              <div className='confirmar-desmarcar' >
-                {idTipoUsuario !== '3' && (
-                  element['confirmado'] ?
-                    <div className='confirmado' >CONFIRMADO</div>
-                    :
-                    <div className='confirmar' onClick={() => confirmar(element['idHorario'])}>CONFIRMAR</div>
-                )
-
-                }
-                {idTipoUsuario === '3' && (
-                  element['confirmado'] ?
-                    <div className='confirmado bg-primary'>CONFIRMADO</div>
-                    :
-                    <div className='confirmar bg-warning'>AGUARDANDO CONFIRMAÇÃO</div>
-                )
-
-                }
-
-                <div className='desmarcar' onClick={() => desmarcar(element['idHorario'])} >
-                  DESMARCAR
-                </div>
-              </div>
-
-            </div>
-          </Cartao>
-        ))
-      }
-    </Container >
+          </div>
+        </Cartao>
+      ))}
+    </Container>
   );
-
 }

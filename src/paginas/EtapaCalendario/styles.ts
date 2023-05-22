@@ -43,6 +43,7 @@ export const Calendario = styled.div`
     width:500px;
 
     .selecionado{
+        color: black;
         background-color: var(--cor-primaria);
         border-radius:100%;
     }

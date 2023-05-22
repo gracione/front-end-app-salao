@@ -2,8 +2,7 @@ import { DataSelecionada, HorariosDisponivel } from "./styles";
 import { Modal } from 'react-responsive-modal';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import api from '../../services/api';
-import { Container } from "../../styles/global";
+import api from '../../../services/api';
 
 export default function Horarios(props: any) {
   const [horario, setHorarios] = useState([]);
@@ -67,13 +66,13 @@ export default function Horarios(props: any) {
                 >
                   <th>
                     <div>Inicio</div>
-                    <div className="h6" >
+                    <div className="h6 text-dark" >
                       {element['inicio']}
                     </div>
                   </th>
                   <th>
                     <div>Fim</div>
-                    <div className="h6" >
+                    <div className="h6 text-dark" >
                       {element['fim']}
                     </div>
                   </th>

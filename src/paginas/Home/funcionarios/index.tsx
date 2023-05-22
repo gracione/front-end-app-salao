@@ -1,7 +1,7 @@
-import BuscarDadosApi from "../../util/util";
+import BuscarDadosApi from "../../../util/util";
 import { CardFuncionario, Container } from "./styles";
 import { useState, useEffect } from "react";
-import api from "../../services/api";
+import api from "../../../services/api";
 import Filtros from "./filtro";
 import { FaClock } from "react-icons/fa";
 
@@ -19,6 +19,7 @@ export default function Funcionarios(props: any) {
   const [idProfissao, setIdProfissao] = useState("");
   const [nomeCliente, setNomeCliente] = useState("");
   const [tratamentoPorProfissao, setTratamentoPorProfissao] = useState([]);
+  const [funcionarioSelecionado, setFuncionarioSelecionado] = useState(null);
 
   useEffect(() => {
     api
@@ -37,25 +38,29 @@ export default function Funcionarios(props: any) {
         id: idProfissao,
       })
       .then((response) => setTratamentoPorProfissao(response.data));
-  }, [idProfissao, formActive]);
+  }, [idProfissao, formActive,funcionarioSelecionado]);
 
   function etapaTratamento(dados: any) {
     setIdUsuarioFuncionario(dados.funcionario);
     setIdProfissao(dados.id_profissao);
     setNomeCliente(dados.nomeCliente);
 
-    setFormActive(!formActive);
+    setFormActive(true);
   }
 
   return (
     <Container>
       {funcionario.map((element: any) => (
         <CardFuncionario
-        key={element.id}
-        className={`${idTipoUsuario !== "3" && props.nomeCliente.length <= 0 ? "opacity-50 text-secondary" : ""}`}
-        onClick={() => etapaTratamento({ funcionario: element.id, id_profissao: element.id_profissao, nomeCliente: props.nomeCliente })}
-        disabled={idTipoUsuario !== "3" && props.nomeCliente.length <= 0}
-      >
+          key={element.id}
+          className={`${idTipoUsuario !== "3" && props.nomeCliente.length <= 0 ? "opacity-50 text-secondary" : ""} ${element.id === funcionarioSelecionado ? "bg-dark" : ""}`}
+          onClick={() => {
+            etapaTratamento({ funcionario: element.id, id_profissao: element.id_profissao, nomeCliente: props.nomeCliente });
+            setFuncionarioSelecionado(element.id);
+          }}
+          disabled={idTipoUsuario !== "3" && props.nomeCliente.length <= 0}
+        >
+
         <h6>{element.nome}</h6>
         <h6>{element.profissão}</h6>
         <h2>{element.id}</h2>

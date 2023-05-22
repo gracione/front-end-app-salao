@@ -5,7 +5,7 @@ export const AdicionarProfissao = styled.div`
     height: 30px ;
     color:white;
     margin-bottom: 10px ;
-    background-color: var(--cor-primaria) ;
+    background-color: var(--cor-secundaria) ;
     
     display: flex ;
     justify-content: center ;

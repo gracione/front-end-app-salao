@@ -89,34 +89,34 @@ export default function InserirFuncionario() {
       >
         Adicionar mais uma profissão
       </AdicionarProfissao>
-      <fieldset className="p-1 display-flex">
+      <fieldset className="p-1 display-flex bg-dark">
         <input
           type="time"
           value={inicioExpediente}
           placeholder="Inicio Expediente"
           onChange={(e) => setInicioExpediente(e.target.value)}
-          style={{ color: "black" }}
+          className="bg-dark"
         />
         <input
           type="time"
           value={inicioAlmoco}
           placeholder="Inicio Almoco"
           onChange={(e) => setInicioAlmoco(e.target.value)}
-          style={{ color: "black" }}
+          className="bg-dark"
         />
         <input
           type="time"
           value={fimAlmoco}
           placeholder="Fim Almoco"
           onChange={(e) => setFimAlmoco(e.target.value)}
-          style={{ color: "black" }}
+          className="bg-dark"
         />
         <input
           type="time"
           value={fimExpediente}
           placeholder="Fim Expediente"
           onChange={(e) => setFimExpediente(e.target.value)}
-          style={{ color: "black" }}
+          className="bg-dark"
         />
       </fieldset>
       <Inserir

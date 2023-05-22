@@ -23,7 +23,7 @@ export default function Inserir({ modulo, dados }: any) {
           </div>
         </div>
       </Modal>
-      <button onClick={() => inserir(modulo, dados)}>Inserir</button>
+      <button className='bg-light text-body' onClick={() => inserir(modulo, dados)}>Inserir</button>
     </div>
   );
 }
