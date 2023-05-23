@@ -19,6 +19,7 @@ import AlterarFeriado from './paginas/Feriados/alterar';
 import Listar from './util/listar';
 import Menu from './paginas/Menu';
 import AlterarFolga from './paginas/Folgas/alterar';
+import ConfiguracoesSistema from './paginas/ConfiguracoesSistema';
 
 export default function Rota() {
     const token: any = localStorage.getItem("token");
@@ -77,6 +78,7 @@ export default function Rota() {
                 <Route path="/profissao/alterar/:idProfissao" element={<AlterarProfissao />} />
 
                 <Route path="/configuracoes" element={<Configuracoes />} />
+                <Route path="/configuracao-sistema" element={<ConfiguracoesSistema />} />
             </Routes>
         </Container>
     );
