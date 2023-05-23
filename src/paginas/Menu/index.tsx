@@ -1,16 +1,28 @@
 import { Link } from "react-router-dom";
-import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faCog, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
-import { GoogleLogout } from 'react-google-login';
+import { Navbar, Nav, NavDropdown } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser, faCog, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
+import { GoogleLogout } from "react-google-login";
+import { faQuestionCircle } from "@fortawesome/free-solid-svg-icons";
+import { faComment } from "@fortawesome/free-solid-svg-icons";
 
 const Menu = () => {
-  const CLIENT_ID = "959861611664-n7ql4k5hf128e48qbsspdhu0vdkd3sar.apps.googleusercontent.com";
-  const PROFILE = ['nenhum', 'Administrativo', 'Funcionario', 'Cliente'];
+  const CLIENT_ID =
+    "959861611664-n7ql4k5hf128e48qbsspdhu0vdkd3sar.apps.googleusercontent.com";
+  const PROFILE = ["nenhum", "Administrativo", "Funcionario", "Cliente"];
   const userType = localStorage.getItem("tipo_usuario");
   const userName = localStorage.getItem("nome");
   const userImageUrl = localStorage.getItem("img_url");
-  const userProfileImage = userImageUrl ? <img className="rounded-circle" width="30px" src={userImageUrl} alt="User" /> : <FontAwesomeIcon icon={faUser} />;
+  const userProfileImage = userImageUrl ? (
+    <img
+      className="rounded-circle"
+      width="30px"
+      src={userImageUrl}
+      alt="User"
+    />
+  ) : (
+    <FontAwesomeIcon icon={faUser} />
+  );
 
   const handleLogout = () => {
     localStorage.clear();
@@ -19,28 +31,102 @@ const Menu = () => {
 
   return (
     <Navbar expand="lg" variant="dark" className="bg-transparent">
-      <Navbar.Brand href="/" className="m-2">Realize</Navbar.Brand>
+      <Navbar.Brand href="/" className="m-2">
+        Realize
+      </Navbar.Brand>
       <Navbar.Toggle aria-controls="menu-navbar" className="w-25" />
       <Navbar.Collapse id="menu-navbar" className="">
         <Nav className="w-100 ml-auto d-flex justify-content-end">
-          {userType === '1' && (
+          {userType === "1" && (
             <>
-              <Nav.Link className="m-1" as={Link} to={"/funcionarios"}>Funcionario</Nav.Link>
-              <Nav.Link className="m-1" as={Link} to={"/feriados"}>Feriados</Nav.Link>
-              <Nav.Link className="m-1" as={Link} to={"/folgas"}>Folgas</Nav.Link>
-              <Nav.Link className="m-1" as={Link} to={"/tratamentos"}>Procedimentos</Nav.Link>
-              <Nav.Link className="m-1" as={Link} to={"/profissao"}>Profissão</Nav.Link>
-              <Nav.Link className="m-1" as={Link} to={"/expediente"}>Expediente</Nav.Link>
+              <Nav.Link className="m-1" as={Link} to={"/funcionarios"}>
+                Funcionario
+              </Nav.Link>
+              <Nav.Link className="m-1" as={Link} to={"/profissao"}>
+                Profissão
+              </Nav.Link>
+              <Nav.Link className="m-1" as={Link} to={"/expediente"}>
+                Horario de Funcionamento
+              </Nav.Link>
+              <Nav.Link className="m-1" as={Link} to={"/configuracao-sistema"}>
+                Configuração do Sistema
+              </Nav.Link>
               <NavDropdown className="m-1" title="Relatórios">
                 <NavDropdown.Item>
-                  Relatório de Vendas
+                  <Nav.Link
+                    className="text-dark"
+                    as={Link}
+                    to={"/relatorio-atendimento"}
+                  >
+                    Relatório de Atendimento
+                  </Nav.Link>
                 </NavDropdown.Item>
                 <NavDropdown.Item>
-                  Relatório de Estoque
+                  <Nav.Link
+                    className="text-dark"
+                    as={Link}
+                    to={"/relatorio-atendimento"}
+                  >
+                    Relatório Financeiro
+                  </Nav.Link>
+                </NavDropdown.Item>
+              </NavDropdown>
+              <NavDropdown className="m-1" title="Galeria">
+                <NavDropdown.Item>
+                  <Nav.Link className="text-dark" as={Link} to={"/pentiados"}>
+                    Pentiados
+                  </Nav.Link>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <Nav.Link
+                    className="text-dark"
+                    as={Link}
+                    to={"/relatorio-atendimento"}
+                  >
+                    +
+                  </Nav.Link>
+                </NavDropdown.Item>
+              </NavDropdown>
+              <NavDropdown className="m-1" title="Serviços">
+                <NavDropdown.Item>
+                  <Nav.Link
+                    className="text-dark"
+                    as={Link}
+                    to={"/servicos-funcionario"}
+                  >
+                    Funcionario
+                  </Nav.Link>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <Nav.Link
+                    className="text-dark"
+                    as={Link}
+                    to={"/servicos-profissao"}
+                  >
+                    Profissão
+                  </Nav.Link>
+                </NavDropdown.Item>
+              </NavDropdown>
+              <NavDropdown className="m-1" title="Bloqueio de Datas">
+                <NavDropdown.Item>
+                  <Nav.Link className="text-dark" as={Link} to={"/feriados"}>
+                    Feriados
+                  </Nav.Link>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <Nav.Link className="text-dark" as={Link} to={"/folgas"}>
+                    Folgas
+                  </Nav.Link>
                 </NavDropdown.Item>
               </NavDropdown>
             </>
           )}
+          <Nav.Link className="m-1" as={Link} to={"/chat"}>
+            Chat
+          </Nav.Link>
+          <Nav.Link className="m-1" as={Link} to={"/ajuda"}>
+            Ajuda
+          </Nav.Link>
           <NavDropdown
             title={
               <>
@@ -68,7 +154,6 @@ const Menu = () => {
         </Nav>
       </Navbar.Collapse>
     </Navbar>
-
   );
 };
 

@@ -81,7 +81,7 @@ export default function Funcionarios(props: any) {
                 {tempoGasto}
               </div>
             </div>
-            <label htmlFor="">Tratamento</label>
+            <label htmlFor="">Serviço</label>
             <select
               className="rounded"
               onChange={(e) => setIdTratamento(e.target.value)}

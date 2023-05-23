@@ -1,43 +1,100 @@
-import { useState } from 'react';
-import Funcionarios from './funcionarios';
-import HorariosMarcado from './horariosMarcados';
-import { AgendarHorario, Container, HorariosMarcados } from './styles';
+import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faWhatsapp,
+  faInstagram,
+  faFacebook,
+} from "@fortawesome/free-brands-svg-icons";
+import Funcionarios from "./funcionarios";
+import HorarioMarcado from "./horariosMarcados";
+import { AgendarHorario, Container, HorariosMarcados } from "./styles";
 
 export default function Home() {
-  // Extrai o valor da chave "tipo_usuario" do localStorage
   const { tipo_usuario } = localStorage;
+  const [nomeCliente, setNomeCliente] = useState("");
 
-  // Define o estado "nomeCliente" para armazenar o nome do cliente
-  const [nomeCliente, setNomeCliente] = useState('');
+  const compartilharWhatsApp = () => {
+    const link = window.location.href;
+    const url = `https://api.whatsapp.com/send?text=${encodeURIComponent(
+      link
+    )}`;
+    window.open(url, "_blank");
+  };
+
+  const compartilharInstagram = () => {
+    const link = window.location.href;
+    const url = `https://www.instagram.com/?url=${encodeURIComponent(link)}`;
+    window.open(url, "_blank");
+  };
+
+  const compartilharFacebook = () => {
+    const link = window.location.href;
+    const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+      link
+    )}`;
+    window.open(url, "_blank");
+  };
 
   return (
     <Container>
-      {/* Área de agendamento de horários */}
       <div className="home-usuario">
         <AgendarHorario>
-          <h4 className="w-100 d-flex justify-content-center">Agendar Horário</h4>
+          <h4 className="w-100 d-flex justify-content-center">
+            Agendar Horário
+          </h4>
           <div className="w-100">
-            {/* Define a etapa adequada baseada no tipo de usuário */}
-            {tipo_usuario === '1' && <h5>Etapa Escolher Funcionário e Profissão</h5>}
-            {tipo_usuario === '2' && <h5>Etapa Escolher Profissão</h5>}
-            {tipo_usuario === '3' && <h5>Etapa Escolher Funcionário e Profissão</h5>}
+            {tipo_usuario === "1" && (
+              <h5>Etapa Escolher Funcionário e Profissão</h5>
+            )}
+            {tipo_usuario === "2" && <h5>Etapa Escolher Profissão</h5>}
+            {tipo_usuario === "3" && (
+              <h5>Etapa Escolher Funcionário e Profissão</h5>
+            )}
 
-            {/* Solicita o nome do cliente caso o tipo de usuário não seja "3" */}
-            {tipo_usuario !== '3' && (
-              <input type="text" onChange={e => setNomeCliente(e.target.value)} placeholder="Digite o nome do cliente" required />
+            {tipo_usuario !== "3" && (
+              <input
+                type="text"
+                onChange={(e) => setNomeCliente(e.target.value)}
+                placeholder="Digite o nome do cliente"
+                required
+              />
             )}
             <hr />
           </div>
-          {/* Renderiza a lista de funcionários */}
           <Funcionarios nomeCliente={nomeCliente} />
         </AgendarHorario>
+        <div className="mt-5 h-50 align-items-center">
+          <h2>Compartilhe o link com seus clientes</h2>
+          <div className="h-75 d-flex justify-content-around">
+            <FontAwesomeIcon
+              className="w-25 h-25"
+              onClick={compartilharWhatsApp}
+              icon={faWhatsapp}
+            />
+            <FontAwesomeIcon
+              className="w-25 h-25"
+              onClick={compartilharInstagram}
+              icon={faInstagram}
+            />
+            <FontAwesomeIcon
+              className="w-25 h-25"
+              onClick={compartilharFacebook}
+              icon={faFacebook}
+            />
+          </div>
+        </div>
       </div>
 
-      {/* Área de horários marcados */}
       <HorariosMarcados>
-        <label>Horários Marcados</label>
-        {/* Renderiza a lista de horários marcados */}
-        <HorariosMarcado />
+        <div className="w-75 d-flex justify-content-between align-items-center">
+          <label className="w-50">Horários Marcados</label>
+          <select className="w-50 mt-1">
+            <option value="">Hoje</option>
+            <option value="">Essa Semana</option>
+            <option value="">Esse Mês</option>
+          </select>
+        </div>
+        <HorarioMarcado />
       </HorariosMarcados>
     </Container>
   );
