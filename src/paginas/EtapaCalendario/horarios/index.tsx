@@ -4,12 +4,17 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import api from '../../../services/api';
 
+interface Horario {
+  inicio: string;
+  fim: string;
+}
+
 export default function Horarios(props: any) {
-  const [horario, setHorarios] = useState([]);
-  const [horarioEscolhido, setHorarioEscolhido] = useState('');
-  const [modoTradicional, setModoTradicional] = useState('');
+  const [horario, setHorarios] = useState<Horario[]>([]);
+  const [horarioEscolhido, setHorarioEscolhido] = useState<string>('');
+  const [modoTradicional, setModoTradicional] = useState<string>('');
   const { idFuncionario, idTratamento, idFiltro, nomeCliente } = useParams();
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState<boolean>(false);
 
   useEffect(() => {
     api.post("/horarios-disponivel", {
@@ -17,11 +22,14 @@ export default function Horarios(props: any) {
       idFuncionario,
       idFiltro,
       idTratamento
-    }).then((response) => setHorarios(response.data));
+    }).then((response) => setHorarios(response.data))
+      .catch((error) => {
+        console.log(error);
+      });
     setHorarioEscolhido('');
-  }, [props.data]);
+  }, [props.data, idFuncionario, idFiltro, idTratamento]);
 
-  function agendarHorario(data: any, horario: any, nomeCliente: any = null) {
+  function agendarHorario(data: string, horario: any, nomeCliente: any | null) {
     api
       .post("/horario/inserir", {
         data: data,
@@ -32,8 +40,13 @@ export default function Horarios(props: any) {
         nomeCliente: nomeCliente,
         nomeUsuario: localStorage.getItem('nome'),
         modoTradicional: modoTradicional,
-      }).then((response) => (setOpen(response.data)));
+      })
+      .then((response) => setOpen(response.data))
+      .catch((error) => {
+        console.log(error);
+      });
   }
+
   return (
     <>
       <Modal open={open} onClose={() => setOpen(false)}>
@@ -57,45 +70,48 @@ export default function Horarios(props: any) {
           </div>
         </DataSelecionada>
         <HorariosDisponivel>
-          {
-            horario ?
-              horario.map((element) => (
-                <tr
-                  className={horarioEscolhido === element['inicio'] ? "selecionado" : "disponivel"}
-                  onClick={() => setHorarioEscolhido(element['inicio'])}
-                >
-                  <th>
-                    <div>Inicio</div>
-                    <div className="h6 text-dark" >
-                      {element['inicio']}
-                    </div>
-                  </th>
-                  <th>
-                    <div>Fim</div>
-                    <div className="h6 text-dark" >
-                      {element['fim']}
-                    </div>
-                  </th>
-                </tr>
-              ))
-              :
-              <>Nenhum Horario Disponivel</>
-          }
-          <div className="relogio" >
-            <label>Modo tradicional<br></br>de procurar<br></br>horário disponível</label>
-            <input type="time"
+          {horario.length > 0 ? (
+            <div className="border w-100">
+                {horario.map((element, index) => (
+                  <tr
+                    key={index}
+                    className={horarioEscolhido === element.inicio ? "selecionado" : "disponivel"}
+                    onClick={() => setHorarioEscolhido(element.inicio)}
+                  >
+                    <th>
+                      <div className="text-dark">Inicio</div>
+                      <div className="h6 text-dark">
+                        {element.inicio}
+                      </div>
+                    </th>
+                    <th>
+                      <div className="text-dark">Fim</div>
+                      <div className="h6 text-dark">
+                        {element.fim}
+                      </div>
+                    </th>
+                  </tr>
+                ))}
+            </div>
+          ) : (
+            <div>Nenhum Horario Disponivel</div>
+          )}
+          <div className="relogio">
+            <label>Modo tradicional<br />de procurar<br />horário disponível</label>
+            <input
+              type="time"
               onChange={e => setModoTradicional(e.target.value)}
             />
           </div>
         </HorariosDisponivel>
       </div>
-      {(horarioEscolhido.length > 0 || modoTradicional.length > 0) &&
+      {(horarioEscolhido.length > 0 || modoTradicional.length > 0) && (
         <button
           onClick={() => agendarHorario(props.data, horarioEscolhido, nomeCliente)}
         >
           Agendar
         </button>
-      }
+      )}
     </>
   );
 }
