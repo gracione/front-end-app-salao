@@ -5,16 +5,13 @@ import Alterar from "../../util/alterar";
 
 export default function ConfiguracoesSistema() {
   const [frequencia, setFrequencia] = useState("");
-  const [listagem, setListagem]:any = useState([]);
-  const [imagem, setImagem] = useState(null); // New state for image
+  const [listagem, setListagem]: any[] = useState([]);
 
   useEffect(() => {
-    api.post("/configuracao-sistema").then((response) => setListagem(response.data));
-  }, []);
-
-  const handleImagemChange = (e: any) => {
-    setImagem(e.target.files[0]);
-  };
+    api
+      .post(`/configuracao-sistema/listar`, {})
+      .then((response) => setListagem(response.data));
+    }, []);
 
   return (
     <Header>
@@ -23,14 +20,12 @@ export default function ConfiguracoesSistema() {
 
         <label>Frequencia</label>
         <input
-          defaultValue={listagem.nome}
+          defaultValue={listagem['frequencia_horario']}
           onChange={(e) => setFrequencia(e.target.value)}
           required
           className="form-control bg-white opacity-20" // Bootstrap classes for white background with 20% opacity
         />
-
-
-        <Alterar modulo="configuracoes-sistema" dados={{ frequencia_horario :frequencia }} />
+        <Alterar modulo="configuracao-sistema" dados={{ frequencia_horario: frequencia }} />
       </Conteudo>
     </Header>
   );
