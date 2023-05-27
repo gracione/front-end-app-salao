@@ -86,14 +86,6 @@ export default function Home() {
       </div>
 
       <HorariosMarcados>
-        <div className="w-75 d-flex justify-content-between align-items-center">
-          <label className="w-50">Horários Marcados</label>
-          <select className="w-50 mt-1">
-            <option value="">Hoje</option>
-            <option value="">Essa Semana</option>
-            <option value="">Esse Mês</option>
-          </select>
-        </div>
         <HorarioMarcado />
       </HorariosMarcados>
     </Container>
