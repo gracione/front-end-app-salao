@@ -71,12 +71,12 @@ export default function Horarios(props: any) {
         </DataSelecionada>
         <HorariosDisponivel>
           {horario.length > 0 ? (
-            <div className="border w-100">
+            <div className="w-100">
                 {horario.map((element, index) => (
                   <tr
                     key={index}
                     className={horarioEscolhido === element.inicio ? "selecionado" : "disponivel"}
-                    onClick={() => setHorarioEscolhido(element.inicio)}
+                    onClick={() => setHorarioEscolhido(element.inicio)}                    
                   >
                     <th>
                       <div className="text-dark">Inicio</div>

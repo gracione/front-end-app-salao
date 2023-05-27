@@ -22,6 +22,7 @@ export const HorariosDisponivel = styled.div`
         }
     }
     .selecionado,.disponivel{
+        float:left;
         margin: 1px;
         width: 130px;
         height: 40px;
