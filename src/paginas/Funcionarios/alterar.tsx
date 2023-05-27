@@ -27,15 +27,15 @@ export default function AlterarFuncionario() {
         id: idFuncionario
       })
       .then((response) =>
-        [setProfissao(response.data['profissao']),
-        setListagem(response.data['funcionario']),
-        setExpediente(response.data['expediente']),
-        setProfissoes(response.data['profissoes'])
-        ]
+        [setProfissao([response.data.profissao]),
+        setListagem(response.data.funcionario),
+        setExpediente(response.data.expediente),
+        setProfissoes(response.data.profissoes)
+      ]
       );
-
-
-  }, []);
+      
+    }, []);
+    console.log(expediente);
 
 
   const [profissoesAlteradas, setProfissoesAlteradas] = useState(profissao);
