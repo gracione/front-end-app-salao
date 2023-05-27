@@ -27,16 +27,13 @@ export default function AlterarFuncionario() {
         id: idFuncionario
       })
       .then((response) =>
-        [setProfissao([response.data.profissao]),
+        [setProfissao(response.data.profissao),
         setListagem(response.data.funcionario),
         setExpediente(response.data.expediente),
         setProfissoes(response.data.profissoes)
-      ]
+        ]
       );
-      
-    }, []);
-    console.log(expediente);
-
+  }, []);
 
   const [profissoesAlteradas, setProfissoesAlteradas] = useState(profissao);
   const profissoesAlteradasAux: any = profissoesAlteradas;
@@ -87,18 +84,21 @@ export default function AlterarFuncionario() {
         />
         <option value={0}>Escolha a Profissão</option>
 
+        
         {profissao.map((element: any) => (
-          <select
-            required
-            onChange={e => alterarProfissao(e.target.value, element.id_funcionario)}
-            defaultValue={element.id}
-          >
-            <option value={'-1'} >Deletar</option>
-            {profissoes.map((prof: any) => (
+          <div className="border bg-dark">
+            <select
+              required
+              onChange={e => alterarProfissao(e.target.value, element.id_funcionario)}
+              defaultValue={element.id}
+            >
+              {profissoes.map((prof: any) => (
 
-              <option value={prof.id}>{prof.profissão}</option>
-            ))}
-          </select>
+                <option value={prof.id}>{prof.profissão}</option>
+              ))}
+            </select>
+            <div >Deletar</div>
+          </div>
         ))}
 
         <div>
