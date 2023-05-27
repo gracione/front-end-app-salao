@@ -5,6 +5,7 @@ import { useState, useEffect, JSXElementConstructor, ReactElement, ReactFragment
 import { useParams } from "react-router-dom";
 import BuscarDadosApi from "../../util/util";
 import { AdicionarProfissao } from "./styles";
+import { FaTrashAlt } from "react-icons/fa";
 
 export default function AlterarFuncionario() {
   const [nome, setNome] = useState('');
@@ -18,6 +19,7 @@ export default function AlterarFuncionario() {
   const [inicioHorarioAlmoco, setInicioHorarioAlmoco]: any = useState('');
   const [fimHorarioAlmoco, setFimHorarioAlmoco]: any = useState('');
   const [fimExpediente, setFimExpediente]: any = useState('');
+  const [profissaoFuncionario, setProfissaoFuncionario]: any = useState('');
 
   const { idFuncionario } = useParams();
 
@@ -33,7 +35,7 @@ export default function AlterarFuncionario() {
         setProfissoes(response.data.profissoes)
         ]
       );
-  }, []);
+  }, [profissaoFuncionario]);
 
   const [profissoesAlteradas, setProfissoesAlteradas] = useState(profissao);
   const profissoesAlteradasAux: any = profissoesAlteradas;
@@ -54,6 +56,9 @@ export default function AlterarFuncionario() {
     setProfissoesAlteradas(profissoesAlteradasAux);
   }
 
+  async function removerProfissao(idProfissao: any) {
+    setProfissaoFuncionario(await api.post(`/funcionarios/excluir-id`, { id: idProfissao }));
+  }
   if (!listagem) {
     return (
       <Header>
@@ -84,20 +89,19 @@ export default function AlterarFuncionario() {
         />
         <option value={0}>Escolha a Profissão</option>
 
-        
         {profissao.map((element: any) => (
-          <div className="border bg-dark">
+          <div >
             <select
+              style={{ width: '90%' }}
               required
               onChange={e => alterarProfissao(e.target.value, element.id_funcionario)}
               defaultValue={element.id}
             >
               {profissoes.map((prof: any) => (
-
                 <option value={prof.id}>{prof.profissão}</option>
               ))}
             </select>
-            <div >Deletar</div>
+            <FaTrashAlt onClick={() => removerProfissao(element.id_funcionario)} style={{ width: '10%' }} />
           </div>
         ))}
 
