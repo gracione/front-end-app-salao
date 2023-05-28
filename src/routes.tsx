@@ -16,6 +16,8 @@ import InserirExpediente from "./paginas/Expediente/inserir";
 import InserirFeriado from "./paginas/Feriados/inserir";
 import InserirFolga from "./paginas/Folgas/inserir";
 import AlterarFeriado from './paginas/Feriados/alterar';
+import RelatorioAtendimento from './relatorio/atendimento';
+import RelatorioFinanceiro from './relatorio/financeiro';
 import Listar from './util/listar';
 import Menu from './paginas/Menu';
 import AlterarFolga from './paginas/Folgas/alterar';
@@ -48,8 +50,10 @@ export default function Rota() {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/home" element={<Home />} />
+
                 <Route path="/informacoes/funcionario=:idUsuarioFuncionario/:idProfissao/:nomeCliente" element={<Informacoes />} />
                 <Route path="/informacoes/funcionario=:idUsuarioFuncionario/:idProfissao" element={<Informacoes />} />
+
                 <Route path="/escolher-horario/funcionario=:idFuncionario/:idProfissao/:idTratamento/:idFiltro" element={<EtapaCalendario />} />
                 <Route path="/escolher-horario/funcionario=:idFuncionario/:idProfissao/:idTratamento/:idFiltro/:nomeCliente" element={<EtapaCalendario />} />
 
@@ -76,6 +80,9 @@ export default function Rota() {
                 <Route path="/profissao" element={<Listar funcao="profissao" colunas={["profissão"]} />} />
                 <Route path="/profissao/adicionar" element={<AdicionarProfissao />} />
                 <Route path="/profissao/alterar/:idProfissao" element={<AlterarProfissao />} />
+
+                <Route path="/relatorio/atendimento" element={<RelatorioAtendimento />} />
+                <Route path="/relatorio/financeiro" element={<RelatorioFinanceiro />} />
 
                 <Route path="/configuracoes" element={<Configuracoes />} />
                 <Route path="/configuracao-sistema" element={<ConfiguracoesSistema />} />

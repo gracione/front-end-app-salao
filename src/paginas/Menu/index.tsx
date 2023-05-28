@@ -56,7 +56,7 @@ const Menu = () => {
                   <Nav.Link
                     className="text-dark"
                     as={Link}
-                    to={"/relatorio-atendimento"}
+                    to={"/relatorio/atendimento"}
                   >
                     Relatório de Atendimento
                   </Nav.Link>
@@ -65,7 +65,7 @@ const Menu = () => {
                   <Nav.Link
                     className="text-dark"
                     as={Link}
-                    to={"/relatorio-atendimento"}
+                    to={"/relatorio/financeiro"}
                   >
                     Relatório Financeiro
                   </Nav.Link>
