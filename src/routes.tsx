@@ -22,6 +22,7 @@ import Listar from './util/listar';
 import Menu from './paginas/Menu';
 import AlterarFolga from './paginas/Folgas/alterar';
 import ConfiguracoesSistema from './paginas/ConfiguracoesSistema';
+import Chat from './paginas/Chat/index';
 
 export default function Rota() {
     const token: any = localStorage.getItem("token");
@@ -86,6 +87,10 @@ export default function Rota() {
 
                 <Route path="/configuracoes" element={<Configuracoes />} />
                 <Route path="/configuracao-sistema" element={<ConfiguracoesSistema />} />
+
+                <Route path="/chat" element={<Chat />} />
+                <Route path="/chat/:idUsuario" element={<Chat />} />
+
             </Routes>
         </Container>
     );
