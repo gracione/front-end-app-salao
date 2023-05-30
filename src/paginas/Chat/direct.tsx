@@ -9,13 +9,18 @@ export default function Mensagens() {
   const [novaMensagem, setNovaMensagem] = useState("");
 
   useEffect(() => {
-    api.get(`/mensagens/${idUsuario}`).then((response) => {
+    api.get(`/mensagens/${localStorage.getItem("id_usuario")}`).then((response) => {
       setMensagens(response.data);
     });
   }, [idUsuario]);
 
+  console.log(localStorage.getItem("id_usuario"));
   const enviarMensagem = () => {
-    api.post(`/mensagens/${idUsuario}`, { mensagem: novaMensagem }).then((response) => {
+    api.post(`/mensagens`, { 
+      conteudo: novaMensagem,
+      remetente_id: localStorage.getItem("id_usuario"),
+      destinatario_id:idUsuario
+    }).then((response) => {
       setMensagens([...mensagens, response.data]);
       setNovaMensagem("");
     });
@@ -31,7 +36,7 @@ export default function Mensagens() {
           <div className="mensagens-container">
             {mensagens.map((mensagem:any, index:any) => (
               <div className="mensagem" key={index}>
-                {mensagem.texto}
+                {mensagem.conteudo}
               </div>
             ))}
           </div>
