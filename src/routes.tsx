@@ -23,6 +23,7 @@ import Menu from './paginas/Menu';
 import AlterarFolga from './paginas/Folgas/alterar';
 import ConfiguracoesSistema from './paginas/ConfiguracoesSistema';
 import Chat from './paginas/Chat/index';
+import ChatDirect from './paginas/Chat/direct';
 
 export default function Rota() {
     const token: any = localStorage.getItem("token");
@@ -89,7 +90,7 @@ export default function Rota() {
                 <Route path="/configuracao-sistema" element={<ConfiguracoesSistema />} />
 
                 <Route path="/chat" element={<Chat />} />
-                <Route path="/chat/:idUsuario" element={<Chat />} />
+                <Route path="/chat/:idUsuario" element={<ChatDirect />} />
 
             </Routes>
         </Container>
