@@ -59,7 +59,7 @@ export default function Relatorio() {
           </select>
         </div>
 
-        <table>
+        <table className="w-100">
           <thead>
             <tr className="bg-dark">
               <th>Cliente</th>
@@ -68,7 +68,6 @@ export default function Relatorio() {
               <th>Telefone</th>
               <th>Horário</th>
               <th>Data</th>
-              <th>Situação</th>
             </tr>
           </thead>
           <tbody>
@@ -80,7 +79,6 @@ export default function Relatorio() {
                 <td>{horario.telefone}</td>
                 <td>{horario.horario}</td>
                 <td>{horario.data}</td>
-                <td>{horario.situacao}</td>
               </tr>
             ))}
           </tbody>
