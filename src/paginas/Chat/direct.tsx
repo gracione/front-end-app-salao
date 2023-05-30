@@ -3,19 +3,19 @@ import { useParams } from "react-router-dom";
 import { Header, Conteudo } from "../../styles/global";
 import api from "../../services/api";
 
-export default function Chat() {
+export default function Mensagens() {
   const { idUsuario } = useParams();
   const [mensagens, setMensagens]:any = useState([]);
   const [novaMensagem, setNovaMensagem] = useState("");
 
   useEffect(() => {
-    api.get(`/chat/${idUsuario}`).then((response) => {
+    api.get(`/mensagens/${idUsuario}`).then((response) => {
       setMensagens(response.data);
     });
   }, [idUsuario]);
 
   const enviarMensagem = () => {
-    api.post(`/chat/${idUsuario}`, { mensagem: novaMensagem }).then((response) => {
+    api.post(`/mensagens/${idUsuario}`, { mensagem: novaMensagem }).then((response) => {
       setMensagens([...mensagens, response.data]);
       setNovaMensagem("");
     });
@@ -24,7 +24,7 @@ export default function Chat() {
   return (
     <div>
       <Header>
-        <h1>Chat</h1>
+        <h1>Mensagens</h1>
       </Header>
       <Conteudo>
         <div className="chat-container">
