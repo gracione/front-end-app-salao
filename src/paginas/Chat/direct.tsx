@@ -5,7 +5,7 @@ import api from "../../services/api";
 
 export default function Mensagens() {
   const { idUsuario } = useParams();
-  const [mensagens, setMensagens]:any = useState([]);
+  const [mensagens, setMensagens]: any = useState([]);
   const [novaMensagem, setNovaMensagem] = useState("");
 
   useEffect(() => {
@@ -19,7 +19,7 @@ export default function Mensagens() {
 
   console.log(localStorage.getItem("id_usuario"));
   const enviarMensagem = () => {
-    api.post(`/mensagens`, { 
+    api.post(`/mensagens`, {
       conteudo: novaMensagem,
       remetente_id: localStorage.getItem("id_usuario"),
       destinatario_id: idUsuario
@@ -29,14 +29,12 @@ export default function Mensagens() {
     });
   };
   return (
-    <div>
-      <Header>
-        <h1>Mensagens</h1>
-      </Header>
+    <Header>
       <Conteudo>
+        <h1>Mensagens</h1>
         <div className="chat-container">
           <div className="mensagens-container">
-            {mensagens.map((mensagem:any, index:any) => (
+            {mensagens.map((mensagem: any, index: any) => (
               <div className="mensagem" key={index}>
                 {mensagem.conteudo}
               </div>
@@ -53,6 +51,6 @@ export default function Mensagens() {
           </div>
         </div>
       </Conteudo>
-    </div>
+    </Header>
   );
 }
