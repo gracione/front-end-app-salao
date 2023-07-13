@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Header, Conteudo } from "../../styles/global";
 import api from "../../services/api";
+import { Mensagem } from "./styles";
 
 export default function Mensagens() {
   const { idUsuario } = useParams();
@@ -36,7 +37,9 @@ export default function Mensagens() {
           <div className="mensagens-container">
             {mensagens.map((mensagem: any, index: any) => (
               <div className="mensagem" key={index}>
-                {mensagem.conteudo}
+                <Mensagem>
+                  {mensagem.conteudo}
+                </Mensagem>
               </div>
             ))}
           </div>
