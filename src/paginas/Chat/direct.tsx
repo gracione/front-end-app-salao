@@ -38,6 +38,7 @@ export default function Mensagens() {
             {mensagens.map((mensagem: any, index: any) => (
               <div className="mensagem" key={index}>
                 <Mensagem>
+                  <b>{mensagem.nome_remetente}: </b>
                   {mensagem.conteudo}
                 </Mensagem>
               </div>
