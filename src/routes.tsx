@@ -22,6 +22,7 @@ import Listar from './util/listar';
 import Menu from './paginas/Menu';
 import AlterarFolga from './paginas/Folgas/alterar';
 import ConfiguracoesSistema from './paginas/ConfiguracoesSistema';
+import AlterarFoto from './paginas/Configuracoes/AlterarFoto';
 import Chat from './paginas/Chat/index';
 import ChatDirect from './paginas/Chat/direct';
 
@@ -87,6 +88,7 @@ export default function Rota() {
                 <Route path="/relatorio/financeiro" element={<RelatorioFinanceiro />} />
 
                 <Route path="/configuracoes" element={<Configuracoes />} />
+                <Route path="/configuracoes/alterar-foto" element={<AlterarFoto />} />
                 <Route path="/configuracao-sistema" element={<ConfiguracoesSistema />} />
 
                 <Route path="/chat" element={<Chat />} />

@@ -139,6 +139,9 @@ const Menu = () => {
             <NavDropdown.Item as={Link} to="/configuracoes">
               <FontAwesomeIcon icon={faCog} /> Configurações
             </NavDropdown.Item>
+            <NavDropdown.Item as={Link} to="/configuracoes/alterar-foto">
+              <FontAwesomeIcon icon={faCog} /> Alterar Foto do Perfil
+            </NavDropdown.Item>
             <NavDropdown.Item onClick={handleLogout}>
               <GoogleLogout
                 clientId={CLIENT_ID}
