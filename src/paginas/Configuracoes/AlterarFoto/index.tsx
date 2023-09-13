@@ -4,6 +4,7 @@ import api from "../../../services/api";
 
 export default function Configuracoes() {
   const [selectedImage, setSelectedImage] = useState<File | null>(null);
+  const [imgPerfil, setImgPerfil]:any = useState();
 
   const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
@@ -21,7 +22,10 @@ export default function Configuracoes() {
           headers: {
             "Content-Type": "multipart/form-data",
           },
-        });
+        }).then((response) => localStorage.setItem('img_url', response.data));
+//        localStorage.setItem('img_url', imgPerfil);
+        console.log(localStorage.getItem('img_url'));
+        window.location.href = "/configuracoes/alterar-foto";
         console.log("Imagem enviada com sucesso!");
       } catch (error) {
         console.error("Erro ao enviar imagem:", error);
