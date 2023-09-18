@@ -27,6 +27,7 @@ import Chat from './paginas/Chat/index';
 import ChatDirect from './paginas/Chat/direct';
 import InserirAlbum from './paginas/Galeria/inserir';
 import ListarGaleria from './paginas/Galeria/listar';
+import ListarFotos from './paginas/Galeria/listarFotos';
 
 export default function Rota() {
     const token: any = localStorage.getItem("token");
@@ -91,6 +92,7 @@ export default function Rota() {
 
                 <Route path="/galeria" element={<ListarGaleria funcao="profissao" colunas={["profissão"]}/>} />
                 <Route path="/galeria/inserir-album" element={<InserirAlbum />} />
+                <Route path="/galeria/album/:id" element={<ListarFotos funcao="profissao" colunas={["profissão"]}/>} />
 
                 <Route path="/configuracoes" element={<Configuracoes />} />
                 <Route path="/configuracoes/alterar-foto" element={<AlterarFoto />} />

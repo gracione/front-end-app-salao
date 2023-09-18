@@ -67,9 +67,9 @@ export default function ListarGaleria(props: any) {
 
           <div className="row">
             {listagem.map((element: any) => (
-              <div className="col-4 mb-3 border" key={element.id}>
-                <Nav.Link className=" m-1" as={Link}  to={`/galeria/${element.id}`}>
-                  <div className="bg-green" style={{ width: '150px', height: '150px' }}>
+              <div className="col-4 col-md-2 mb-3" key={element.id}>
+                <Nav.Link className=" m-1" as={Link}  to={`/galeria/album/${element.id}`}>
+                  <div className="bg-green border" style={{ width: '150px', height: '150px' }}>
                     <img src="sem_imagem.png" className="w-100 h-100" alt="" />
                   </div>
                     {element.nome}

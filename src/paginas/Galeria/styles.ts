@@ -10,7 +10,7 @@ export const Conteudo = styled.div`
   }
 
   @media (min-width: 767px) {
-    width: 50%;
+    width: 95%;
     min-height: 70vh !important;
     border-radius: 5px;
     background-color: var(--backgroud-secundaria);
