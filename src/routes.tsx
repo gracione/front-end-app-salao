@@ -18,7 +18,7 @@ import InserirFolga from "./paginas/Folgas/inserir";
 import AlterarFeriado from './paginas/Feriados/alterar';
 import RelatorioAtendimento from './relatorio/atendimento';
 import RelatorioFinanceiro from './relatorio/financeiro';
-import Listar from './util/listar';
+import Listar from './components/listar';
 import Menu from './paginas/Menu';
 import AlterarFolga from './paginas/Folgas/alterar';
 import ConfiguracoesSistema from './paginas/ConfiguracoesSistema';
@@ -60,8 +60,8 @@ export default function Rota() {
                 <Route path="/informacoes/funcionario=:idUsuarioFuncionario/:idProfissao/:nomeCliente" element={<Informacoes />} />
                 <Route path="/informacoes/funcionario=:idUsuarioFuncionario/:idProfissao" element={<Informacoes />} />
 
-                <Route path="/escolher-horario/funcionario=:idFuncionario/:idProfissao/:idTratamento/:idFiltro" element={<EtapaCalendario />} />
-                <Route path="/escolher-horario/funcionario=:idFuncionario/:idProfissao/:idTratamento/:idFiltro/:nomeCliente" element={<EtapaCalendario />} />
+                <Route path="/escolher-horario/funcionario/:idFuncionario/:idProfissao/:idTratamento/:idFiltro" element={<EtapaCalendario />} />
+                <Route path="/escolher-horario/funcionario/:idFuncionario/profissao/:idProfissao/tratamento/:idTratamento/filtro/:idFiltro/cliente/:nomeCliente" element={<EtapaCalendario />}/>
 
                 <Route path="/funcionarios" element={<Listar funcao="funcionarios" colunas={["nome", "profissão"]} />} />
                 <Route path="/funcionarios/alterar/:idFuncionario" element={<AlterarFuncionario />} />
@@ -92,7 +92,7 @@ export default function Rota() {
 
                 <Route path="/galeria" element={<ListarGaleria funcao="profissao" colunas={["profissão"]}/>} />
                 <Route path="/galeria/inserir-album" element={<InserirAlbum />} />
-                <Route path="/galeria/album/:id" element={<ListarFotos funcao="profissao" colunas={["profissão"]}/>} />
+                <Route path="/galeria/album/:idAlbum" element={<ListarFotos  />} />
 
                 <Route path="/configuracoes" element={<Configuracoes />} />
                 <Route path="/configuracoes/alterar-foto" element={<AlterarFoto />} />

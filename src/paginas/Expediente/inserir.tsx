@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Conteudo,Header } from "../../styles/global";
-import BuscarDadosApi from "../../util/util";
-import Inserir from "../../util/inserir";
+import BuscarDadosApi from "../../components/util";
+import Inserir from "../../components/inserir";
 
 export default function InserirExpediente() {
   const [inicioExpediente, setInicioExpediente] = useState('');

@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import api from "../../../src/services/api";
 import Horarios from './horarios';
-import BuscarDadosApi from "../../util/util";
+import BuscarDadosApi from "../../components/util";
 
 function criarArrayCalendario(ano = 0, mes = 0) {
   const diasDoMes = new Date(ano, mes, 0).getDate();

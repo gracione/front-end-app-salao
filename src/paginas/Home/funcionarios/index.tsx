@@ -1,4 +1,4 @@
-import BuscarDadosApi from "../../../util/util";
+import BuscarDadosApi from "../../../components/util";
 import { CardFuncionario, Container } from "./styles";
 import { useState, useEffect } from "react";
 import api from "../../../services/api";
@@ -30,7 +30,7 @@ export default function Funcionarios(props: any) {
       .then((response) => setTempoGasto(response.data));
   }, [idTratamento, idFiltro]);
 
-  let urlNomeCliente = nomeCliente || "";
+  let urlNomeCliente = "cliente/"+nomeCliente || "";
 
   useEffect(() => {
     api
@@ -69,7 +69,7 @@ export default function Funcionarios(props: any) {
 
       {formActive && (
         <form
-          action={`/escolher-horario/funcionario=${idUsuarioFuncionario}/${idProfissao}/${idTratamento}/${idFiltro}/${urlNomeCliente}`}
+          action={`/escolher-horario/funcionario/${idUsuarioFuncionario}/profissao/${idProfissao}/tratamento/${idTratamento}/filtro/${idFiltro}/${urlNomeCliente}`}
         >
           <div>
             <div className="d-flex">

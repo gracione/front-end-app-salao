@@ -3,8 +3,6 @@ import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faCog, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 import { GoogleLogout } from "react-google-login";
-import { faQuestionCircle } from "@fortawesome/free-solid-svg-icons";
-import { faComment } from "@fortawesome/free-solid-svg-icons";
 
 const Menu = () => {
   const CLIENT_ID =
@@ -36,7 +34,9 @@ const Menu = () => {
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="menu-navbar" className="w-25" />
       <Navbar.Collapse id="menu-navbar" className="">
-        <Nav className="w-100 ml-auto d-flex justify-content-end">
+        <Nav className="w-100 ml-auto d-flex justify-content-end"
+        style={{ fontSize: '14px' }}
+        >
           {userType === "1" && (
             <>
               <Nav.Link className="m-1" as={Link} to={"/funcionarios"}>

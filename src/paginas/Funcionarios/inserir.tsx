@@ -4,8 +4,8 @@ import InputMask from "react-input-mask";
 import { Conteudo, Header } from "../../styles/global";
 import { AdicionarProfissao } from "./styles";
 
-import Inserir from "../../util/inserir";
-import BuscarDadosApi from "../../util/util";
+import Inserir from "../../components/inserir";
+import BuscarDadosApi from "../../components/util";
 
 export default function InserirFuncionario() {
   const [inicioExpediente, setInicioExpediente] = useState("07:00");

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import api from "../../services/api";
 import { Conteudo, Header } from "../../styles/global";
-import Alterar from "../../util/alterar";
+import Alterar from "../../components/alterar";
 
 export default function Configuracoes() {
   const [nome, setNome] = useState("");
