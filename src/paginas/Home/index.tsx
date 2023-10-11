@@ -1,13 +1,10 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faWhatsapp,
-  faInstagram,
-  faFacebook,
-} from "@fortawesome/free-brands-svg-icons";
+import { faWhatsapp,faInstagram, faFacebook } from "@fortawesome/free-brands-svg-icons";
 import Funcionarios from "./funcionarios";
 import HorarioMarcado from "./horariosMarcados";
 import { AgendarHorario, Container, HorariosMarcados } from "./styles";
+import { ADM, CLIENTE, FUNCIONARIO } from "../../constantes";
 
 export default function Home() {
   const { tipo_usuario } = localStorage;
@@ -43,15 +40,15 @@ export default function Home() {
             Agendar Horário
           </h4>
           <div className="w-100">
-            {tipo_usuario === "1" && (
+            {tipo_usuario === ADM && (
               <h5>Etapa Escolher Funcionário e Profissão</h5>
             )}
-            {tipo_usuario === "2" && <h5>Etapa Escolher Profissão</h5>}
-            {tipo_usuario === "3" && (
+            {tipo_usuario === FUNCIONARIO && <h5>Etapa Escolher Profissão</h5>}
+            {tipo_usuario === CLIENTE && (
               <h5>Etapa Escolher Funcionário e Profissão</h5>
             )}
 
-            {tipo_usuario !== "3" && (
+            {tipo_usuario !== CLIENTE && (
               <input
                 type="text"
                 onChange={(e) => setNomeCliente(e.target.value)}
