@@ -16,7 +16,7 @@ export const GlobalStyle = createGlobalStyle`
 		--blue-light: #5090F3;
 		--red-light: #FF5353;
 		--green-light: #3ADF00;
-
+		
 		--text-title: white;
 		--text-body: white;
 		--text: rgba(232, 232, 232, 0.8);
@@ -137,6 +137,34 @@ export const GlobalStyle = createGlobalStyle`
 		align-items: center;
 	}
 
+	.erro {
+		padding: 20px;
+		color: var(--red-light);
+		background-color: white;
+		border: 3px solid var(--red-light);
+		border-radius: 5px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+	}
+	
+	.erro h3 {
+		color: var(--red-light);
+	}
+	
+	.erro .circulo {
+		width: 70px;
+		height: 70px;
+		color: var(--red-light);
+		border: 2px solid var(--red-light); /* Reduced border thickness */
+		border-radius: 50%; /* Use 50% for a perfect circle */
+		font-size: 40px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}		
 	.salvo{
 			top: 100px;
 			width: 350px;
