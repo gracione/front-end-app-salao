@@ -22,9 +22,9 @@ export default function Alterar({ modulo, dados }: Props) {
     <div>
       <Modal open={open} onClose={() => setOpen(false)}>
         <div className='modal'>
-          <div className='salvo'>
+          <div className='salvo text-success'>
             <img src="/icons/salvo.png" alt="" />
-            <h2 className='text-dark'>Item alterado com sucesso!</h2>
+            <h2 className='text-success'>Item alterado com sucesso!</h2>
             <h2>
               <a href={`/${modulo}`}>ok</a>
             </h2>
