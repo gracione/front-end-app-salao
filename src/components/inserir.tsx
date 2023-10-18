@@ -16,7 +16,7 @@ export default function Inserir({ modulo, dados }: any) {
         <div className="modal">
           <div className="salvo">
             <img src="/icons/salvo.png" alt="" />
-            <h2>Item salvo com sucesso!</h2>
+            <h2 className='text-success'>Item salvo com sucesso!</h2>
             <h2>
               <a href={`/${modulo}`}>ok</a>
             </h2>
