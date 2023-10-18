@@ -12,6 +12,8 @@ import EtapaCalendario from "./paginas/EtapaCalendario";
 import InserirFuncionario from "./paginas/Funcionarios/inserir";
 import InserirTratamento from "./paginas/Tratamentos/inserir";
 import AlterarTratamento from "./paginas/Tratamentos/alterar";
+import InserirTratamentoFuncionario from "./paginas/TratamentosFuncionario/inserir";
+import AlterarTratamentoFuncionario from "./paginas/TratamentosFuncionario/alterar";
 import InserirExpediente from "./paginas/Expediente/inserir";
 import InserirFeriado from "./paginas/Feriados/inserir";
 import InserirFolga from "./paginas/Folgas/inserir";
@@ -82,6 +84,10 @@ export default function Rota() {
                 <Route path="/servicos-profissao" element={<Listar funcao="tratamentos" colunas={["tratamento", "profissão", "tempo_gasto"]} />} />
                 <Route path="/servicos-profissao/adicionar" element={<InserirTratamento />} />
                 <Route path="/servicos-profissao/alterar/:idTratamento" element={<AlterarTratamento />} />
+
+                <Route path="/servicos-funcionario" element={<Listar funcao="tratamentos-funcionarios" colunas={["tratamentos", "profissão", "tempo_gasto"]} />} />
+                <Route path="/servicos-funcionario/adicionar" element={<InserirFuncionario />} />
+                <Route path="/servicos-funcionario/alterar/:idTratamento" element={<AlterarFuncionario />} />
 
                 <Route path="/profissao" element={<Listar funcao="profissao" colunas={["profissão"]} />} />
                 <Route path="/profissao/adicionar" element={<AdicionarProfissao />} />
