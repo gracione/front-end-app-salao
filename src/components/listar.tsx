@@ -14,6 +14,7 @@ export default function Listar(props: any) {
   const [open, setOpen] = useState(false);
   const [erroModal, setErro] = useState(false);
   const [modalAberto, setModalAberto] = useState(false);
+  const tituloFuncao = funcao.replace(/-/g, " ");
 
   useEffect(() => {
     api
@@ -56,7 +57,7 @@ export default function Listar(props: any) {
 
         <div>
           <TituloFuncao>
-            <h3 className="text-capitalize">{funcao}</h3>
+            <h3 className="text-capitalize">{tituloFuncao}</h3>
             <Adicionar onClick={() => setModalAberto(true)}>+</Adicionar>
           </TituloFuncao>
 
