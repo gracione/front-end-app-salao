@@ -3,7 +3,6 @@ import { Center, Conteudo, Header } from "../../styles/global";
 import api from '../../services/api';
 import { useState, useEffect, JSXElementConstructor, ReactElement, ReactFragment, ReactPortal } from "react";
 import { useParams } from "react-router-dom";
-import BuscarDadosApi from "../../components/util";
 import { AdicionarProfissao } from "./styles";
 import { FaTrashAlt } from "react-icons/fa";
 
@@ -25,7 +24,7 @@ export default function AlterarFuncionario() {
 
   useEffect(() => {
     api
-      .post("/funcionarios/listar-id", {
+      .post("/servicos-profissao/listar-id", {
         id: idFuncionario
       })
       .then((response) =>

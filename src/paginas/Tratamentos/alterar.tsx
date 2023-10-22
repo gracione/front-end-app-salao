@@ -18,7 +18,7 @@ export default function AlterarTratamento() {
 
   useEffect(() => {
     api
-      .post("/tratamentos/listar-id", {
+      .post("/servicos-profissao/listar-id", {
         id: idTratamento
       })
       .then((response) =>

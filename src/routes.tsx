@@ -81,7 +81,7 @@ export default function Rota() {
                 <Route path="/expediente/adicionar" element={< InserirExpediente />} />
                 <Route path="/expediente/alterar/:idExpediente" element={< InserirExpediente />} />
 
-                <Route path="/servicos-profissao" element={<Listar funcao="tratamentos" colunas={["tratamento", "profissão", "tempo_gasto"]} />} />
+                <Route path="/servicos-profissao" element={<Listar funcao="servicos-profissao" colunas={["tratamento", "profissão", "tempo_gasto"]} />} />
                 <Route path="/servicos-profissao/adicionar" element={<InserirTratamento />} />
                 <Route path="/servicos-profissao/alterar/:idTratamento" element={<AlterarTratamento />} />
 
