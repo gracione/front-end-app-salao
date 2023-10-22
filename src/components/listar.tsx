@@ -8,6 +8,10 @@ import ModalSalvar from "./ModalSalvar";
 import ModalErro from "./ModalErro";
 import ModalInserir from "./ModalInserir";
 
+function removeAccents(str: any) {
+  return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
+
 export default function Listar(props: any) {
   const { funcao, colunas } = props;
   const [listagem, setListagem] = useState([]);
@@ -76,7 +80,7 @@ export default function Listar(props: any) {
               {listagem.map((element: any) => (
                 <tr key={element.id}>
                   {colunas.map((nomeColuna: any) => (
-                    <td key={nomeColuna}>{element[nomeColuna]}</td>
+                    <td key={nomeColuna}>{element[removeAccents(nomeColuna)]}</td>
                   ))}
                   <td width="20px">
                     <a
