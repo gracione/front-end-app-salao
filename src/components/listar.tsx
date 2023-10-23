@@ -47,7 +47,7 @@ export default function Listar(props: any) {
           dialogClassName="modal-escuro"
         >
           <Modal.Header closeButton>
-            <Modal.Title>Adicionar {funcao}</Modal.Title>
+            <Modal.Title>Adicionar {funcao.replaceAll("-", " ")}</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <ModalInserir funcao={funcao} />

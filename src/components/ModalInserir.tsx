@@ -17,7 +17,7 @@ export default function ModalInserir(props: any) {
     paginaInserir = <Profissao />;
   } else if (funcao === "folgas") {
     paginaInserir = <Folgas />;
-  } else if (funcao === "tratamentos") {
+  } else if (funcao === "servicos-profissao") {
     paginaInserir = <Tratamentos />;
   }
 

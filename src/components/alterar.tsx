@@ -11,11 +11,17 @@ export default function Alterar({ modulo, dados }: Props) {
   const [open, setOpen] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  // State to track whether an error occurred for the inputs
+  const [inputError, setInputError] = useState<boolean>(false);
+
   function alterar(modulo: string, dados: any) {
     let url = `/${modulo}/alterar`;
     api.post(url, dados)
       .then((response) => setOpen(response.data))
-      .catch((error) => setError("Ocorreu um erro ao alterar o item."));
+      .catch((error) => {
+        setError("Ocorreu um erro ao alterar o item.");
+        setInputError(true); // Set input error to true
+      });
   }
 
   return (
@@ -32,10 +38,15 @@ export default function Alterar({ modulo, dados }: Props) {
         </div>
       </Modal>
       {error && (
-        <div className='modal'>
-          <div className='error'>
-            <h2 className='text-dark'>{error}</h2>
+        <div className='erro'>
+          <img src="/icons/erro.png" alt="" />
+          <div className='circulo'>
+            x
           </div>
+          <br />
+          <h3>
+            {error}
+          </h3>
         </div>
       )}
       <br />
