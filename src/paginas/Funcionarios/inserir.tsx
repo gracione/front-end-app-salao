@@ -78,7 +78,7 @@ export default function InserirFuncionario() {
             required
           >
             <option>Escolha a Profissão</option>
-            {profissoes.map((element) => (
+            {profissoes.map((element : any) => (
               <option value={element.id}>{element.profissão}</option>
             ))}
           </select>

@@ -66,7 +66,7 @@ export default function InserirTratamento() {
         />
         <select onChange={(e) => setIdProfissao(e.target.value)} required>
           <option value={0}>Escolha a Profissão</option>
-          {profissoes.map((element) => (
+          {profissoes.map((element: any) => (
             <option value={element.id}>{element.profissão}</option>
           ))}
         </select>

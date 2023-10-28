@@ -19,6 +19,7 @@ export default function AlterarFeriado() {
 
   }, []);
 
+  console.log(listagem);
   return (
       <Header>
         <Conteudo>

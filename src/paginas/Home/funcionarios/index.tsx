@@ -7,10 +7,7 @@ import { FaClock } from "react-icons/fa";
 
 export default function Funcionarios(props: any) {
   const idTipoUsuario: any = localStorage.getItem("tipo_usuario");
-  const funcionario = BuscarDadosApi("funcionarios", "listar-funcionarios", {
-    idUsuario: localStorage.getItem("id_usuario"),
-    tipoUsuario: localStorage.getItem("tipo_usuario"),
-  });
+  const funcionario = BuscarDadosApi("funcionarios", "listar-funcionarios");
   const [tempoGasto, setTempoGasto] = useState(0);
   const [idTratamento, setIdTratamento] = useState("0");
   const [idFiltro, setIdFiltro] = useState("0");

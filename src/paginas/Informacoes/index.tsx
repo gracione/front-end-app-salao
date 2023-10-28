@@ -56,7 +56,7 @@ export default function Informacoes() {
             >
               <option value="">------ Selecione ------</option>
               {
-                tratamentoPorProfissao.map((element) => (
+                tratamentoPorProfissao.map((element:any) => (
                   <option
                     value={element.id}
                   >

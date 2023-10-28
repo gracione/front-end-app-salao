@@ -11,7 +11,7 @@ export default function InserirExpediente() {
   const [idFuncionario, setIdFuncionario] = useState('');
   const funcionario = BuscarDadosApi('funcionarios', 'listarPorProfissao');
   const optionFuncionarios: any = [];
-  funcionario.forEach(element => {
+  funcionario.forEach((element:any) => {
     optionFuncionarios.push(
       <option value={element.id}>{element.nome}</option>
     );
