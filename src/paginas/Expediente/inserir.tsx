@@ -9,7 +9,7 @@ export default function InserirExpediente() {
   const [fimAlmoco, setFimAlmoco] = useState('');
   const [fimExpediente, setFimExpediente] = useState('');
   const [idFuncionario, setIdFuncionario] = useState('');
-  const funcionario = BuscarDadosApi('funcionarios', 'listarPorProfissao');
+  const funcionario = BuscarDadosApi('funcionarios', 'listar-funcionarios');
   const optionFuncionarios: any = [];
   funcionario.forEach((element:any) => {
     optionFuncionarios.push(

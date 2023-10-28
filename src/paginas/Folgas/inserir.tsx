@@ -5,7 +5,7 @@ import Inserir from "../../components/inserir";
 export default function InserirFolga() {
   const [diaSemana, setDiaSemana] = useState("");
   const [idFuncionario, setIdFuncionario] = useState({});
-  let funcionario = BuscarDadosApi("funcionarios", "listarPorProfissao");
+  let funcionario = BuscarDadosApi('funcionarios', 'listar-funcionarios');
 
   return (
     <>
