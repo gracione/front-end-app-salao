@@ -31,7 +31,7 @@ export default function Funcionarios(props: any) {
 
   useEffect(() => {
     api
-      .post("/tratamentos/listar-id-profissao", {
+      .post("/servicos-profissao/listar-id-profissao", {
         id: idProfissao,
       })
       .then((response) => setTratamentoPorProfissao(response.data));
