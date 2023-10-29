@@ -71,9 +71,9 @@ const Menu = () => {
                   </Nav.Link>
                 </NavDropdown.Item>
               </NavDropdown>
-              <Nav.Link className="m-1" as={Link} to={"/galeria"}>
+             {/* <Nav.Link className="m-1" as={Link} to={"/galeria"}>
                 Galeria
-              </Nav.Link>
+              </Nav.Link>*/}
               <NavDropdown className="m-1" title="Serviços">
                 <NavDropdown.Item>
                   <Nav.Link
@@ -109,9 +109,9 @@ const Menu = () => {
               </NavDropdown>
             </>
           )}
-          <Nav.Link className="m-1" as={Link} to={"/chat"}>
+          {/*<Nav.Link className="m-1" as={Link} to={"/chat"}>
             Chat
-          </Nav.Link>
+            </Nav.Link>*/}
           <Nav.Link className="m-1" as={Link} to={"/ajuda"}>
             Ajuda
           </Nav.Link>
