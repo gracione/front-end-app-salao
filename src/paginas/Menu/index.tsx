@@ -35,7 +35,7 @@ const Menu = () => {
       <Navbar.Toggle aria-controls="menu-navbar" className="w-25" />
       <Navbar.Collapse id="menu-navbar" className="">
         <Nav className="w-100 ml-auto d-flex justify-content-end"
-        style={{ fontSize: '14px' }}
+          style={{ fontSize: '14px' }}
         >
           {userType === "1" && (
             <>
@@ -48,30 +48,7 @@ const Menu = () => {
               <Nav.Link className="m-1" as={Link} to={"/expediente"}>
                 Horario de Funcionamento
               </Nav.Link>
-              <Nav.Link className="m-1" as={Link} to={"/configuracao-sistema"}>
-                Configuração do Sistema
-              </Nav.Link>
-              <NavDropdown className="m-1" title="Relatórios">
-                <NavDropdown.Item>
-                  <Nav.Link
-                    className="text-dark"
-                    as={Link}
-                    to={"/relatorio/atendimento"}
-                  >
-                    Relatório de Atendimento
-                  </Nav.Link>
-                </NavDropdown.Item>
-                <NavDropdown.Item>
-                  <Nav.Link
-                    className="text-dark"
-                    as={Link}
-                    to={"/relatorio/financeiro"}
-                  >
-                    Relatório Financeiro
-                  </Nav.Link>
-                </NavDropdown.Item>
-              </NavDropdown>
-             {/* <Nav.Link className="m-1" as={Link} to={"/galeria"}>
+              {/* <Nav.Link className="m-1" as={Link} to={"/galeria"}>
                 Galeria
               </Nav.Link>*/}
               <NavDropdown className="m-1" title="Serviços">
@@ -112,6 +89,31 @@ const Menu = () => {
           {/*<Nav.Link className="m-1" as={Link} to={"/chat"}>
             Chat
             </Nav.Link>*/}
+          <NavDropdown className="m-1" title="Relatórios">
+            <NavDropdown.Item>
+              <Nav.Link
+                className="text-dark"
+                as={Link}
+                to={"/relatorio/atendimento"}
+              >
+                Relatório de Atendimento
+              </Nav.Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item>
+              <Nav.Link
+                className="text-dark"
+                as={Link}
+                to={"/relatorio/financeiro"}
+              >
+                Relatório Financeiro
+              </Nav.Link>
+            </NavDropdown.Item>
+          </NavDropdown>
+
+          <Nav.Link className="m-1" as={Link} to={"/configuracao-sistema"}>
+            Configuração do Sistema
+          </Nav.Link>
+
           <Nav.Link className="m-1" as={Link} to={"/ajuda"}>
             Ajuda
           </Nav.Link>
