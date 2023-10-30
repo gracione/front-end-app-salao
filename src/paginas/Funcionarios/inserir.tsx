@@ -21,7 +21,7 @@ export default function InserirFuncionario() {
   const [profissoesCadastradas, setProfissoesCadastradas] = useState([]);
   const profissoesCadastradasAux: any = profissoesCadastradas;
 
-  const profissoes = BuscarDadosApi("profissao", "listar");
+  const profissoes = BuscarDadosApi("servicos-profissao", "listar");
   const [quantidadeProfissoes, setQuantidadeProfissoes] = useState(1);
 
   function adicionarProfissao(valor: any, indice: any) {
@@ -79,7 +79,7 @@ export default function InserirFuncionario() {
           >
             <option>Escolha a Profissão</option>
             {profissoes.map((element : any) => (
-              <option value={element.id}>{element.profissão}</option>
+              <option value={element.id}>{element.profissao}</option>
             ))}
           </select>
         ))}
