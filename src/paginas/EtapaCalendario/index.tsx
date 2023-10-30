@@ -1,5 +1,5 @@
 import { Center } from "../../styles/global";
-import { PainelCalendario, Calendario, Container,Conteudo } from './styles';
+import { PainelCalendario, Calendario, Container, Conteudo } from './styles';
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import api from "../../../src/services/api";
@@ -26,12 +26,33 @@ function criarArrayCalendario(ano = 0, mes = 0) {
   return dadosCalendario;
 }
 
+function checkDia(diaSelecionado: any, dia: any) {
+  if (dia == 'x') {
+    return 'dia';
+  }
+  if (diaSelecionado === dia) {
+    return "dia selecionado";
+  }
+  return "dia";
+}
+
+function checarDiaUtil(dia:any,feriadosFolgas: any[]) {
+  if (dia in  feriadosFolgas) {
+    return feriadosFolgas[dia];
+  }
+  if (dia == 'x') {
+    return '';
+  }
+  return dia;
+}
+
 export default function EtapaCalendario() {
   let meses = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
+  const [diaSelecionado, setDia] = useState(new Date().getDate());
   const [mes, setmes] = useState(new Date().getMonth() + 1);
   const [ano, setAno] = useState(new Date().getFullYear());
-  const [diaSelecionado, setDia] = useState(new Date().getDate());
   let data = ano + "-" + (mes) + "-" + diaSelecionado;
+
   if (mes > 12) {
     setmes(1);
     setAno(ano + 1);
@@ -42,11 +63,11 @@ export default function EtapaCalendario() {
   }
 
   const { idFuncionario } = useParams();
-  const folga = BuscarDadosApi('folgas', 'listar-id-funcionario', { idFuncionario });
-  const [feriados,setFeriados] = useState([]);
+//  const folga = BuscarDadosApi('folgas', 'listar-id-funcionario', { idFuncionario });
+  const [feriados, setFeriados] = useState([]);
   const dias = [0, 1, 2, 3, 4, 5, 6];
   const diasSemana = criarArrayCalendario(ano, mes);
-  
+
   useEffect(() => {
     api
       .post("/feriados/listar-mes-ano", {
@@ -83,17 +104,13 @@ export default function EtapaCalendario() {
                   <div className="semanaDia">
                     {diasSemana[semana].map((dia: any) => (
                       <li>
-                        {folga.includes(semana + 1) && dia !== 'x' ?
-                          <div className="folga" >folga</div>
-                          : feriados[dia] ?
-                            <div className="feriado" >{feriados[dia]}</div>
-                            : dia === 'x' ?
-                              <div className={diaSelecionado === dia ? "dia selecionado" : "dia"} ></div>
-                              :
-                              <div className={diaSelecionado === dia ? "dia selecionado" : "dia"} onClick={() => setDia(dia)} > {dia}</div>
-                        }
+                        <div className={checkDia(diaSelecionado, dia)}
+                          onClick={() => setDia(dia)} >
+                          {checarDiaUtil(dia,feriados)}
+                        </div>
                       </li>
-                    ))}
+                    ))
+                    }
                   </div>
                 ))
               }

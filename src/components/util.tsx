@@ -7,14 +7,14 @@ export default function BuscarDadosApi(funcao: string, opcao: string, dados: any
 
   useEffect(() => {
     if (!dados) {
-      console.log("dados");
       api.get(url)
         .then((response) => setListagem(response.data))
     } else {
       api.post(url, { dados: dados })
-        .then((response) => setListagem(response.data))
+      .then((response) => setListagem(response.data))
     }
-  }, [url, dados]);
+  console.log(dados);
+  }, []);
 
   return listagem;
 }
